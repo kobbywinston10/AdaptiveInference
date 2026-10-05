@@ -1,0 +1,12 @@
+image,patient_id,finding_labels
+images_001/images/00000006_000.png,6,No Finding
+images_001/images/00000011_000.png,11,Effusion
+images_001/images/00000011_001.png,11,No Finding
+images_001/images/00000011_002.png,11,No Finding
+images_001/images/00000011_003.png,11,No Finding
+images_001/images/00000011_004.png,11,No Finding
+images_001/images/00000011_005.png,11,Infiltration
+images_001/images/00000011_006.png,11,Atelectasis
+images_001/images/00000011_007.png,11,Infiltration
+images_001/images/00000011_008.png,11,No Finding
+images_001/images/00000016_000.png,16,No Finding
