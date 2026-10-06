@@ -1,0 +1,8 @@
+image,patient_id,finding_labels
+images_001/images/00000001_000.png,1,Cardiomegaly
+images_001/images/00000001_001.png,1,Cardiomegaly|Emphysema
+images_001/images/00000001_002.png,1,Cardiomegaly|Effusion
+images_001/images/00000012_000.png,12,Effusion|Mass
+images_001/images/00000017_000.png,17,Effusion|Infiltration|Nodule
+images_001/images/00000017_001.png,17,No Finding
+images_001/images/00000017_002.png,17,No Finding
