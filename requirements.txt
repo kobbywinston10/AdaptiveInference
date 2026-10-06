@@ -1,0 +1,6 @@
+torch>=2.3
+numpy
+Pillow
+PyYAML
+scikit-learn
+pytest

@@ -1,0 +1,37 @@
+# Dataset
+data/raw/
+data/images/
+*.png
+*.jpg
+*.jpeg
+
+# Model weights/checkpoints
+weights/*.pth
+weights/*.pt
+weights/*.ckpt
+checkpoints/
+*.onnx
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Results generated during runs
+runs/
+wandb/
+logs/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# datasets
+ChestXray14/
+
+docs/
