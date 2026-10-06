@@ -84,7 +84,7 @@ def main():
         score = (exit1_bce + exit2_bce) / 2
         if score < best:
             best = score
-            atomic_torch_save({"model_state": model.state_dict(), "epoch": epoch, "validation_exit_bce": (exit1_bce, exit2_bce), "baseline_checkpoint": str(baseline_path), "kd_weight": args.kd_weight}, output)
+            atomic_torch_save({"model_state": model.state_dict(), "epoch": epoch, "validation_exit_bce": (exit1_bce, exit2_bce), "baseline_checkpoint": str(baseline_path), "kd_weight": args.kd_weight, "split_hashes": split_hashes(config)}, output)
         print(json.dumps(row))
     from src.utils.run import atomic_write_text
     atomic_write_text(run_dir / "history.json", json.dumps(history, indent=2))

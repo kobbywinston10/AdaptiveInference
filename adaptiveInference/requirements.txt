@@ -3,4 +3,5 @@ numpy
 Pillow
 PyYAML
 scikit-learn
+matplotlib
 pytest

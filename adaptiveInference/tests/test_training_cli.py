@@ -12,7 +12,11 @@ from PIL import Image
 
 from scripts.train_adaptive import main as adaptive_main
 from scripts.train_baseline import main as baseline_main
+from scripts.calibrate import main as calibrate_main
+from scripts.evaluate_adaptive import main as budget_eval_main
+from scripts.run_degradation_experiment import main as degradation_main
 from src.data.chestxray import save_splits
+from src.routing.policy import load_policy
 
 
 def test_baseline_resume_and_phase4_handoff(tmp_path, monkeypatch, capsys):
@@ -69,4 +73,26 @@ def test_baseline_resume_and_phase4_handoff(tmp_path, monkeypatch, capsys):
         phase4 = torch.load(tmp_path / "checkpoints" / name / "best.pt", weights_only=True)
         assert phase4["kd_weight"] == float(value)
         assert phase4["baseline_checkpoint"] == str(best)
+    adaptive_checkpoint = tmp_path / "checkpoints/synthetic_with_kd/best.pt"
+    monkeypatch.setattr(sys, "argv", ["calibrate.py", "--config", str(config_path), "--checkpoint", str(adaptive_checkpoint), "--device", "cpu", "--quantile-steps", "3"])
+    calibrate_main()
+    artifact = tmp_path / "results/synthetic_with_kd/calibration.json"
+    assert artifact.is_file()
+    assert load_policy(artifact, "calibrated", adaptive_checkpoint).temperatures[0] > 0
+    assert load_policy(artifact, "uncalibrated", adaptive_checkpoint).temperatures == (1., 1., 1.)
+    monkeypatch.setattr(sys, "argv", ["evaluate_adaptive.py", "--config", str(config_path), "--checkpoint", str(adaptive_checkpoint), "--device", "cpu"])
+    budget_eval_main()
+    import json
+    budget_report = json.loads((tmp_path / "results/synthetic_with_kd/budget_validation_calibrated.json").read_text())
+    assert set(budget_report["budgets"]) == {"LOW", "MEDIUM", "HIGH"}
+    assert len(budget_report["budgets"]["LOW"]["records"]) == 2
+    monkeypatch.setattr(sys, "argv", ["run_degradation_experiment.py", "--config", str(config_path), "--checkpoint", str(adaptive_checkpoint), "--device", "cpu", "--degradation", "both"])
+    degradation_main()
+    experiment = json.loads((tmp_path / "results/synthetic_with_kd/degradation_validation_calibrated.json").read_text())
+    assert len(experiment["conditions"]) == 18
+    assert {row["budget"] for row in experiment["conditions"]} == {"LOW", "MEDIUM", "HIGH"}
+    assert all(row["average_flops_per_image"] is None for row in experiment["conditions"])
+    clean_uncertainty = [row["mean_exit1_uncertainty"] for row in experiment["conditions"] if row["severity"] == "clean"]
+    assert len(set(clean_uncertainty)) == 1
+    assert (tmp_path / "results/synthetic_with_kd/degradation_validation_calibrated_confident_errors.csv").is_file()
     capsys.readouterr()

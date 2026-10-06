@@ -22,3 +22,6 @@ distillation:
   hard_weight: 1.0
   kd_weight: 1.0
   exit_weights: [1.0, 1.0]
+degradation:
+  blur_sigma_pixels: {mild: 1.0, severe: 2.0}
+  noise_std_normalized: {mild: 0.05, severe: 0.15}
