@@ -34,7 +34,16 @@ def collect_exit_outputs(model, loader, device):
     return tuple(torch.cat(parts) for parts in outputs), torch.cat(targets)
 
 
-def build_artifact(exits, labels, checkpoint_path, split_digest, aggregation="max", quantile_steps=11, max_bce_increase=0.02):
+def build_artifact(
+    exits,
+    labels,
+    checkpoint_path,
+    split_digest,
+    aggregation="max",
+    quantile_steps=11,
+    max_bce_increase=0.02,
+    max_auroc_drop=0.01,
+):
     temperatures = fit_exit_temperatures(exits, labels)
     diagnostics = []
     for logits, temperature in zip(exits, temperatures):
@@ -47,7 +56,17 @@ def build_artifact(exits, labels, checkpoint_path, split_digest, aggregation="ma
         })
     modes = {}
     for name, values in (("uncalibrated", (1.0, 1.0, 1.0)), ("calibrated", temperatures)):
-        policy, selection, sweep = select_thresholds(exits, labels, values, aggregation, quantile_steps, max_bce_increase)
+        policy, selection, sweep = select_thresholds(
+            exits,
+            labels,
+            values,
+            aggregation,
+            quantile_steps,
+            max_bce_increase,
+            max_auroc_drop,
+        )
+
+
         modes[name] = {"policy": policy.to_dict(), "selection": selection, "validation_metrics": validation_summary(exits, labels, policy), "threshold_sweep": sweep}
     return {
         "schema_version": 1,
@@ -59,6 +78,7 @@ def build_artifact(exits, labels, checkpoint_path, split_digest, aggregation="ma
         "aggregation": aggregation,
         "quantile_steps": quantile_steps,
         "max_bce_increase": max_bce_increase,
+        "max_auroc_drop": max_auroc_drop,
         "per_exit_calibration": diagnostics,
         "policies": modes,
     }
@@ -73,10 +93,15 @@ def main():
     parser.add_argument("--aggregation", choices=("max", "mean"), default="max")
     parser.add_argument("--quantile-steps", type=int, default=11)
     parser.add_argument("--max-bce-increase", type=float, default=0.02)
+    parser.add_argument("--max-auroc-drop", type=float, default=0.01)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
     config = load_config(args.config)
-    if args.quantile_steps < 2 or args.max_bce_increase < 0:
+    if (
+    args.quantile_steps < 2
+    or args.max_bce_increase < 0
+    or args.max_auroc_drop < 0
+    ):
         raise ValueError("quantile-steps must be >= 2 and max-bce-increase nonnegative")
     checkpoint_path = resolve_project_path(args.checkpoint)
     output = resolve_project_path(args.output) if args.output else config["results_root"] / checkpoint_path.parent.name / "calibration.json"
@@ -98,7 +123,16 @@ def main():
         pin_memory=config["pin_memory"] and device.type == "cuda",
     )
     exits, labels = collect_exit_outputs(model, loader, device)
-    artifact = build_artifact(exits, labels, checkpoint_path, digest, args.aggregation, args.quantile_steps, args.max_bce_increase)
+    artifact = build_artifact(
+    exits,
+    labels,
+    checkpoint_path,
+    digest,
+    args.aggregation,
+    args.quantile_steps,
+    args.max_bce_increase,
+    args.max_auroc_drop,
+    )
     atomic_write_text(output, json.dumps(artifact, indent=2, allow_nan=False))
     print(json.dumps({"output": str(output), "temperatures": [row["temperature"] for row in artifact["per_exit_calibration"]], "comparison": {name: value["validation_metrics"] for name, value in artifact["policies"].items()}}, indent=2))
 

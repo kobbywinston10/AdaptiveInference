@@ -81,6 +81,25 @@ def route_one(model, image: torch.Tensor, policy: RoutingPolicy) -> tuple[torch.
     logits, index = model.forward_adaptive(image, policy.should_exit)
     return torch.sigmoid(logits.float() / policy.temperatures[index - 1]), index
 
+def macro_auroc(logits: torch.Tensor, labels: torch.Tensor) -> float:
+    """Macro AUROC across labels with both positive and negative examples."""
+    _check_arrays(logits, labels)
+
+    from sklearn.metrics import roc_auc_score
+
+    probabilities = torch.sigmoid(logits.float()).cpu().numpy()
+    truth = labels.int().cpu().numpy()
+
+    scores = []
+    for i in range(len(LABELS)):
+        if len(set(truth[:, i])) == 2:
+            scores.append(float(roc_auc_score(truth[:, i], probabilities[:, i])))
+
+    if not scores:
+        raise ValueError("Macro AUROC is undefined for all labels")
+
+    return sum(scores) / len(scores)
+
 
 def threshold_sweep(exits: tuple[torch.Tensor, ...], labels: torch.Tensor, temperatures: tuple[float, float, float], aggregation: str = "max", quantile_steps: int = 11) -> tuple[list[dict], float]:
     """Sweep validation uncertainty quantiles; score Bernoulli BCE and depth."""
@@ -104,26 +123,89 @@ def threshold_sweep(exits: tuple[torch.Tensor, ...], labels: torch.Tensor, tempe
             policy = RoutingPolicy(t1, t2, temperatures, aggregation)
             selected, indices = route_all(exits, policy)
             counts = [(indices == i).sum().item() for i in (1, 2, 3)]
+
             sweep.append({
                 "threshold1": t1,
                 "threshold2": t2,
-                "validation_bce": float(F.binary_cross_entropy_with_logits(selected, labels.float())),
+                "validation_bce": float(
+                    F.binary_cross_entropy_with_logits(selected, labels.float())
+                ),
+                "validation_macro_auroc": macro_auroc(selected, labels),
                 "average_exit_depth": float(indices.float().mean()),
                 "exit_counts": counts,
             })
     return sweep, baseline_bce
 
 
-def select_thresholds(exits: tuple[torch.Tensor, ...], labels: torch.Tensor, temperatures: tuple[float, float, float], aggregation: str = "max", quantile_steps: int = 11, max_bce_increase: float = 0.02) -> tuple[RoutingPolicy, dict, list[dict]]:
-    """Choose shallowest validation policy with BCE <= final BCE + tolerance."""
+def select_thresholds(
+    exits: tuple[torch.Tensor, ...],
+    labels: torch.Tensor,
+    temperatures: tuple[float, float, float],
+    aggregation: str = "max",
+    quantile_steps: int = 11,
+    max_bce_increase: float = 0.02,
+    max_auroc_drop: float = 0.01,
+) -> tuple[RoutingPolicy, dict, list[dict]]:
+    """Choose shallowest validation policy subject to BCE and AUROC constraints."""
     if max_bce_increase < 0:
         raise ValueError("max_bce_increase must be nonnegative")
-    sweep, baseline_bce = threshold_sweep(exits, labels, temperatures, aggregation, quantile_steps)
-    feasible = [point for point in sweep if point["validation_bce"] <= baseline_bce + max_bce_increase + 1e-9]
-    chosen = min(feasible, key=lambda point: (point["average_exit_depth"], point["validation_bce"], point["threshold1"], point["threshold2"]))
-    policy = RoutingPolicy(chosen["threshold1"], chosen["threshold2"], temperatures, aggregation)
-    return policy, {**chosen, "final_exit_validation_bce": baseline_bce, "max_bce_increase": max_bce_increase}, sweep
+    if max_auroc_drop < 0:
+        raise ValueError("max_auroc_drop must be nonnegative")
 
+    sweep, baseline_bce = threshold_sweep(
+        exits,
+        labels,
+        temperatures,
+        aggregation,
+        quantile_steps,
+    )
+
+    final_logits = exits[2].float() / temperatures[2]
+    baseline_auroc = macro_auroc(final_logits, labels)
+
+    feasible = [
+        point
+        for point in sweep
+        if (
+            point["validation_bce"]
+            <= baseline_bce + max_bce_increase + 1e-9
+            and point["validation_macro_auroc"]
+            >= baseline_auroc - max_auroc_drop - 1e-9
+        )
+    ]
+
+    if not feasible:
+        raise RuntimeError(
+            "No routing policy satisfies the validation BCE and AUROC constraints"
+        )
+
+    chosen = min(
+        feasible,
+        key=lambda point: (
+            point["average_exit_depth"],
+            -point["validation_macro_auroc"],
+            point["validation_bce"],
+            point["threshold1"],
+            point["threshold2"],
+        ),
+    )
+
+    policy = RoutingPolicy(
+        chosen["threshold1"],
+        chosen["threshold2"],
+        temperatures,
+        aggregation,
+    )
+
+    selection = {
+        **chosen,
+        "final_exit_validation_bce": baseline_bce,
+        "final_exit_validation_macro_auroc": baseline_auroc,
+        "max_bce_increase": max_bce_increase,
+        "max_auroc_drop": max_auroc_drop,
+    }
+
+    return policy, selection, sweep
 
 def validation_summary(exits: tuple[torch.Tensor, ...], labels: torch.Tensor, policy: RoutingPolicy) -> dict:
     scaled, indices = route_all(exits, policy)
