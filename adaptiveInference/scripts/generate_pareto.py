@@ -102,22 +102,27 @@ def main():
     for index, name, cost_key in ((1, "fixed_exit1", "fixed_exit1"), (2, "fixed_exit2", "fixed_exit2"), (3, "full", "full")):
         ids = torch.full((len(labels),), index, dtype=torch.long)
         metrics = selected_metrics(exits[index - 1], labels, ids)
+        path_cost = flops[cost_key]
         points.append({"id": name, "kind": "static", "threshold1": None, "threshold2": None,
-                       "average_flops": flops[cost_key], "latency_mean_ms": measured[name]["mean_ms"], **metrics})
+                       "static_path_flops": path_cost, "mean_executed_flops": path_cost,
+                       "average_flops": path_cost, "latency_mean_ms": measured[name]["mean_ms"], **metrics})
     for name, policy in policy_candidates(artifact):
         chosen, ids = route_all(exits, policy)
         metrics = selected_metrics(chosen, labels, ids)
+        mean_cost = average_flops(ids, flops)
         points.append({"id": name, "kind": "adaptive", "threshold1": policy.threshold1,
-                       "threshold2": policy.threshold2, "average_flops": average_flops(ids, flops),
+                       "threshold2": policy.threshold2, "static_path_flops": None,
+                       "mean_executed_flops": mean_cost, "average_flops": mean_cost,
                        "latency_mean_ms": measured[name]["mean_ms"], **metrics})
     frontiers = {
-        "subset_accuracy_vs_flops": plot_points(points, "average_flops", "subset_accuracy", targets[2], "FLOPs per image", "Subset accuracy"),
-        "macro_auroc_vs_flops": plot_points(points, "average_flops", "macro_auroc", targets[3], "FLOPs per image", "Macro AUROC"),
+        "subset_accuracy_vs_flops": plot_points(points, "mean_executed_flops", "subset_accuracy", targets[2], "Mean executed FLOPs per image", "Subset accuracy"),
+        "macro_auroc_vs_flops": plot_points(points, "mean_executed_flops", "macro_auroc", targets[3], "Mean executed FLOPs per image", "Macro AUROC"),
         "subset_accuracy_vs_latency": plot_points(points, "latency_mean_ms", "subset_accuracy", targets[4], "Mean latency (ms/image)", "Subset accuracy"),
     }
     fields = ("id", "kind", "threshold1", "threshold2", "average_flops", "latency_mean_ms",
               "subset_accuracy", "macro_auroc", "macro_f1", "binary_bce", "binary_ece",
-              "average_exit_depth", "exit1_count", "exit2_count", "exit3_count")
+              "average_exit_depth", "exit1_count", "exit2_count", "exit3_count",
+              "static_path_flops", "mean_executed_flops")
     buffer = io.StringIO()
     writer = csv.DictWriter(buffer, fieldnames=fields)
     writer.writeheader()
@@ -128,6 +133,7 @@ def main():
     atomic_write_text(targets[0], buffer.getvalue())
     summary = {"schema_version": 1, "split": "validation", "checkpoint_sha256": digest,
                "calibration_sha256": file_sha256(calibration), "flops_method": flops["method"],
+               "flops_cost_basis": {"static": "selected fixed path", "adaptive": "mean of executed adaptive paths"},
                "latency_device": latency["device"], "latency_measurements": latency["measurements"],
                "points": len(points), "frontiers": frontiers}
     atomic_write_text(targets[1], json.dumps(summary, indent=2, allow_nan=False))

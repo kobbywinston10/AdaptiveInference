@@ -267,3 +267,102 @@ The other axes are macro AUROC and measured mean latency. Dominance is
 computed from actual coordinates, with equal points retained. These commands
 need a trained checkpoint and are not evidence of real performance until run
 against it. Use `--device cpu` for small smoke tests.
+
+## FP32 ONNX deployment experiment
+
+Install the added `onnx` and `onnxruntime` dependencies from `requirements.txt`.
+Export one shared-weight graph from `AdaptiveResNet50.forward()`, which returns
+all three exits. The export uses ONNX opset 17, a fixed `[1, 3, 224, 224]`
+input for the full config, and CPU ONNX Runtime for parity. It checks the
+graph and compares each exit with PyTorch on the first validation images in
+split-manifest order. Adjust `--validation-samples`, `--atol`, and `--rtol` if
+needed; the report records the exact settings and differences.
+
+```bash
+python scripts/export_onnx.py --config configs/full.yaml --checkpoint checkpoints/full_final_with_kd/best.pt --validation-samples 16
+python scripts/evaluate_onnx.py --config configs/full.yaml --checkpoint checkpoints/full_final_with_kd/best.pt --split validation --calibration results/full_final_with_kd/calibration.json --parity-samples 16
+```
+
+The export writes `results/full_final_with_kd/deployment/adaptive_fp32.onnx`
+and `fp32_export_report.json`. Evaluation writes `onnx_validation_report.json`
+and `onnx_validation_logits.npz`; `--split test` uses corresponding test names.
+The NPZ contains all three raw logit arrays and labels in manifest order.
+The optional calibrated policy is frozen from validation and routed in Python
+after all ONNX outputs have been computed. This graph and its runtime always
+compute all three exits. Its serialized file size is the shared model footprint;
+its runtime must not be presented as conditional adaptive latency or FLOP
+savings. Use the PyTorch conditional path for those measurements.
+
+## Static INT8 ONNX post-training quantization
+
+After the FP32 export report shows passed validation parity, calibrate a QDQ
+INT8 copy with training images only:
+
+```bash
+python scripts/quantize_onnx.py --config configs/full.yaml --checkpoint checkpoints/full_final_with_kd/best.pt --calibration-samples 256
+```
+
+The script deterministically samples training manifest rows with the config
+seed, uses the same `ChestXrayDataset` preprocessing, and feeds one image at
+a time to ONNX Runtime `quantize_static`. Static calibration fits the
+convolution-heavy graph without computing activation ranges on every inference.
+Signed INT8 QDQ is ONNX Runtime's recommended first CPU format for this case.
+MinMax calibration is applied explicitly to `Conv` and `Gemm`; other ONNX operators are
+left outside the requested quantization set. The graph report lists source
+and output operator counts and INT8 initializer coverage. Outputs are
+`results/full_final_with_kd/deployment/adaptive_int8.onnx` and
+`ptq_report.json`. The report records hashes, sizes, compression ratio,
+versions, and calibration selection. This changes precision and footprint;
+it does not reduce the operation count or establish conditional runtime
+savings. Check validation prediction quality separately before final test use.
+
+## Paired ONNX precision comparison
+
+Compare the verified FP32 and training-calibrated INT8 graphs on validation
+with exactly the same saved FP32 temperatures and thresholds:
+
+```bash
+python scripts/evaluate_onnx.py --config configs/full.yaml --checkpoint checkpoints/full_final_with_kd/best.pt --compare-int8 --split validation
+```
+
+If `results/<run>/operating_points.json` exists, every frozen operating point
+is evaluated in artifact order; otherwise the calibrated frozen policy from
+`calibration.json` is used. The script prints a validation summary and writes
+`fp32_validation_metrics.json`, `int8_validation_metrics.json`, and
+`quantization_comparison.json` under `results/<run>/deployment/`. It also writes
+three CSV sources: `model_size_vs_auroc_validation.csv`,
+`variant_vs_size_validation.csv`, and `routing_distribution_validation.csv`.
+Per-exit metrics use raw logits; adaptive metrics apply the same saved FP32
+temperatures to both variants. Routed FLOPs are weighted estimates from the
+measured PyTorch conditional paths, not ONNX execution costs. No latency is
+inferred from size or precision.
+
+After inspecting the validation summary, final test evaluation requires the
+matching validation comparison and an explicit review flag:
+
+```bash
+python scripts/evaluate_onnx.py --config configs/full.yaml --checkpoint checkpoints/full_final_with_kd/best.pt --compare-int8 --split test --validation-reviewed
+```
+
+That command writes corresponding `fp32_test_metrics.json`,
+`int8_test_metrics.json`, `quantization_test_comparison.json`, and three
+`*_test.csv` files. It reuses the same frozen policies without fitting or
+reordering them on test.
+
+## Supporting ONNX Runtime latency comparison
+
+Benchmark the same preloaded validation images with both all-exit graphs on
+`CPUExecutionProvider`:
+
+```bash
+python scripts/benchmark_onnx.py --config configs/full.yaml --checkpoint checkpoints/full_final_with_kd/best.pt --samples 32 --warmup 10 --repetitions 100 --intra-op-threads 1
+```
+
+The script writes `results/full_final_with_kd/deployment/onnx_latency.json`.
+It records the CPU model, ONNX Runtime version, provider, batch size, input
+order, warmup count, repetition count, and mean/p50/p95 latency for each
+model. Images are preprocessed and held in memory before timing. Session
+settings and input order are identical, and the model call order alternates
+between FP32 and INT8. This is an all-exit ONNX deployment comparison only:
+both graphs always compute all three exits. Existing PyTorch conditional
+routing latency remains the evidence for true early-exit execution.

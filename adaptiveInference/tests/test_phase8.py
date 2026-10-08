@@ -68,6 +68,15 @@ def test_phase8_synthetic_artifact_handoff(tmp_path, monkeypatch, capsys):
     calibrate_main()
     monkeypatch.setattr(sys, "argv", ["benchmark_flops.py", "--config", str(config_path), "--checkpoint", str(checkpoint)])
     flops_main()
+    flops_report = json.loads((tmp_path / "results/synthetic/flops.json").read_text())
+    assert flops_report["path_flops"] == {
+        "fixed_exit1_flops": flops_report["fixed_exit1"],
+        "fixed_exit2_flops": flops_report["fixed_exit2"],
+        "static_full_flops": flops_report["full"],
+        "adaptive_exit1_flops": flops_report["exit1"],
+        "adaptive_exit2_flops": flops_report["exit2"],
+        "adaptive_exit3_flops": flops_report["exit3"],
+    }
     monkeypatch.setattr(sys, "argv", ["benchmark_latency.py", "--config", str(config_path), "--checkpoint", str(checkpoint), "--samples", "1", "--warmup", "0", "--measurements", "1"])
     latency_main()
     monkeypatch.setattr(sys, "argv", ["generate_pareto.py", "--config", str(config_path), "--checkpoint", str(checkpoint)])
@@ -77,7 +86,17 @@ def test_phase8_synthetic_artifact_handoff(tmp_path, monkeypatch, capsys):
         points = list(csv.DictReader(handle))
     assert len(points) == len(json.loads((out / "latency.json").read_text())["points"])
     assert all(float(point["average_flops"]) > 0 for point in points)
+    assert all(float(point["mean_executed_flops"]) == float(point["average_flops"]) for point in points)
     assert {point["kind"] for point in points} == {"static", "adaptive"}
+    static_keys = {"fixed_exit1": "fixed_exit1", "fixed_exit2": "fixed_exit2", "full": "full"}
+    for point in points:
+        if point["kind"] == "static":
+            assert float(point["static_path_flops"]) == flops_report[static_keys[point["id"]]]
+        else:
+            counts = [int(point[f"exit{index}_count"]) for index in (1, 2, 3)]
+            expected = sum(count * flops_report[f"exit{index}"] for index, count in enumerate(counts, 1)) / sum(counts)
+            assert point["static_path_flops"] == ""
+            assert float(point["mean_executed_flops"]) == pytest.approx(expected)
     assert all((out / name).is_file() for name in (
         "plots/subset_accuracy_vs_flops.png", "plots/macro_auroc_vs_flops.png", "plots/subset_accuracy_vs_latency.png",
     ))

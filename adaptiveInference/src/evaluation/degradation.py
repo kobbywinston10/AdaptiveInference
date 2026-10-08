@@ -75,7 +75,12 @@ def confident_wrong_labels(probabilities: torch.Tensor, labels: torch.Tensor, th
 
 
 def average_flops(exit_indices: torch.Tensor, measured_costs: dict[str, float]) -> float:
-    """Average measured FLOPs for actual exits; costs come from Phase 8."""
+    """Mean executed FLOPs per image for actual adaptive exits.
+
+    Each image contributes the measured ``exit1``, ``exit2``, or ``exit3``
+    path cost, including the earlier heads needed for routing. Static path
+    costs (``fixed_exit1``, ``fixed_exit2``, ``full``) are not used.
+    """
     required = ("exit1", "exit2", "exit3")
     if exit_indices.ndim != 1 or len(exit_indices) == 0 or not ((exit_indices >= 1) & (exit_indices <= 3)).all():
         raise ValueError("Expected nonempty exit IDs 1, 2, or 3")

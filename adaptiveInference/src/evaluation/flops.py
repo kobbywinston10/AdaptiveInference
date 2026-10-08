@@ -51,6 +51,12 @@ def count_flops(model: nn.Module, forward: Callable[[], object]) -> int:
 
 
 def count_exit_flops(model, image: torch.Tensor) -> dict[str, int]:
+    """Measure fixed paths and routed paths separately with the same convention.
+
+    ``fixed_exit1``, ``fixed_exit2``, and ``full`` compute only their selected
+    head. ``exit1`` through ``exit3`` include every earlier head evaluated by
+    ``forward_adaptive`` before that exit is taken.
+    """
     if image.ndim != 4 or image.shape[0] != 1 or image.shape[1] != 3:
         raise ValueError("FLOP counting requires one three-channel image")
     result = {}

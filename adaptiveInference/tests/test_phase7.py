@@ -54,3 +54,11 @@ def test_confident_errors_and_optional_measured_flops():
     assert average_flops(torch.tensor([1, 2, 3]), {"exit1": 1, "exit2": 2, "exit3": 3}) == pytest.approx(2)
     with pytest.raises(ValueError):
         average_flops(torch.tensor([1, 2]), {"exit1": 3, "exit2": 2, "exit3": 1})
+
+
+def test_average_flops_weights_actual_adaptive_paths():
+    costs = {"fixed_exit1": 1, "fixed_exit2": 2, "full": 3,
+             "exit1": 10, "exit2": 20, "exit3": 40}
+    exits = torch.tensor([1, 3, 3, 2, 3])
+    expected = (10 + 20 + 3 * 40) / 5
+    assert average_flops(exits, costs) == pytest.approx(expected)

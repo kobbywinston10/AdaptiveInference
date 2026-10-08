@@ -28,7 +28,7 @@ SUMMARY_FIELDS = (
     "budget_forced_exit_rate", "exit1_count", "exit2_count", "final_count",
     "binary_bce", "binary_ece", "macro_auroc", "macro_f1", "subset_accuracy",
     "average_flops_per_image",
-) + tuple(f"auroc_{label}" for label in LABELS)
+) + tuple(f"auroc_{label}" for label in LABELS) + ("mean_executed_flops",)
 ERROR_FIELDS = ("degradation", "severity", "budget", "image", "patient_id", "finding_labels", "wrong_labels", "max_wrong_confidence") + tuple(f"probability_{label}" for label in LABELS)
 
 
@@ -85,12 +85,13 @@ def run_conditions(model, policy, rows, config, device, kinds, seed, measured_fl
                     "mean_preferred_depth": float(evaluated["preferred_exit"].float().mean()),
                     "mean_actual_depth": float(actual.float().mean()),
                     "budget_forced_exit_rate": evaluated["budget_forced_exit_rate"],
+                    "mean_executed_flops": mean_flops,
                     "average_flops_per_image": mean_flops,
                     "metrics": metrics,
                 }
                 conditions.append(condition)
                 summary_rows.append({
-                    **{key: condition[key] for key in ("degradation", "severity", "budget", "images", "mean_exit1_uncertainty", "mean_exit2_uncertainty", "mean_preferred_depth", "mean_actual_depth", "budget_forced_exit_rate", "average_flops_per_image")},
+                    **{key: condition[key] for key in ("degradation", "severity", "budget", "images", "mean_exit1_uncertainty", "mean_exit2_uncertainty", "mean_preferred_depth", "mean_actual_depth", "budget_forced_exit_rate", "mean_executed_flops", "average_flops_per_image")},
                     "exit1_count": metrics["exit_counts"][0], "exit2_count": metrics["exit_counts"][1], "final_count": metrics["exit_counts"][2],
                     **{key: metrics[key] for key in ("binary_bce", "binary_ece", "macro_auroc", "macro_f1", "subset_accuracy")},
                     **{f"auroc_{label}": metrics["per_label_auroc"][label] for label in LABELS},

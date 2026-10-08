@@ -1,6 +1,5 @@
 """Count fixed and adaptive path arithmetic with one documented method."""
 
-#additional comment
 import argparse
 import csv
 import io
@@ -42,6 +41,14 @@ def main():
     model.to(device)
     image = torch.zeros(1, 3, config["image_size"], config["image_size"], device=device)
     counts = count_exit_flops(model, image)
+    path_flops = {
+        "fixed_exit1_flops": counts["fixed_exit1"],
+        "fixed_exit2_flops": counts["fixed_exit2"],
+        "static_full_flops": counts["full"],
+        "adaptive_exit1_flops": counts["exit1"],
+        "adaptive_exit2_flops": counts["exit2"],
+        "adaptive_exit3_flops": counts["exit3"],
+    }
     report = {
         "method": METHOD,
         "convention": "2 FLOPs per multiply-add; counts Conv2d, Linear, BatchNorm2d, ReLU, MaxPool2d, AdaptiveAvgPool2d, residual adds; excludes routing entropy and memory operations",
@@ -49,6 +56,7 @@ def main():
         "image_size": config["image_size"],
         "checkpoint_sha256": file_sha256(checkpoint_path),
         "model_parameter_bytes": sum(parameter.numel() * parameter.element_size() for parameter in model.parameters()),
+        "path_flops": path_flops,
         **counts,
     }
     atomic_write_text(output, json.dumps(report, indent=2))

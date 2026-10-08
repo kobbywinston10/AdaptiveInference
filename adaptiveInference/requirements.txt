@@ -5,3 +5,5 @@ PyYAML
 scikit-learn
 matplotlib
 pytest
+onnx>=1.15
+onnxruntime>=1.17
