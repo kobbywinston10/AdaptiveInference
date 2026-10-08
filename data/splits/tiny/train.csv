@@ -1,0 +1,79 @@
+image,patient_id,finding_labels
+images_001/images/00000002_000.png,2,No Finding
+images_001/images/00000003_001.png,3,Hernia
+images_001/images/00000003_002.png,3,Hernia
+images_001/images/00000003_003.png,3,Hernia|Infiltration
+images_001/images/00000003_004.png,3,Hernia
+images_001/images/00000003_005.png,3,Hernia
+images_001/images/00000003_006.png,3,Hernia
+images_001/images/00000003_007.png,3,Hernia
+images_001/images/00000003_000.png,3,Hernia
+images_001/images/00000004_000.png,4,Mass|Nodule
+images_001/images/00000005_000.png,5,No Finding
+images_001/images/00000005_001.png,5,No Finding
+images_001/images/00000005_002.png,5,No Finding
+images_001/images/00000005_003.png,5,No Finding
+images_001/images/00000005_004.png,5,No Finding
+images_001/images/00000005_005.png,5,No Finding
+images_001/images/00000005_006.png,5,Infiltration
+images_001/images/00000005_007.png,5,Effusion|Infiltration
+images_001/images/00000007_000.png,7,No Finding
+images_001/images/00000008_000.png,8,Cardiomegaly
+images_001/images/00000008_001.png,8,No Finding
+images_001/images/00000008_002.png,8,Nodule
+images_001/images/00000009_000.png,9,Emphysema
+images_001/images/00000010_000.png,10,Infiltration
+images_001/images/00000013_022.png,13,Infiltration|Mass
+images_001/images/00000013_023.png,13,Infiltration|Mass|Pneumothorax
+images_001/images/00000013_024.png,13,Mass
+images_001/images/00000013_025.png,13,Cardiomegaly|Infiltration|Mass|Nodule
+images_001/images/00000013_026.png,13,Cardiomegaly|Emphysema
+images_001/images/00000013_027.png,13,Cardiomegaly|Effusion|Emphysema|Mass
+images_001/images/00000013_028.png,13,Cardiomegaly|Effusion|Emphysema|Mass
+images_001/images/00000013_029.png,13,Cardiomegaly|Effusion|Emphysema|Mass
+images_001/images/00000013_030.png,13,Atelectasis|Cardiomegaly|Emphysema|Mass|Pneumothorax
+images_001/images/00000013_031.png,13,Emphysema|Mass
+images_001/images/00000013_032.png,13,Emphysema|Mass|Pneumothorax
+images_001/images/00000013_033.png,13,Pneumothorax
+images_001/images/00000013_034.png,13,Emphysema|Pneumothorax
+images_001/images/00000013_035.png,13,Atelectasis|Pneumothorax
+images_001/images/00000013_036.png,13,Pneumothorax
+images_001/images/00000013_037.png,13,Cardiomegaly|Emphysema|Pneumothorax
+images_001/images/00000013_038.png,13,No Finding
+images_001/images/00000013_039.png,13,Pneumothorax
+images_001/images/00000013_040.png,13,Cardiomegaly|Emphysema|Pneumothorax
+images_001/images/00000013_042.png,13,Emphysema
+images_001/images/00000013_041.png,13,Emphysema
+images_001/images/00000013_043.png,13,Mass|Pleural_Thickening
+images_001/images/00000013_044.png,13,Cardiomegaly|Mass|Pleural_Thickening
+images_001/images/00000013_045.png,13,Cardiomegaly
+images_001/images/00000013_046.png,13,Infiltration
+images_001/images/00000013_000.png,13,No Finding
+images_001/images/00000013_001.png,13,Emphysema|Pneumothorax
+images_001/images/00000013_002.png,13,Emphysema|Pneumothorax
+images_001/images/00000013_003.png,13,Pleural_Thickening
+images_001/images/00000013_004.png,13,Effusion|Emphysema|Infiltration|Pneumothorax
+images_001/images/00000013_005.png,13,Emphysema|Infiltration|Pleural_Thickening|Pneumothorax
+images_001/images/00000013_006.png,13,Effusion|Infiltration
+images_001/images/00000013_007.png,13,Infiltration
+images_001/images/00000013_008.png,13,No Finding
+images_001/images/00000013_009.png,13,Pleural_Thickening
+images_001/images/00000013_010.png,13,Effusion|Pneumonia|Pneumothorax
+images_001/images/00000013_011.png,13,Pneumothorax
+images_001/images/00000013_012.png,13,Pneumothorax
+images_001/images/00000013_013.png,13,Pneumothorax
+images_001/images/00000013_014.png,13,No Finding
+images_001/images/00000013_015.png,13,No Finding
+images_001/images/00000013_016.png,13,No Finding
+images_001/images/00000013_017.png,13,No Finding
+images_001/images/00000013_018.png,13,Effusion|Infiltration|Pneumothorax
+images_001/images/00000013_019.png,13,No Finding
+images_001/images/00000013_020.png,13,Pneumothorax
+images_001/images/00000013_021.png,13,Effusion
+images_001/images/00000014_000.png,14,No Finding
+images_001/images/00000015_000.png,15,No Finding
+images_001/images/00000018_000.png,18,No Finding
+images_001/images/00000019_000.png,19,Atelectasis|Effusion|Pleural_Thickening
+images_001/images/00000020_001.png,20,Fibrosis|Infiltration
+images_001/images/00000020_002.png,20,Fibrosis|Infiltration|Pleural_Thickening
+images_001/images/00000020_000.png,20,Pleural_Thickening

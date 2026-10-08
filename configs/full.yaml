@@ -1,0 +1,33 @@
+dataset_root: ChestXray14/full
+metadata_csv: ChestXray14/full/Data_Entry_2017_v2020.csv
+pretrained_checkpoint: weights/ResNet50.pt
+split_dir: data/splits/full
+seed: 42
+image_size: 224
+batch_size: 32
+epochs: 15
+learning_rate: 0.0001
+max_images: null
+run_name: baseline_full
+device: cuda
+mixed_precision: true
+num_workers: 2
+pin_memory: true
+checkpoint_root: checkpoints
+results_root: results
+adaptive_epochs: 15
+adaptive_learning_rate: 0.0001
+distillation:
+  temperature: 2.0
+  hard_weight: 1.0
+  kd_weight: 1.0
+  exit_weights:
+  - 1.0
+  - 1.0
+degradation:
+  blur_sigma_pixels:
+    mild: 1.0
+    severe: 2.0
+  noise_std_normalized:
+    mild: 0.05
+    severe: 0.15
