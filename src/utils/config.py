@@ -37,6 +37,12 @@ def load_config(path: str | Path) -> dict:
         raise ValueError("distillation needs temperature, hard_weight, kd_weight, exit_weights")
     if not isinstance(kd["exit_weights"], list) or len(kd["exit_weights"]) != 2 or kd["temperature"] <= 0 or min(kd["hard_weight"], kd["kd_weight"], *kd["exit_weights"]) < 0:
         raise ValueError("Invalid distillation parameters")
+    degradation = config.get("degradation")
+    if not isinstance(degradation, dict) or set(degradation) != {"blur_sigma_pixels", "noise_std_normalized"}:
+        raise ValueError("degradation needs blur_sigma_pixels and noise_std_normalized")
+    for name, values in degradation.items():
+        if not isinstance(values, dict) or set(values) != {"mild", "severe"} or not all(isinstance(value, (int, float)) and value > 0 for value in values.values()) or values["mild"] >= values["severe"]:
+            raise ValueError(f"Invalid degradation severities for {name}")
     config.setdefault("max_images", None)
     if config["max_images"] is not None and (not isinstance(config["max_images"], int) or config["max_images"] < 1):
         raise ValueError("max_images must be null or a positive integer")

@@ -1,0 +1,3597 @@
+{
+  "schema_version": 1,
+  "fit_split": "validation",
+  "threshold_selection_split": "validation",
+  "checkpoint_path": "/var/scratch/bde2659/adaptiveInference/checkpoints/full_final_no_kd/best.pt",
+  "checkpoint_sha256": "0fc1c9d8410e9fcb2d7a1e69a7f2ff9f06382d8d41754faf6afada06511851e6",
+  "split_hashes": {
+    "train": "f228c905855fcf425c3f9ed1b6e3d30d97b8c6a2f2597af5facbb7bf951ad613",
+    "validation": "3a7b67e84ee52075c8cd5dcff2cd6ca08ba4769b5b4b0f6651752fba2ef23eb4",
+    "test": "102b6c7b0970bb9edd7e4593038d12f52c6f903eb72acf9d2887dd1949999ea9"
+  },
+  "aggregation": "max",
+  "quantile_steps": 11,
+  "max_bce_increase": 0.02,
+  "max_auroc_drop": 0.01,
+  "per_exit_calibration": [
+    {
+      "temperature": 0.5064132837916171,
+      "bce_before": 0.6141329407691956,
+      "bce_after": 0.5929725766181946,
+      "binary_ece_before": 0.3730883002281189,
+      "binary_ece_after": 0.3362717926502228
+    },
+    {
+      "temperature": 0.8337381141670756,
+      "bce_before": 0.5452372431755066,
+      "bce_after": 0.5423138737678528,
+      "binary_ece_before": 0.3150519132614136,
+      "binary_ece_after": 0.3013544976711273
+    },
+    {
+      "temperature": 1.0058426837715837,
+      "bce_before": 0.5079670548439026,
+      "bce_after": 0.5079632997512817,
+      "binary_ece_before": 0.2781206965446472,
+      "binary_ece_after": 0.27854806184768677
+    }
+  ],
+  "policies": {
+    "uncalibrated": {
+      "policy": {
+        "threshold1": 0.5580371618270874,
+        "threshold2": 0.6751946210861206,
+        "temperatures": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "aggregation": "max"
+      },
+      "selection": {
+        "threshold1": 0.5580371618270874,
+        "threshold2": 0.6751946210861206,
+        "validation_bce": 0.5247563719749451,
+        "validation_macro_auroc": 0.7707864623269136,
+        "average_exit_depth": 2.699878215789795,
+        "exit_counts": [
+          1,
+          4929,
+          11500
+        ],
+        "final_exit_validation_bce": 0.5079670548439026,
+        "final_exit_validation_macro_auroc": 0.7786083739438113,
+        "max_bce_increase": 0.02,
+        "max_auroc_drop": 0.01
+      },
+      "validation_metrics": {
+        "binary_bce": 0.5247563719749451,
+        "binary_ece": 0.29232025146484375,
+        "macro_auroc": 0.7707864623269136,
+        "per_label_auroc": {
+          "Atelectasis": 0.7698197626702544,
+          "Effusion": 0.8421647907188313,
+          "Mass": 0.7436033359660981,
+          "Nodule": 0.6809398886750433,
+          "Pneumothorax": 0.817404533604341
+        },
+        "macro_f1": 0.2802111856375561,
+        "subset_accuracy": 0.3871576488018036,
+        "exit_counts": [
+          1,
+          4929,
+          11500
+        ],
+        "average_exit_depth": 2.699878215789795
+      },
+      "threshold_sweep": [
+        {
+          "threshold1": -1.0,
+          "threshold2": -1.0,
+          "validation_bce": 0.5079670548439026,
+          "validation_macro_auroc": 0.7786083739438113,
+          "average_exit_depth": 3.0,
+          "exit_counts": [
+            0,
+            0,
+            16430
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5079693794250488,
+          "validation_macro_auroc": 0.7786077218288863,
+          "average_exit_depth": 2.999939203262329,
+          "exit_counts": [
+            0,
+            1,
+            16429
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5143182277679443,
+          "validation_macro_auroc": 0.776229367624027,
+          "average_exit_depth": 2.9000000953674316,
+          "exit_counts": [
+            0,
+            1643,
+            14787
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5198158025741577,
+          "validation_macro_auroc": 0.7739014664622121,
+          "average_exit_depth": 2.799999952316284,
+          "exit_counts": [
+            0,
+            3286,
+            13144
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.524738073348999,
+          "validation_macro_auroc": 0.770798897119025,
+          "average_exit_depth": 2.700000047683716,
+          "exit_counts": [
+            0,
+            4929,
+            11501
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5296131372451782,
+          "validation_macro_auroc": 0.766725264417896,
+          "average_exit_depth": 2.5999999046325684,
+          "exit_counts": [
+            0,
+            6572,
+            9858
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5328105092048645,
+          "validation_macro_auroc": 0.7639425956024587,
+          "average_exit_depth": 2.5,
+          "exit_counts": [
+            0,
+            8215,
+            8215
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5362070202827454,
+          "validation_macro_auroc": 0.7609938629405397,
+          "average_exit_depth": 2.4000000953674316,
+          "exit_counts": [
+            0,
+            9858,
+            6572
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5392434000968933,
+          "validation_macro_auroc": 0.7603111362622416,
+          "average_exit_depth": 2.299999952316284,
+          "exit_counts": [
+            0,
+            11501,
+            4929
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5416353344917297,
+          "validation_macro_auroc": 0.7584254134722634,
+          "average_exit_depth": 2.200000047683716,
+          "exit_counts": [
+            0,
+            13144,
+            3286
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5438063740730286,
+          "validation_macro_auroc": 0.7580258872735335,
+          "average_exit_depth": 2.0999391078948975,
+          "exit_counts": [
+            0,
+            14788,
+            1642
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5452372431755066,
+          "validation_macro_auroc": 0.7579843196578643,
+          "average_exit_depth": 2.0,
+          "exit_counts": [
+            0,
+            16430,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": -1.0,
+          "validation_bce": 0.5079852938652039,
+          "validation_macro_auroc": 0.7785958967274857,
+          "average_exit_depth": 2.999878168106079,
+          "exit_counts": [
+            1,
+            0,
+            16429
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5079876184463501,
+          "validation_macro_auroc": 0.7785952446125607,
+          "average_exit_depth": 2.999817371368408,
+          "exit_counts": [
+            1,
+            1,
+            16428
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5143364667892456,
+          "validation_macro_auroc": 0.7762169337231648,
+          "average_exit_depth": 2.8998782634735107,
+          "exit_counts": [
+            1,
+            1643,
+            14786
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.519834041595459,
+          "validation_macro_auroc": 0.7738891003090717,
+          "average_exit_depth": 2.7998783588409424,
+          "exit_counts": [
+            1,
+            3286,
+            13143
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5247563719749451,
+          "validation_macro_auroc": 0.7707864623269136,
+          "average_exit_depth": 2.699878215789795,
+          "exit_counts": [
+            1,
+            4929,
+            11500
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5296380519866943,
+          "validation_macro_auroc": 0.7667112495020691,
+          "average_exit_depth": 2.5999391078948975,
+          "exit_counts": [
+            1,
+            6571,
+            9858
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5328354239463806,
+          "validation_macro_auroc": 0.7639284359207448,
+          "average_exit_depth": 2.499939203262329,
+          "exit_counts": [
+            1,
+            8214,
+            8215
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5362319350242615,
+          "validation_macro_auroc": 0.7609794404519081,
+          "average_exit_depth": 2.3999390602111816,
+          "exit_counts": [
+            1,
+            9857,
+            6572
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5392683148384094,
+          "validation_macro_auroc": 0.760296285104093,
+          "average_exit_depth": 2.2999391555786133,
+          "exit_counts": [
+            1,
+            11500,
+            4929
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5416602492332458,
+          "validation_macro_auroc": 0.7584103610215926,
+          "average_exit_depth": 2.199939250946045,
+          "exit_counts": [
+            1,
+            13143,
+            3286
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5438312888145447,
+          "validation_macro_auroc": 0.7580105016138557,
+          "average_exit_depth": 2.0998783111572266,
+          "exit_counts": [
+            1,
+            14787,
+            1642
+          ]
+        },
+        {
+          "threshold1": 0.5580371618270874,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5452620983123779,
+          "validation_macro_auroc": 0.7579686264623677,
+          "average_exit_depth": 1.9999390840530396,
+          "exit_counts": [
+            1,
+            16429,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": -1.0,
+          "validation_bce": 0.5196501612663269,
+          "validation_macro_auroc": 0.7694885199636331,
+          "average_exit_depth": 2.799999952316284,
+          "exit_counts": [
+            1643,
+            0,
+            14787
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5196501612663269,
+          "validation_macro_auroc": 0.7694885199636331,
+          "average_exit_depth": 2.799999952316284,
+          "exit_counts": [
+            1643,
+            0,
+            14787
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5244703888893127,
+          "validation_macro_auroc": 0.7681435250426334,
+          "average_exit_depth": 2.7284843921661377,
+          "exit_counts": [
+            1643,
+            1175,
+            13612
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5294651389122009,
+          "validation_macro_auroc": 0.7664661741134379,
+          "average_exit_depth": 2.6435787677764893,
+          "exit_counts": [
+            1643,
+            2570,
+            12217
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.534101665019989,
+          "validation_macro_auroc": 0.7635142573246545,
+          "average_exit_depth": 2.5524649620056152,
+          "exit_counts": [
+            1643,
+            4067,
+            10720
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5385902523994446,
+          "validation_macro_auroc": 0.7593388687968549,
+          "average_exit_depth": 2.461533784866333,
+          "exit_counts": [
+            1643,
+            5561,
+            9226
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5412893891334534,
+          "validation_macro_auroc": 0.7571262581828394,
+          "average_exit_depth": 2.3701765537261963,
+          "exit_counts": [
+            1643,
+            7062,
+            7725
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5442625880241394,
+          "validation_macro_auroc": 0.7543916700842791,
+          "average_exit_depth": 2.2765064239501953,
+          "exit_counts": [
+            1643,
+            8601,
+            6186
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5469236969947815,
+          "validation_macro_auroc": 0.7542255426557849,
+          "average_exit_depth": 2.183809995651245,
+          "exit_counts": [
+            1643,
+            10124,
+            4663
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5492390990257263,
+          "validation_macro_auroc": 0.7523493454140839,
+          "average_exit_depth": 2.0897140502929688,
+          "exit_counts": [
+            1643,
+            11670,
+            3117
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5513231158256531,
+          "validation_macro_auroc": 0.7520488807544944,
+          "average_exit_depth": 1.9944005012512207,
+          "exit_counts": [
+            1643,
+            13236,
+            1551
+          ]
+        },
+        {
+          "threshold1": 0.6877709627151489,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5529091954231262,
+          "validation_macro_auroc": 0.7522325140361813,
+          "average_exit_depth": 1.899999976158142,
+          "exit_counts": [
+            1643,
+            14787,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": -1.0,
+          "validation_bce": 0.5306973457336426,
+          "validation_macro_auroc": 0.7602167178003617,
+          "average_exit_depth": 2.5999999046325684,
+          "exit_counts": [
+            3286,
+            0,
+            13144
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5306973457336426,
+          "validation_macro_auroc": 0.7602167178003617,
+          "average_exit_depth": 2.5999999046325684,
+          "exit_counts": [
+            3286,
+            0,
+            13144
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5348839163780212,
+          "validation_macro_auroc": 0.7591080488275304,
+          "average_exit_depth": 2.5398662090301514,
+          "exit_counts": [
+            3286,
+            988,
+            12156
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5390837788581848,
+          "validation_macro_auroc": 0.7577716865303646,
+          "average_exit_depth": 2.467315912246704,
+          "exit_counts": [
+            3286,
+            2180,
+            10964
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5431587100028992,
+          "validation_macro_auroc": 0.7556148954582433,
+          "average_exit_depth": 2.3873403072357178,
+          "exit_counts": [
+            3286,
+            3494,
+            9650
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5473558306694031,
+          "validation_macro_auroc": 0.7516987606218704,
+          "average_exit_depth": 2.306816816329956,
+          "exit_counts": [
+            3286,
+            4817,
+            8327
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.549506664276123,
+          "validation_macro_auroc": 0.7499582937111704,
+          "average_exit_depth": 2.22495436668396,
+          "exit_counts": [
+            3286,
+            6162,
+            6982
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5522593855857849,
+          "validation_macro_auroc": 0.7477098130661642,
+          "average_exit_depth": 2.1410224437713623,
+          "exit_counts": [
+            3286,
+            7541,
+            5603
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5547122359275818,
+          "validation_macro_auroc": 0.7475337610731593,
+          "average_exit_depth": 2.057760238647461,
+          "exit_counts": [
+            3286,
+            8909,
+            4235
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5567997694015503,
+          "validation_macro_auroc": 0.7459098343814471,
+          "average_exit_depth": 1.9718806743621826,
+          "exit_counts": [
+            3286,
+            10320,
+            2824
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5586878061294556,
+          "validation_macro_auroc": 0.745378829591638,
+          "average_exit_depth": 1.886366367340088,
+          "exit_counts": [
+            3286,
+            11725,
+            1419
+          ]
+        },
+        {
+          "threshold1": 0.6903956532478333,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5599813461303711,
+          "validation_macro_auroc": 0.7451474920963352,
+          "average_exit_depth": 1.7999999523162842,
+          "exit_counts": [
+            3286,
+            13144,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": -1.0,
+          "validation_bce": 0.5413916707038879,
+          "validation_macro_auroc": 0.7511600983820461,
+          "average_exit_depth": 2.3998782634735107,
+          "exit_counts": [
+            4930,
+            0,
+            11500
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5413916707038879,
+          "validation_macro_auroc": 0.7511600983820461,
+          "average_exit_depth": 2.3998782634735107,
+          "exit_counts": [
+            4930,
+            0,
+            11500
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5448873043060303,
+          "validation_macro_auroc": 0.7503169044568992,
+          "average_exit_depth": 2.34875226020813,
+          "exit_counts": [
+            4930,
+            840,
+            10660
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5486528277397156,
+          "validation_macro_auroc": 0.74897197511341,
+          "average_exit_depth": 2.2874011993408203,
+          "exit_counts": [
+            4930,
+            1848,
+            9652
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5522834658622742,
+          "validation_macro_auroc": 0.7472168141538079,
+          "average_exit_depth": 2.2171638011932373,
+          "exit_counts": [
+            4930,
+            3002,
+            8498
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5559786558151245,
+          "validation_macro_auroc": 0.7442582331643726,
+          "average_exit_depth": 2.146987199783325,
+          "exit_counts": [
+            4930,
+            4155,
+            7345
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5578320622444153,
+          "validation_macro_auroc": 0.7424261698759419,
+          "average_exit_depth": 2.0748629570007324,
+          "exit_counts": [
+            4930,
+            5340,
+            6160
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5601926445960999,
+          "validation_macro_auroc": 0.7403728761821433,
+          "average_exit_depth": 2.0011563301086426,
+          "exit_counts": [
+            4930,
+            6551,
+            4949
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5623036026954651,
+          "validation_macro_auroc": 0.7402041011250928,
+          "average_exit_depth": 1.9278149604797363,
+          "exit_counts": [
+            4930,
+            7756,
+            3744
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5638681054115295,
+          "validation_macro_auroc": 0.7394916035740362,
+          "average_exit_depth": 1.8524041175842285,
+          "exit_counts": [
+            4930,
+            8995,
+            2505
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5654929280281067,
+          "validation_macro_auroc": 0.7386745106137068,
+          "average_exit_depth": 1.777114987373352,
+          "exit_counts": [
+            4930,
+            10232,
+            1268
+          ]
+        },
+        {
+          "threshold1": 0.6915010213851929,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5668470859527588,
+          "validation_macro_auroc": 0.7385416826817431,
+          "average_exit_depth": 1.6999391317367554,
+          "exit_counts": [
+            4930,
+            11500,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": -1.0,
+          "validation_bce": 0.5528610944747925,
+          "validation_macro_auroc": 0.7420212489531819,
+          "average_exit_depth": 2.200000047683716,
+          "exit_counts": [
+            6572,
+            0,
+            9858
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5528610944747925,
+          "validation_macro_auroc": 0.7420212489531819,
+          "average_exit_depth": 2.200000047683716,
+          "exit_counts": [
+            6572,
+            0,
+            9858
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5557820200920105,
+          "validation_macro_auroc": 0.7413736043479163,
+          "average_exit_depth": 2.156421184539795,
+          "exit_counts": [
+            6572,
+            716,
+            9142
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5589093565940857,
+          "validation_macro_auroc": 0.7405490962034588,
+          "average_exit_depth": 2.1055386066436768,
+          "exit_counts": [
+            6572,
+            1552,
+            8306
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5618535280227661,
+          "validation_macro_auroc": 0.7393101137893587,
+          "average_exit_depth": 2.0472307205200195,
+          "exit_counts": [
+            6572,
+            2510,
+            7348
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5650976896286011,
+          "validation_macro_auroc": 0.7369409978735293,
+          "average_exit_depth": 1.9863663911819458,
+          "exit_counts": [
+            6572,
+            3510,
+            6348
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5667879581451416,
+          "validation_macro_auroc": 0.735257106900448,
+          "average_exit_depth": 1.9243457317352295,
+          "exit_counts": [
+            6572,
+            4529,
+            5329
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5690796375274658,
+          "validation_macro_auroc": 0.7334358976493608,
+          "average_exit_depth": 1.861229419708252,
+          "exit_counts": [
+            6572,
+            5566,
+            4292
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5708268284797668,
+          "validation_macro_auroc": 0.7333456995096828,
+          "average_exit_depth": 1.7978088855743408,
+          "exit_counts": [
+            6572,
+            6608,
+            3250
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5720947980880737,
+          "validation_macro_auroc": 0.7326891743211343,
+          "average_exit_depth": 1.7335362434387207,
+          "exit_counts": [
+            6572,
+            7664,
+            2194
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5736216902732849,
+          "validation_macro_auroc": 0.7314669825934487,
+          "average_exit_depth": 1.6670116186141968,
+          "exit_counts": [
+            6572,
+            8757,
+            1101
+          ]
+        },
+        {
+          "threshold1": 0.6921225786209106,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5747483968734741,
+          "validation_macro_auroc": 0.7314834114566884,
+          "average_exit_depth": 1.600000023841858,
+          "exit_counts": [
+            6572,
+            9858,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": -1.0,
+          "validation_bce": 0.5645216703414917,
+          "validation_macro_auroc": 0.7316511312577922,
+          "average_exit_depth": 1.9998782873153687,
+          "exit_counts": [
+            8216,
+            0,
+            8214
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5645216703414917,
+          "validation_macro_auroc": 0.7316511312577922,
+          "average_exit_depth": 1.9998782873153687,
+          "exit_counts": [
+            8216,
+            0,
+            8214
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5667216181755066,
+          "validation_macro_auroc": 0.7310944094558399,
+          "average_exit_depth": 1.9653682708740234,
+          "exit_counts": [
+            8216,
+            567,
+            7647
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5693463087081909,
+          "validation_macro_auroc": 0.7301994226792202,
+          "average_exit_depth": 1.9234936237335205,
+          "exit_counts": [
+            8216,
+            1255,
+            6959
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5718222260475159,
+          "validation_macro_auroc": 0.7290921829347081,
+          "average_exit_depth": 1.875349998474121,
+          "exit_counts": [
+            8216,
+            2046,
+            6168
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5743808746337891,
+          "validation_macro_auroc": 0.7271223600430918,
+          "average_exit_depth": 1.8246500492095947,
+          "exit_counts": [
+            8216,
+            2879,
+            5335
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5757566094398499,
+          "validation_macro_auroc": 0.7261750154726776,
+          "average_exit_depth": 1.7731589078903198,
+          "exit_counts": [
+            8216,
+            3725,
+            4489
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5772525668144226,
+          "validation_macro_auroc": 0.7247500132182053,
+          "average_exit_depth": 1.7221546173095703,
+          "exit_counts": [
+            8216,
+            4563,
+            3651
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.578606128692627,
+          "validation_macro_auroc": 0.724998862948142,
+          "average_exit_depth": 1.6682896614074707,
+          "exit_counts": [
+            8216,
+            5448,
+            2766
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.579706072807312,
+          "validation_macro_auroc": 0.7239959033828748,
+          "average_exit_depth": 1.6134510040283203,
+          "exit_counts": [
+            8216,
+            6349,
+            1865
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.580885112285614,
+          "validation_macro_auroc": 0.7233687442484061,
+          "average_exit_depth": 1.55763840675354,
+          "exit_counts": [
+            8216,
+            7266,
+            948
+          ]
+        },
+        {
+          "threshold1": 0.6925300359725952,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.58183354139328,
+          "validation_macro_auroc": 0.7234143312893879,
+          "average_exit_depth": 1.4999390840530396,
+          "exit_counts": [
+            8216,
+            8214,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": -1.0,
+          "validation_bce": 0.575215220451355,
+          "validation_macro_auroc": 0.7219969382704304,
+          "average_exit_depth": 1.7999999523162842,
+          "exit_counts": [
+            9858,
+            0,
+            6572
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.575215220451355,
+          "validation_macro_auroc": 0.7219969382704304,
+          "average_exit_depth": 1.7999999523162842,
+          "exit_counts": [
+            9858,
+            0,
+            6572
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5769309997558594,
+          "validation_macro_auroc": 0.7215681008166362,
+          "average_exit_depth": 1.773828387260437,
+          "exit_counts": [
+            9858,
+            430,
+            6142
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5789488554000854,
+          "validation_macro_auroc": 0.7207516856058455,
+          "average_exit_depth": 1.7404747009277344,
+          "exit_counts": [
+            9858,
+            978,
+            5594
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5809962749481201,
+          "validation_macro_auroc": 0.7196727137201029,
+          "average_exit_depth": 1.7000608444213867,
+          "exit_counts": [
+            9858,
+            1642,
+            4930
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5831706523895264,
+          "validation_macro_auroc": 0.7177851644022825,
+          "average_exit_depth": 1.6595252752304077,
+          "exit_counts": [
+            9858,
+            2308,
+            4264
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5843527913093567,
+          "validation_macro_auroc": 0.7165549486369984,
+          "average_exit_depth": 1.6184418201446533,
+          "exit_counts": [
+            9858,
+            2983,
+            3589
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5853366851806641,
+          "validation_macro_auroc": 0.715034924104619,
+          "average_exit_depth": 1.5776019096374512,
+          "exit_counts": [
+            9858,
+            3654,
+            2918
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5862626433372498,
+          "validation_macro_auroc": 0.7155840286325503,
+          "average_exit_depth": 1.5349969863891602,
+          "exit_counts": [
+            9858,
+            4354,
+            2218
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5871343612670898,
+          "validation_macro_auroc": 0.7147519889939324,
+          "average_exit_depth": 1.4914181232452393,
+          "exit_counts": [
+            9858,
+            5070,
+            1502
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5882187485694885,
+          "validation_macro_auroc": 0.7142436165530079,
+          "average_exit_depth": 1.446013331413269,
+          "exit_counts": [
+            9858,
+            5816,
+            756
+          ]
+        },
+        {
+          "threshold1": 0.6927929520606995,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.589106559753418,
+          "validation_macro_auroc": 0.7144302983226452,
+          "average_exit_depth": 1.399999976158142,
+          "exit_counts": [
+            9858,
+            6572,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": -1.0,
+          "validation_bce": 0.5853148698806763,
+          "validation_macro_auroc": 0.7123267139156907,
+          "average_exit_depth": 1.600000023841858,
+          "exit_counts": [
+            11501,
+            0,
+            4929
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5853148698806763,
+          "validation_macro_auroc": 0.7123267139156907,
+          "average_exit_depth": 1.600000023841858,
+          "exit_counts": [
+            11501,
+            0,
+            4929
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.5866792798042297,
+          "validation_macro_auroc": 0.7119196206734193,
+          "average_exit_depth": 1.5805842876434326,
+          "exit_counts": [
+            11501,
+            319,
+            4610
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5880705714225769,
+          "validation_macro_auroc": 0.7114662637873004,
+          "average_exit_depth": 1.5562994480133057,
+          "exit_counts": [
+            11501,
+            718,
+            4211
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5894457697868347,
+          "validation_macro_auroc": 0.7105269977571537,
+          "average_exit_depth": 1.5258064270019531,
+          "exit_counts": [
+            11501,
+            1219,
+            3710
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5908001661300659,
+          "validation_macro_auroc": 0.7095922410916011,
+          "average_exit_depth": 1.4952526092529297,
+          "exit_counts": [
+            11501,
+            1721,
+            3208
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5918057560920715,
+          "validation_macro_auroc": 0.7075672728810872,
+          "average_exit_depth": 1.464942216873169,
+          "exit_counts": [
+            11501,
+            2219,
+            2710
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5924198031425476,
+          "validation_macro_auroc": 0.7060355620745769,
+          "average_exit_depth": 1.4338405132293701,
+          "exit_counts": [
+            11501,
+            2730,
+            2199
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.5932008624076843,
+          "validation_macro_auroc": 0.7065185414092354,
+          "average_exit_depth": 1.4016432762145996,
+          "exit_counts": [
+            11501,
+            3259,
+            1670
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.5940152406692505,
+          "validation_macro_auroc": 0.706023656447475,
+          "average_exit_depth": 1.3684723377227783,
+          "exit_counts": [
+            11501,
+            3804,
+            1125
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.5948953032493591,
+          "validation_macro_auroc": 0.7057553699032946,
+          "average_exit_depth": 1.3342057466506958,
+          "exit_counts": [
+            11501,
+            4367,
+            562
+          ]
+        },
+        {
+          "threshold1": 0.6929667592048645,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5955474972724915,
+          "validation_macro_auroc": 0.7061405986635093,
+          "average_exit_depth": 1.2999999523162842,
+          "exit_counts": [
+            11501,
+            4929,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": -1.0,
+          "validation_bce": 0.5955840945243835,
+          "validation_macro_auroc": 0.7022809417036623,
+          "average_exit_depth": 1.399999976158142,
+          "exit_counts": [
+            13144,
+            0,
+            3286
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.5955840945243835,
+          "validation_macro_auroc": 0.7022809417036623,
+          "average_exit_depth": 1.399999976158142,
+          "exit_counts": [
+            13144,
+            0,
+            3286
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.596390962600708,
+          "validation_macro_auroc": 0.7019957184496063,
+          "average_exit_depth": 1.3880705833435059,
+          "exit_counts": [
+            13144,
+            196,
+            3090
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.5973273515701294,
+          "validation_macro_auroc": 0.701564760336988,
+          "average_exit_depth": 1.3718198537826538,
+          "exit_counts": [
+            13144,
+            463,
+            2823
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.5981845855712891,
+          "validation_macro_auroc": 0.7008005245349006,
+          "average_exit_depth": 1.3513085842132568,
+          "exit_counts": [
+            13144,
+            800,
+            2486
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.5989187359809875,
+          "validation_macro_auroc": 0.7008720339531631,
+          "average_exit_depth": 1.331466794013977,
+          "exit_counts": [
+            13144,
+            1126,
+            2160
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.5995441675186157,
+          "validation_macro_auroc": 0.6996216640600508,
+          "average_exit_depth": 1.311503291130066,
+          "exit_counts": [
+            13144,
+            1454,
+            1832
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.5999066829681396,
+          "validation_macro_auroc": 0.6988008626732438,
+          "average_exit_depth": 1.2898356914520264,
+          "exit_counts": [
+            13144,
+            1810,
+            1476
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.6004109382629395,
+          "validation_macro_auroc": 0.6988221712645919,
+          "average_exit_depth": 1.2678028345108032,
+          "exit_counts": [
+            13144,
+            2172,
+            1114
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.6010218262672424,
+          "validation_macro_auroc": 0.698267911477378,
+          "average_exit_depth": 1.244978666305542,
+          "exit_counts": [
+            13144,
+            2547,
+            739
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.6018202900886536,
+          "validation_macro_auroc": 0.6974119128874767,
+          "average_exit_depth": 1.2217285633087158,
+          "exit_counts": [
+            13144,
+            2929,
+            357
+          ]
+        },
+        {
+          "threshold1": 0.6930758953094482,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.6020547747612,
+          "validation_macro_auroc": 0.69795241089247,
+          "average_exit_depth": 1.2000000476837158,
+          "exit_counts": [
+            13144,
+            3286,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": -1.0,
+          "validation_bce": 0.6043828129768372,
+          "validation_macro_auroc": 0.692342234359866,
+          "average_exit_depth": 1.1995130777359009,
+          "exit_counts": [
+            14791,
+            0,
+            1639
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.6043828129768372,
+          "validation_macro_auroc": 0.692342234359866,
+          "average_exit_depth": 1.1995130777359009,
+          "exit_counts": [
+            14791,
+            0,
+            1639
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.6048255562782288,
+          "validation_macro_auroc": 0.6920360460000903,
+          "average_exit_depth": 1.1927571296691895,
+          "exit_counts": [
+            14791,
+            111,
+            1528
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.6053494215011597,
+          "validation_macro_auroc": 0.6917709494123624,
+          "average_exit_depth": 1.1846013069152832,
+          "exit_counts": [
+            14791,
+            245,
+            1394
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.6056836843490601,
+          "validation_macro_auroc": 0.6912197639188036,
+          "average_exit_depth": 1.174376130104065,
+          "exit_counts": [
+            14791,
+            413,
+            1226
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.605980396270752,
+          "validation_macro_auroc": 0.6913359071412065,
+          "average_exit_depth": 1.1643335819244385,
+          "exit_counts": [
+            14791,
+            578,
+            1061
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.6062247157096863,
+          "validation_macro_auroc": 0.6903626667738302,
+          "average_exit_depth": 1.1539865732192993,
+          "exit_counts": [
+            14791,
+            748,
+            891
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.6063259840011597,
+          "validation_macro_auroc": 0.6900379931973204,
+          "average_exit_depth": 1.1437005996704102,
+          "exit_counts": [
+            14791,
+            917,
+            722
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.6067646145820618,
+          "validation_macro_auroc": 0.690711920750213,
+          "average_exit_depth": 1.1326841115951538,
+          "exit_counts": [
+            14791,
+            1098,
+            541
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.6070540547370911,
+          "validation_macro_auroc": 0.6902838721319648,
+          "average_exit_depth": 1.1214241981506348,
+          "exit_counts": [
+            14791,
+            1283,
+            356
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.607500433921814,
+          "validation_macro_auroc": 0.6892936527357552,
+          "average_exit_depth": 1.1101642847061157,
+          "exit_counts": [
+            14791,
+            1468,
+            171
+          ]
+        },
+        {
+          "threshold1": 0.6931315660476685,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.6077705025672913,
+          "validation_macro_auroc": 0.6898901429023525,
+          "average_exit_depth": 1.0997565984725952,
+          "exit_counts": [
+            14791,
+            1639,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": -1.0,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.4506077170372009,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.632786214351654,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6607269048690796,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6751946210861206,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6828078627586365,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.68733811378479,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6900503635406494,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6916825175285339,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6925920248031616,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6930270195007324,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.6141329407691956,
+          "validation_macro_auroc": 0.6822946139616515,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "calibrated": {
+      "policy": {
+        "threshold1": 0.3224778175354004,
+        "threshold2": 0.6675233244895935,
+        "temperatures": [
+          0.5064132837916171,
+          0.8337381141670756,
+          1.0058426837715837
+        ],
+        "aggregation": "max"
+      },
+      "selection": {
+        "threshold1": 0.3224778175354004,
+        "threshold2": 0.6675233244895935,
+        "validation_bce": 0.519572913646698,
+        "validation_macro_auroc": 0.7717814697157758,
+        "average_exit_depth": 2.699878215789795,
+        "exit_counts": [
+          1,
+          4929,
+          11500
+        ],
+        "final_exit_validation_bce": 0.5079632997512817,
+        "final_exit_validation_macro_auroc": 0.7786083561741385,
+        "max_bce_increase": 0.02,
+        "max_auroc_drop": 0.01
+      },
+      "validation_metrics": {
+        "binary_bce": 0.519572913646698,
+        "binary_ece": 0.2849326431751251,
+        "macro_auroc": 0.7717814697157758,
+        "per_label_auroc": {
+          "Atelectasis": 0.7701357408544575,
+          "Effusion": 0.8425848553688651,
+          "Mass": 0.7463601271874776,
+          "Nodule": 0.6807092576989459,
+          "Pneumothorax": 0.8191173674691328
+        },
+        "macro_f1": 0.2802111856375561,
+        "subset_accuracy": 0.3871576488018036,
+        "exit_counts": [
+          1,
+          4929,
+          11500
+        ],
+        "average_exit_depth": 2.699878215789795
+      },
+      "threshold_sweep": [
+        {
+          "threshold1": -1.0,
+          "threshold2": -1.0,
+          "validation_bce": 0.5079632997512817,
+          "validation_macro_auroc": 0.7786083561741385,
+          "average_exit_depth": 3.0,
+          "exit_counts": [
+            0,
+            0,
+            16430
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5079637765884399,
+          "validation_macro_auroc": 0.7786082684682736,
+          "average_exit_depth": 2.999939203262329,
+          "exit_counts": [
+            0,
+            1,
+            16429
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5118342041969299,
+          "validation_macro_auroc": 0.7766246626433395,
+          "average_exit_depth": 2.9000000953674316,
+          "exit_counts": [
+            0,
+            1643,
+            14787
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5156220197677612,
+          "validation_macro_auroc": 0.7745073715103227,
+          "average_exit_depth": 2.799999952316284,
+          "exit_counts": [
+            0,
+            3286,
+            13144
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5195329785346985,
+          "validation_macro_auroc": 0.7717968479067469,
+          "average_exit_depth": 2.700000047683716,
+          "exit_counts": [
+            0,
+            4929,
+            11501
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5245201587677002,
+          "validation_macro_auroc": 0.7677519027820884,
+          "average_exit_depth": 2.5999999046325684,
+          "exit_counts": [
+            0,
+            6572,
+            9858
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5280262231826782,
+          "validation_macro_auroc": 0.765029583312382,
+          "average_exit_depth": 2.5,
+          "exit_counts": [
+            0,
+            8215,
+            8215
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5317729711532593,
+          "validation_macro_auroc": 0.76232986382612,
+          "average_exit_depth": 2.4000000953674316,
+          "exit_counts": [
+            0,
+            9858,
+            6572
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5352318286895752,
+          "validation_macro_auroc": 0.7611910535384886,
+          "average_exit_depth": 2.299999952316284,
+          "exit_counts": [
+            0,
+            11501,
+            4929
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5380932092666626,
+          "validation_macro_auroc": 0.7591855770008868,
+          "average_exit_depth": 2.200000047683716,
+          "exit_counts": [
+            0,
+            13144,
+            3286
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5406618118286133,
+          "validation_macro_auroc": 0.7584038270220187,
+          "average_exit_depth": 2.0999999046325684,
+          "exit_counts": [
+            0,
+            14787,
+            1643
+          ]
+        },
+        {
+          "threshold1": -1.0,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5423138737678528,
+          "validation_macro_auroc": 0.7579843416923373,
+          "average_exit_depth": 2.0,
+          "exit_counts": [
+            0,
+            16430,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": -1.0,
+          "validation_bce": 0.5080031752586365,
+          "validation_macro_auroc": 0.7785927216616909,
+          "average_exit_depth": 2.999878168106079,
+          "exit_counts": [
+            1,
+            0,
+            16429
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5080035924911499,
+          "validation_macro_auroc": 0.7785926339558261,
+          "average_exit_depth": 2.999817371368408,
+          "exit_counts": [
+            1,
+            1,
+            16428
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5118740797042847,
+          "validation_macro_auroc": 0.7766092487350548,
+          "average_exit_depth": 2.8998782634735107,
+          "exit_counts": [
+            1,
+            1643,
+            14786
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.515661895275116,
+          "validation_macro_auroc": 0.7744919442681288,
+          "average_exit_depth": 2.7998783588409424,
+          "exit_counts": [
+            1,
+            3286,
+            13143
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.519572913646698,
+          "validation_macro_auroc": 0.7717814697157758,
+          "average_exit_depth": 2.699878215789795,
+          "exit_counts": [
+            1,
+            4929,
+            11500
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5245694518089294,
+          "validation_macro_auroc": 0.7677334849270258,
+          "average_exit_depth": 2.5999391078948975,
+          "exit_counts": [
+            1,
+            6571,
+            9858
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5280755758285522,
+          "validation_macro_auroc": 0.7650110343764098,
+          "average_exit_depth": 2.499939203262329,
+          "exit_counts": [
+            1,
+            8214,
+            8215
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5318222045898438,
+          "validation_macro_auroc": 0.7623112740477881,
+          "average_exit_depth": 2.3999390602111816,
+          "exit_counts": [
+            1,
+            9857,
+            6572
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5352811217308044,
+          "validation_macro_auroc": 0.7611723526590943,
+          "average_exit_depth": 2.2999391555786133,
+          "exit_counts": [
+            1,
+            11500,
+            4929
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5381425023078918,
+          "validation_macro_auroc": 0.7591668011219697,
+          "average_exit_depth": 2.199939250946045,
+          "exit_counts": [
+            1,
+            13143,
+            3286
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5407110452651978,
+          "validation_macro_auroc": 0.7583849294609879,
+          "average_exit_depth": 2.0999391078948975,
+          "exit_counts": [
+            1,
+            14786,
+            1643
+          ]
+        },
+        {
+          "threshold1": 0.3224778175354004,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5423632264137268,
+          "validation_macro_auroc": 0.75796528427336,
+          "average_exit_depth": 1.9999390840530396,
+          "exit_counts": [
+            1,
+            16429,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": -1.0,
+          "validation_bce": 0.5174106955528259,
+          "validation_macro_auroc": 0.7700238335794938,
+          "average_exit_depth": 2.799999952316284,
+          "exit_counts": [
+            1643,
+            0,
+            14787
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5174106955528259,
+          "validation_macro_auroc": 0.7700238335794938,
+          "average_exit_depth": 2.799999952316284,
+          "exit_counts": [
+            1643,
+            0,
+            14787
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5205227732658386,
+          "validation_macro_auroc": 0.7689593597335432,
+          "average_exit_depth": 2.7284843921661377,
+          "exit_counts": [
+            1643,
+            1175,
+            13612
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5241613984107971,
+          "validation_macro_auroc": 0.7674691992418655,
+          "average_exit_depth": 2.6435787677764893,
+          "exit_counts": [
+            1643,
+            2570,
+            12217
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5277234315872192,
+          "validation_macro_auroc": 0.7650003945416144,
+          "average_exit_depth": 2.5524649620056152,
+          "exit_counts": [
+            1643,
+            4067,
+            10720
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5322500467300415,
+          "validation_macro_auroc": 0.7609861548608816,
+          "average_exit_depth": 2.461533784866333,
+          "exit_counts": [
+            1643,
+            5561,
+            9226
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5350564122200012,
+          "validation_macro_auroc": 0.7589006526383386,
+          "average_exit_depth": 2.3701765537261963,
+          "exit_counts": [
+            1643,
+            7062,
+            7725
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5383180379867554,
+          "validation_macro_auroc": 0.756394355381027,
+          "average_exit_depth": 2.2765064239501953,
+          "exit_counts": [
+            1643,
+            8601,
+            6186
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5413243770599365,
+          "validation_macro_auroc": 0.7556240834023277,
+          "average_exit_depth": 2.183809995651245,
+          "exit_counts": [
+            1643,
+            10124,
+            4663
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.543984591960907,
+          "validation_macro_auroc": 0.7535692222099566,
+          "average_exit_depth": 2.0897140502929688,
+          "exit_counts": [
+            1643,
+            11670,
+            3117
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5464019775390625,
+          "validation_macro_auroc": 0.7527834032016845,
+          "average_exit_depth": 1.9944612979888916,
+          "exit_counts": [
+            1643,
+            13235,
+            1552
+          ]
+        },
+        {
+          "threshold1": 0.6725061535835266,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.548148512840271,
+          "validation_macro_auroc": 0.7525614143643906,
+          "average_exit_depth": 1.899999976158142,
+          "exit_counts": [
+            1643,
+            14787,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": -1.0,
+          "validation_bce": 0.5268334150314331,
+          "validation_macro_auroc": 0.7602080551986319,
+          "average_exit_depth": 2.5999999046325684,
+          "exit_counts": [
+            3286,
+            0,
+            13144
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5268334150314331,
+          "validation_macro_auroc": 0.7602080551986319,
+          "average_exit_depth": 2.5999999046325684,
+          "exit_counts": [
+            3286,
+            0,
+            13144
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5295411348342896,
+          "validation_macro_auroc": 0.7593865433168977,
+          "average_exit_depth": 2.5398662090301514,
+          "exit_counts": [
+            3286,
+            988,
+            12156
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5324879288673401,
+          "validation_macro_auroc": 0.7582219445271042,
+          "average_exit_depth": 2.467315912246704,
+          "exit_counts": [
+            3286,
+            2180,
+            10964
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5356110334396362,
+          "validation_macro_auroc": 0.7564874439823783,
+          "average_exit_depth": 2.3873403072357178,
+          "exit_counts": [
+            3286,
+            3494,
+            9650
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5398622155189514,
+          "validation_macro_auroc": 0.7527866447869227,
+          "average_exit_depth": 2.306816816329956,
+          "exit_counts": [
+            3286,
+            4817,
+            8327
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5420706272125244,
+          "validation_macro_auroc": 0.7512673292220209,
+          "average_exit_depth": 2.22495436668396,
+          "exit_counts": [
+            3286,
+            6162,
+            6982
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5450080633163452,
+          "validation_macro_auroc": 0.7491844589518888,
+          "average_exit_depth": 2.1410224437713623,
+          "exit_counts": [
+            3286,
+            7541,
+            5603
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5477566123008728,
+          "validation_macro_auroc": 0.7485166803500639,
+          "average_exit_depth": 2.057760238647461,
+          "exit_counts": [
+            3286,
+            8909,
+            4235
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5501552224159241,
+          "validation_macro_auroc": 0.7466893941304582,
+          "average_exit_depth": 1.9718806743621826,
+          "exit_counts": [
+            3286,
+            10320,
+            2824
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5523954033851624,
+          "validation_macro_auroc": 0.7456837904020283,
+          "average_exit_depth": 1.8864272832870483,
+          "exit_counts": [
+            3286,
+            11724,
+            1420
+          ]
+        },
+        {
+          "threshold1": 0.6825032234191895,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.553841769695282,
+          "validation_macro_auroc": 0.745121502651495,
+          "average_exit_depth": 1.7999999523162842,
+          "exit_counts": [
+            3286,
+            13144,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": -1.0,
+          "validation_bce": 0.5354810357093811,
+          "validation_macro_auroc": 0.7518633021822485,
+          "average_exit_depth": 2.4000000953674316,
+          "exit_counts": [
+            4929,
+            0,
+            11501
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5354810357093811,
+          "validation_macro_auroc": 0.7518633021822485,
+          "average_exit_depth": 2.4000000953674316,
+          "exit_counts": [
+            4929,
+            0,
+            11501
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5377108454704285,
+          "validation_macro_auroc": 0.7512772405808471,
+          "average_exit_depth": 2.348874092102051,
+          "exit_counts": [
+            4929,
+            840,
+            10661
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5405015349388123,
+          "validation_macro_auroc": 0.7500887655812284,
+          "average_exit_depth": 2.287522792816162,
+          "exit_counts": [
+            4929,
+            1848,
+            9653
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5433477163314819,
+          "validation_macro_auroc": 0.7487292662034324,
+          "average_exit_depth": 2.217285394668579,
+          "exit_counts": [
+            4929,
+            3002,
+            8499
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5470291376113892,
+          "validation_macro_auroc": 0.7459940362828739,
+          "average_exit_depth": 2.147109031677246,
+          "exit_counts": [
+            4929,
+            4155,
+            7346
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5488596558570862,
+          "validation_macro_auroc": 0.744367406794962,
+          "average_exit_depth": 2.0749847888946533,
+          "exit_counts": [
+            4929,
+            5340,
+            6161
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5513999462127686,
+          "validation_macro_auroc": 0.7423409775721405,
+          "average_exit_depth": 2.0012781620025635,
+          "exit_counts": [
+            4929,
+            6551,
+            4950
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5537869930267334,
+          "validation_macro_auroc": 0.7417425735434457,
+          "average_exit_depth": 1.9279366731643677,
+          "exit_counts": [
+            4929,
+            7756,
+            3745
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5556243062019348,
+          "validation_macro_auroc": 0.7406948977644532,
+          "average_exit_depth": 1.8525258302688599,
+          "exit_counts": [
+            4929,
+            8995,
+            2506
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5575457215309143,
+          "validation_macro_auroc": 0.7395422080013072,
+          "average_exit_depth": 1.7772976160049438,
+          "exit_counts": [
+            4929,
+            10231,
+            1270
+          ]
+        },
+        {
+          "threshold1": 0.6867586970329285,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5589805245399475,
+          "validation_macro_auroc": 0.7391025379359786,
+          "average_exit_depth": 1.7000000476837158,
+          "exit_counts": [
+            4929,
+            11501,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": -1.0,
+          "validation_bce": 0.544987142086029,
+          "validation_macro_auroc": 0.742533883510313,
+          "average_exit_depth": 2.200000047683716,
+          "exit_counts": [
+            6572,
+            0,
+            9858
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.544987142086029,
+          "validation_macro_auroc": 0.742533883510313,
+          "average_exit_depth": 2.200000047683716,
+          "exit_counts": [
+            6572,
+            0,
+            9858
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5468408465385437,
+          "validation_macro_auroc": 0.7421281409325146,
+          "average_exit_depth": 2.156421184539795,
+          "exit_counts": [
+            6572,
+            716,
+            9142
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.549201250076294,
+          "validation_macro_auroc": 0.7415652289911664,
+          "average_exit_depth": 2.1055386066436768,
+          "exit_counts": [
+            6572,
+            1552,
+            8306
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5515357851982117,
+          "validation_macro_auroc": 0.7406486308558993,
+          "average_exit_depth": 2.0472307205200195,
+          "exit_counts": [
+            6572,
+            2510,
+            7348
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5547435879707336,
+          "validation_macro_auroc": 0.7384900638868662,
+          "average_exit_depth": 1.9863663911819458,
+          "exit_counts": [
+            6572,
+            3510,
+            6348
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5564911961555481,
+          "validation_macro_auroc": 0.736976428686471,
+          "average_exit_depth": 1.9243457317352295,
+          "exit_counts": [
+            6572,
+            4529,
+            5329
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5588949918746948,
+          "validation_macro_auroc": 0.7351157814684292,
+          "average_exit_depth": 1.861229419708252,
+          "exit_counts": [
+            6572,
+            5566,
+            4292
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5609276294708252,
+          "validation_macro_auroc": 0.7344909085658567,
+          "average_exit_depth": 1.7978088855743408,
+          "exit_counts": [
+            6572,
+            6608,
+            3250
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.562430202960968,
+          "validation_macro_auroc": 0.7334762758533968,
+          "average_exit_depth": 1.7335362434387207,
+          "exit_counts": [
+            6572,
+            7664,
+            2194
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.564218282699585,
+          "validation_macro_auroc": 0.7320891373864843,
+          "average_exit_depth": 1.6670724153518677,
+          "exit_counts": [
+            6572,
+            8756,
+            1102
+          ]
+        },
+        {
+          "threshold1": 0.689163863658905,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5654104351997375,
+          "validation_macro_auroc": 0.7318107060130071,
+          "average_exit_depth": 1.600000023841858,
+          "exit_counts": [
+            6572,
+            9858,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": -1.0,
+          "validation_bce": 0.5544119477272034,
+          "validation_macro_auroc": 0.7325272301016391,
+          "average_exit_depth": 2.0,
+          "exit_counts": [
+            8215,
+            0,
+            8215
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5544119477272034,
+          "validation_macro_auroc": 0.7325272301016391,
+          "average_exit_depth": 2.0,
+          "exit_counts": [
+            8215,
+            0,
+            8215
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5557635426521301,
+          "validation_macro_auroc": 0.7321475110097347,
+          "average_exit_depth": 1.9654899835586548,
+          "exit_counts": [
+            8215,
+            567,
+            7648
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5577911138534546,
+          "validation_macro_auroc": 0.7314316667789353,
+          "average_exit_depth": 1.9236153364181519,
+          "exit_counts": [
+            8215,
+            1255,
+            6960
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5598205327987671,
+          "validation_macro_auroc": 0.7305941088919423,
+          "average_exit_depth": 1.8754717111587524,
+          "exit_counts": [
+            8215,
+            2046,
+            6169
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5623189210891724,
+          "validation_macro_auroc": 0.7288279449376776,
+          "average_exit_depth": 1.824771761894226,
+          "exit_counts": [
+            8215,
+            2879,
+            5336
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5637250542640686,
+          "validation_macro_auroc": 0.7280146096473665,
+          "average_exit_depth": 1.7732806205749512,
+          "exit_counts": [
+            8215,
+            3725,
+            4490
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5653031468391418,
+          "validation_macro_auroc": 0.7264797761015807,
+          "average_exit_depth": 1.7222763299942017,
+          "exit_counts": [
+            8215,
+            4563,
+            3652
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5668776631355286,
+          "validation_macro_auroc": 0.7262786942600175,
+          "average_exit_depth": 1.6683505773544312,
+          "exit_counts": [
+            8215,
+            5449,
+            2766
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5682098269462585,
+          "validation_macro_auroc": 0.7249219070952838,
+          "average_exit_depth": 1.6135119199752808,
+          "exit_counts": [
+            8215,
+            6350,
+            1865
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5695797801017761,
+          "validation_macro_auroc": 0.7240877198266902,
+          "average_exit_depth": 1.557760238647461,
+          "exit_counts": [
+            8215,
+            7266,
+            949
+          ]
+        },
+        {
+          "threshold1": 0.6907449960708618,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5705901384353638,
+          "validation_macro_auroc": 0.7237767485319637,
+          "average_exit_depth": 1.5,
+          "exit_counts": [
+            8215,
+            8215,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": -1.0,
+          "validation_bce": 0.5626341104507446,
+          "validation_macro_auroc": 0.7232720319887244,
+          "average_exit_depth": 1.7999999523162842,
+          "exit_counts": [
+            9858,
+            0,
+            6572
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5626341104507446,
+          "validation_macro_auroc": 0.7232720319887244,
+          "average_exit_depth": 1.7999999523162842,
+          "exit_counts": [
+            9858,
+            0,
+            6572
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5637098550796509,
+          "validation_macro_auroc": 0.7229665428897359,
+          "average_exit_depth": 1.773828387260437,
+          "exit_counts": [
+            9858,
+            430,
+            6142
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5653020739555359,
+          "validation_macro_auroc": 0.7222956629775812,
+          "average_exit_depth": 1.7404747009277344,
+          "exit_counts": [
+            9858,
+            978,
+            5594
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5669720768928528,
+          "validation_macro_auroc": 0.7215285110541181,
+          "average_exit_depth": 1.7000608444213867,
+          "exit_counts": [
+            9858,
+            1642,
+            4930
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5691218376159668,
+          "validation_macro_auroc": 0.7197935688090749,
+          "average_exit_depth": 1.6595252752304077,
+          "exit_counts": [
+            9858,
+            2308,
+            4264
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5703927874565125,
+          "validation_macro_auroc": 0.7186401893746943,
+          "average_exit_depth": 1.6184418201446533,
+          "exit_counts": [
+            9858,
+            2983,
+            3589
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5714803338050842,
+          "validation_macro_auroc": 0.7171709403636729,
+          "average_exit_depth": 1.5776019096374512,
+          "exit_counts": [
+            9858,
+            3654,
+            2918
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.572613537311554,
+          "validation_macro_auroc": 0.7172617566882779,
+          "average_exit_depth": 1.5349969863891602,
+          "exit_counts": [
+            9858,
+            4354,
+            2218
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5736483335494995,
+          "validation_macro_auroc": 0.7160368894156,
+          "average_exit_depth": 1.4914181232452393,
+          "exit_counts": [
+            9858,
+            5070,
+            1502
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5749089121818542,
+          "validation_macro_auroc": 0.7154758230273576,
+          "average_exit_depth": 1.446013331413269,
+          "exit_counts": [
+            9858,
+            5816,
+            756
+          ]
+        },
+        {
+          "threshold1": 0.6917675137519836,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5758469700813293,
+          "validation_macro_auroc": 0.7153634304572527,
+          "average_exit_depth": 1.399999976158142,
+          "exit_counts": [
+            9858,
+            6572,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": -1.0,
+          "validation_bce": 0.5704416632652283,
+          "validation_macro_auroc": 0.713435326429108,
+          "average_exit_depth": 1.600000023841858,
+          "exit_counts": [
+            11501,
+            0,
+            4929
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5704416632652283,
+          "validation_macro_auroc": 0.713435326429108,
+          "average_exit_depth": 1.600000023841858,
+          "exit_counts": [
+            11501,
+            0,
+            4929
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5713273882865906,
+          "validation_macro_auroc": 0.7131082024501574,
+          "average_exit_depth": 1.5805842876434326,
+          "exit_counts": [
+            11501,
+            319,
+            4610
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.572348415851593,
+          "validation_macro_auroc": 0.7126122393654308,
+          "average_exit_depth": 1.5562994480133057,
+          "exit_counts": [
+            11501,
+            718,
+            4211
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5734704732894897,
+          "validation_macro_auroc": 0.7119020762414067,
+          "average_exit_depth": 1.5258064270019531,
+          "exit_counts": [
+            11501,
+            1219,
+            3710
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5747528076171875,
+          "validation_macro_auroc": 0.7110148655696813,
+          "average_exit_depth": 1.4952526092529297,
+          "exit_counts": [
+            11501,
+            1721,
+            3208
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5759055018424988,
+          "validation_macro_auroc": 0.7093357226153553,
+          "average_exit_depth": 1.464942216873169,
+          "exit_counts": [
+            11501,
+            2219,
+            2710
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5766099691390991,
+          "validation_macro_auroc": 0.7078750622890123,
+          "average_exit_depth": 1.4338405132293701,
+          "exit_counts": [
+            11501,
+            2730,
+            2199
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5775713920593262,
+          "validation_macro_auroc": 0.7078582603059927,
+          "average_exit_depth": 1.4016432762145996,
+          "exit_counts": [
+            11501,
+            3259,
+            1670
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5785432457923889,
+          "validation_macro_auroc": 0.7069671908860597,
+          "average_exit_depth": 1.3684723377227783,
+          "exit_counts": [
+            11501,
+            3804,
+            1125
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.579521119594574,
+          "validation_macro_auroc": 0.7067454407380939,
+          "average_exit_depth": 1.3342057466506958,
+          "exit_counts": [
+            11501,
+            4367,
+            562
+          ]
+        },
+        {
+          "threshold1": 0.6924440264701843,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5802477598190308,
+          "validation_macro_auroc": 0.7068369954352429,
+          "average_exit_depth": 1.2999999523162842,
+          "exit_counts": [
+            11501,
+            4929,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": -1.0,
+          "validation_bce": 0.5785036087036133,
+          "validation_macro_auroc": 0.7031716843934243,
+          "average_exit_depth": 1.3997565507888794,
+          "exit_counts": [
+            13146,
+            0,
+            3284
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5785036087036133,
+          "validation_macro_auroc": 0.7031716843934243,
+          "average_exit_depth": 1.3997565507888794,
+          "exit_counts": [
+            13146,
+            0,
+            3284
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5790311098098755,
+          "validation_macro_auroc": 0.7029594810745738,
+          "average_exit_depth": 1.3878271579742432,
+          "exit_counts": [
+            13146,
+            196,
+            3088
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5797868967056274,
+          "validation_macro_auroc": 0.7025908219760083,
+          "average_exit_depth": 1.3715764284133911,
+          "exit_counts": [
+            13146,
+            463,
+            2821
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5804601311683655,
+          "validation_macro_auroc": 0.7019578885011876,
+          "average_exit_depth": 1.3510651588439941,
+          "exit_counts": [
+            13146,
+            800,
+            2484
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.581089973449707,
+          "validation_macro_auroc": 0.7019366412135584,
+          "average_exit_depth": 1.3312233686447144,
+          "exit_counts": [
+            13146,
+            1126,
+            2158
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5818064212799072,
+          "validation_macro_auroc": 0.7008634101262443,
+          "average_exit_depth": 1.3112598657608032,
+          "exit_counts": [
+            13146,
+            1454,
+            1830
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5822436809539795,
+          "validation_macro_auroc": 0.7000616706755773,
+          "average_exit_depth": 1.2895922660827637,
+          "exit_counts": [
+            13146,
+            1810,
+            1474
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5828489065170288,
+          "validation_macro_auroc": 0.6997747024567446,
+          "average_exit_depth": 1.267559289932251,
+          "exit_counts": [
+            13146,
+            2172,
+            1112
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5835890173912048,
+          "validation_macro_auroc": 0.6989912578983242,
+          "average_exit_depth": 1.2447352409362793,
+          "exit_counts": [
+            13146,
+            2547,
+            737
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5844630599021912,
+          "validation_macro_auroc": 0.6982800743950399,
+          "average_exit_depth": 1.2216068506240845,
+          "exit_counts": [
+            13146,
+            2927,
+            357
+          ]
+        },
+        {
+          "threshold1": 0.6928695440292358,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.584748387336731,
+          "validation_macro_auroc": 0.6985571992873854,
+          "average_exit_depth": 1.199878215789795,
+          "exit_counts": [
+            13146,
+            3284,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": -1.0,
+          "validation_bce": 0.5852492451667786,
+          "validation_macro_auroc": 0.692411280499545,
+          "average_exit_depth": 1.1997565031051636,
+          "exit_counts": [
+            14789,
+            0,
+            1641
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5852492451667786,
+          "validation_macro_auroc": 0.692411280499545,
+          "average_exit_depth": 1.1997565031051636,
+          "exit_counts": [
+            14789,
+            0,
+            1641
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5855566263198853,
+          "validation_macro_auroc": 0.6922073382257697,
+          "average_exit_depth": 1.1930005550384521,
+          "exit_counts": [
+            14789,
+            111,
+            1530
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5860010385513306,
+          "validation_macro_auroc": 0.6919649583715624,
+          "average_exit_depth": 1.1848448514938354,
+          "exit_counts": [
+            14789,
+            245,
+            1396
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5863143801689148,
+          "validation_macro_auroc": 0.6916342325742533,
+          "average_exit_depth": 1.1745587587356567,
+          "exit_counts": [
+            14789,
+            414,
+            1227
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.586555004119873,
+          "validation_macro_auroc": 0.6916460919478062,
+          "average_exit_depth": 1.1645160913467407,
+          "exit_counts": [
+            14789,
+            579,
+            1062
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5868258476257324,
+          "validation_macro_auroc": 0.6908785638055042,
+          "average_exit_depth": 1.1541082859039307,
+          "exit_counts": [
+            14789,
+            750,
+            891
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5869338512420654,
+          "validation_macro_auroc": 0.6906036542429819,
+          "average_exit_depth": 1.1438223123550415,
+          "exit_counts": [
+            14789,
+            919,
+            722
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5873793363571167,
+          "validation_macro_auroc": 0.6910909314520373,
+          "average_exit_depth": 1.1328058242797852,
+          "exit_counts": [
+            14789,
+            1100,
+            541
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5876989364624023,
+          "validation_macro_auroc": 0.6906451759178664,
+          "average_exit_depth": 1.1215459108352661,
+          "exit_counts": [
+            14789,
+            1285,
+            356
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.588200032711029,
+          "validation_macro_auroc": 0.6899244722299617,
+          "average_exit_depth": 1.1102861166000366,
+          "exit_counts": [
+            14789,
+            1470,
+            171
+          ]
+        },
+        {
+          "threshold1": 0.6930862665176392,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5884904265403748,
+          "validation_macro_auroc": 0.6902569522320615,
+          "average_exit_depth": 1.0998783111572266,
+          "exit_counts": [
+            14789,
+            1641,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": -1.0,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.38013312220573425,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6085885763168335,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6471669673919678,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6675233244895935,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6783403754234314,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6848115921020508,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6886980533599854,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6910414099693298,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6923487782478333,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.692974328994751,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        },
+        {
+          "threshold1": 0.6931471805599453,
+          "threshold2": 0.6931471805599453,
+          "validation_bce": 0.5929725766181946,
+          "validation_macro_auroc": 0.6822946133619598,
+          "average_exit_depth": 1.0,
+          "exit_counts": [
+            16430,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "split": "test",
+  "mode": "calibrated",
+  "checkpoint": "/var/scratch/bde2659/adaptiveInference/checkpoints/full_final_with_kd/best.pt",
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "calibration": "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/calibration.json",
+  "method": "offline_all_exits_diagnostic",
+  "degradation_parameters": {
+    "blur_sigma_pixels": {
+      "mild": 1.0,
+      "severe": 2.0
+    },
+    "noise_std_normalized": {
+      "mild": 0.05,
+      "severe": 0.15
+    }
+  },
+  "noise_seed": 42,
+  "confidence_error_definition": "at least one incorrect binary label with decision confidence >= threshold",
+  "confidence_threshold": 0.9,
+  "flops_source": "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/flops.json",
+  "measured_flops": {
+    "method": "module_hooks_2_flops_per_mac_plus_bn_relu_pool_residual_v1",
+    "convention": "2 FLOPs per multiply-add; counts Conv2d, Linear, BatchNorm2d, ReLU, MaxPool2d, AdaptiveAvgPool2d, residual adds; excludes routing entropy and memory operations",
+    "batch_size": 1,
+    "image_size": 224,
+    "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+    "model_parameter_bytes": 94103868,
+    "fixed_exit1": 3656932869,
+    "exit1": 3656932869,
+    "fixed_exit2": 6592886789,
+    "exit2": 6593293834,
+    "full": 8213357061,
+    "exit3": 8213976079
+  },
+  "conditions": [
+    {
+      "degradation": "blur",
+      "severity": "clean",
+      "budget": "LOW",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6547945141792297,
+      "mean_exit2_uncertainty": 0.6567031145095825,
+      "mean_preferred_depth": 2.5937628746032715,
+      "mean_actual_depth": 1.0,
+      "budget_forced_exit_rate": 1.0,
+      "average_flops_per_image": 3656932869.0,
+      "metrics": {
+        "binary_bce": 0.46643784642219543,
+        "binary_ece": 0.22397570312023163,
+        "macro_auroc": 0.6833732387592079,
+        "per_label_auroc": {
+          "Atelectasis": 0.6681079983241022,
+          "Effusion": 0.7426931180006604,
+          "Mass": 0.6554432421155851,
+          "Nodule": 0.6291609244812227,
+          "Pneumothorax": 0.721460910874469
+        },
+        "macro_f1": 0.21097179512699768,
+        "subset_accuracy": 0.4505099356174469,
+        "exit_counts": [
+          16963,
+          0,
+          0
+        ],
+        "average_exit_depth": 1.0
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "clean",
+      "budget": "MEDIUM",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6547945141792297,
+      "mean_exit2_uncertainty": 0.6567031145095825,
+      "mean_preferred_depth": 2.5937628746032715,
+      "mean_actual_depth": 2.0,
+      "budget_forced_exit_rate": 0.5937628746032715,
+      "average_flops_per_image": 6593293834.0,
+      "metrics": {
+        "binary_bce": 0.4940066337585449,
+        "binary_ece": 0.2641996145248413,
+        "macro_auroc": 0.7541931537748288,
+        "per_label_auroc": {
+          "Atelectasis": 0.7301519256765635,
+          "Effusion": 0.8278165435497551,
+          "Mass": 0.7397006535041194,
+          "Nodule": 0.6633446063598958,
+          "Pneumothorax": 0.8099520397838104
+        },
+        "macro_f1": 0.2688061543101572,
+        "subset_accuracy": 0.45351648330688477,
+        "exit_counts": [
+          0,
+          16963,
+          0
+        ],
+        "average_exit_depth": 2.0
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "clean",
+      "budget": "HIGH",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6547945141792297,
+      "mean_exit2_uncertainty": 0.6567031145095825,
+      "mean_preferred_depth": 2.5937628746032715,
+      "mean_actual_depth": 2.5937628746032715,
+      "budget_forced_exit_rate": 0.0,
+      "average_flops_per_image": 7555594816.823793,
+      "metrics": {
+        "binary_bce": 0.49792084097862244,
+        "binary_ece": 0.26989930868148804,
+        "macro_auroc": 0.773069093452288,
+        "per_label_auroc": {
+          "Atelectasis": 0.7462901602321732,
+          "Effusion": 0.8460563038339564,
+          "Mass": 0.7571326026324523,
+          "Nodule": 0.67744951396122,
+          "Pneumothorax": 0.8384168866016385
+        },
+        "macro_f1": 0.28624501371851196,
+        "subset_accuracy": 0.41460826992988586,
+        "exit_counts": [
+          0,
+          6891,
+          10072
+        ],
+        "average_exit_depth": 2.5937628746032715
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "mild",
+      "budget": "LOW",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6020230650901794,
+      "mean_exit2_uncertainty": 0.6479764580726624,
+      "mean_preferred_depth": 2.583623170852661,
+      "mean_actual_depth": 1.0,
+      "budget_forced_exit_rate": 0.9999410510063171,
+      "average_flops_per_image": 3656932869.0,
+      "metrics": {
+        "binary_bce": 0.33471712470054626,
+        "binary_ece": 0.1099727600812912,
+        "macro_auroc": 0.6735734239332707,
+        "per_label_auroc": {
+          "Atelectasis": 0.6678464312721348,
+          "Effusion": 0.7308910266449526,
+          "Mass": 0.6452493455398394,
+          "Nodule": 0.6240883283700647,
+          "Pneumothorax": 0.6997919878393617
+        },
+        "macro_f1": 0.1302325778167471,
+        "subset_accuracy": 0.6059069633483887,
+        "exit_counts": [
+          16963,
+          0,
+          0
+        ],
+        "average_exit_depth": 1.0
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "mild",
+      "budget": "MEDIUM",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6020230650901794,
+      "mean_exit2_uncertainty": 0.6479764580726624,
+      "mean_preferred_depth": 2.583623170852661,
+      "mean_actual_depth": 1.9999409914016724,
+      "budget_forced_exit_rate": 0.583682119846344,
+      "average_flops_per_image": 6593120730.128927,
+      "metrics": {
+        "binary_bce": 0.4501325488090515,
+        "binary_ece": 0.226973295211792,
+        "macro_auroc": 0.7390115177764539,
+        "per_label_auroc": {
+          "Atelectasis": 0.7211887742589116,
+          "Effusion": 0.8186614239380918,
+          "Mass": 0.7205915298172135,
+          "Nodule": 0.6508660863869266,
+          "Pneumothorax": 0.7837497744811259
+        },
+        "macro_f1": 0.24410391167487527,
+        "subset_accuracy": 0.44420209527015686,
+        "exit_counts": [
+          1,
+          16962,
+          0
+        ],
+        "average_exit_depth": 1.9999409914016724
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "mild",
+      "budget": "HIGH",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6020230650901794,
+      "mean_exit2_uncertainty": 0.6479764580726624,
+      "mean_preferred_depth": 2.583623170852661,
+      "mean_actual_depth": 2.583623170852661,
+      "budget_forced_exit_rate": 0.0,
+      "average_flops_per_image": 7539083997.6962805,
+      "metrics": {
+        "binary_bce": 0.4977414011955261,
+        "binary_ece": 0.2643927037715912,
+        "macro_auroc": 0.7511315524838132,
+        "per_label_auroc": {
+          "Atelectasis": 0.7271825903714713,
+          "Effusion": 0.8345998397607017,
+          "Mass": 0.730694887862072,
+          "Nodule": 0.6601264902433357,
+          "Pneumothorax": 0.8030539541814856
+        },
+        "macro_f1": 0.2702151902135962,
+        "subset_accuracy": 0.4038790166378021,
+        "exit_counts": [
+          1,
+          7061,
+          9901
+        ],
+        "average_exit_depth": 2.583623170852661
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "severe",
+      "budget": "LOW",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.5307379961013794,
+      "mean_exit2_uncertainty": 0.6160603165626526,
+      "mean_preferred_depth": 2.3967459201812744,
+      "mean_actual_depth": 1.0,
+      "budget_forced_exit_rate": 0.9998231530189514,
+      "average_flops_per_image": 3656932869.0,
+      "metrics": {
+        "binary_bce": 0.3066698908805847,
+        "binary_ece": 0.06802590191364288,
+        "macro_auroc": 0.6386762489739153,
+        "per_label_auroc": {
+          "Atelectasis": 0.647719016329784,
+          "Effusion": 0.6971183245828778,
+          "Mass": 0.6087006743372565,
+          "Nodule": 0.6028376232243753,
+          "Pneumothorax": 0.6370056063952827
+        },
+        "macro_f1": 0.07884523954410019,
+        "subset_accuracy": 0.6253610849380493,
+        "exit_counts": [
+          16963,
+          0,
+          0
+        ],
+        "average_exit_depth": 1.0
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "severe",
+      "budget": "MEDIUM",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.5307379961013794,
+      "mean_exit2_uncertainty": 0.6160603165626526,
+      "mean_preferred_depth": 2.3967459201812744,
+      "mean_actual_depth": 1.9998230934143066,
+      "budget_forced_exit_rate": 0.3969227075576782,
+      "average_flops_per_image": 6592774522.386783,
+      "metrics": {
+        "binary_bce": 0.352662593126297,
+        "binary_ece": 0.14918848872184753,
+        "macro_auroc": 0.6781720286353433,
+        "per_label_auroc": {
+          "Atelectasis": 0.681774831169362,
+          "Effusion": 0.7672756892797847,
+          "Mass": 0.6330172974969128,
+          "Nodule": 0.6072145110343006,
+          "Pneumothorax": 0.7015778141963562
+        },
+        "macro_f1": 0.13610238693229534,
+        "subset_accuracy": 0.5781996250152588,
+        "exit_counts": [
+          3,
+          16960,
+          0
+        ],
+        "average_exit_depth": 1.9998230934143066
+      }
+    },
+    {
+      "degradation": "blur",
+      "severity": "severe",
+      "budget": "HIGH",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.5307379961013794,
+      "mean_exit2_uncertainty": 0.6160603165626526,
+      "mean_preferred_depth": 2.3967459201812744,
+      "mean_actual_depth": 2.3967459201812744,
+      "budget_forced_exit_rate": 0.0,
+      "average_flops_per_image": 7236060117.834817,
+      "metrics": {
+        "binary_bce": 0.4029007852077484,
+        "binary_ece": 0.19131848216056824,
+        "macro_auroc": 0.6714774676211375,
+        "per_label_auroc": {
+          "Atelectasis": 0.6487830946006312,
+          "Effusion": 0.7582684091086839,
+          "Mass": 0.6302443855408896,
+          "Nodule": 0.6117170423810503,
+          "Pneumothorax": 0.7083744064744326
+        },
+        "macro_f1": 0.1937750330884155,
+        "subset_accuracy": 0.5249661207199097,
+        "exit_counts": [
+          3,
+          10227,
+          6733
+        ],
+        "average_exit_depth": 2.3967459201812744
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "clean",
+      "budget": "LOW",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6547945141792297,
+      "mean_exit2_uncertainty": 0.6567031145095825,
+      "mean_preferred_depth": 2.5937628746032715,
+      "mean_actual_depth": 1.0,
+      "budget_forced_exit_rate": 1.0,
+      "average_flops_per_image": 3656932869.0,
+      "metrics": {
+        "binary_bce": 0.46643784642219543,
+        "binary_ece": 0.22397570312023163,
+        "macro_auroc": 0.6833732387592079,
+        "per_label_auroc": {
+          "Atelectasis": 0.6681079983241022,
+          "Effusion": 0.7426931180006604,
+          "Mass": 0.6554432421155851,
+          "Nodule": 0.6291609244812227,
+          "Pneumothorax": 0.721460910874469
+        },
+        "macro_f1": 0.21097179512699768,
+        "subset_accuracy": 0.4505099356174469,
+        "exit_counts": [
+          16963,
+          0,
+          0
+        ],
+        "average_exit_depth": 1.0
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "clean",
+      "budget": "MEDIUM",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6547945141792297,
+      "mean_exit2_uncertainty": 0.6567031145095825,
+      "mean_preferred_depth": 2.5937628746032715,
+      "mean_actual_depth": 2.0,
+      "budget_forced_exit_rate": 0.5937628746032715,
+      "average_flops_per_image": 6593293834.0,
+      "metrics": {
+        "binary_bce": 0.4940066337585449,
+        "binary_ece": 0.2641996145248413,
+        "macro_auroc": 0.7541931537748288,
+        "per_label_auroc": {
+          "Atelectasis": 0.7301519256765635,
+          "Effusion": 0.8278165435497551,
+          "Mass": 0.7397006535041194,
+          "Nodule": 0.6633446063598958,
+          "Pneumothorax": 0.8099520397838104
+        },
+        "macro_f1": 0.2688061543101572,
+        "subset_accuracy": 0.45351648330688477,
+        "exit_counts": [
+          0,
+          16963,
+          0
+        ],
+        "average_exit_depth": 2.0
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "clean",
+      "budget": "HIGH",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.6547945141792297,
+      "mean_exit2_uncertainty": 0.6567031145095825,
+      "mean_preferred_depth": 2.5937628746032715,
+      "mean_actual_depth": 2.5937628746032715,
+      "budget_forced_exit_rate": 0.0,
+      "average_flops_per_image": 7555594816.823793,
+      "metrics": {
+        "binary_bce": 0.49792084097862244,
+        "binary_ece": 0.26989930868148804,
+        "macro_auroc": 0.773069093452288,
+        "per_label_auroc": {
+          "Atelectasis": 0.7462901602321732,
+          "Effusion": 0.8460563038339564,
+          "Mass": 0.7571326026324523,
+          "Nodule": 0.67744951396122,
+          "Pneumothorax": 0.8384168866016385
+        },
+        "macro_f1": 0.28624501371851196,
+        "subset_accuracy": 0.41460826992988586,
+        "exit_counts": [
+          0,
+          6891,
+          10072
+        ],
+        "average_exit_depth": 2.5937628746032715
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "mild",
+      "budget": "LOW",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.5850303173065186,
+      "mean_exit2_uncertainty": 0.676952600479126,
+      "mean_preferred_depth": 2.7942581176757812,
+      "mean_actual_depth": 1.0,
+      "budget_forced_exit_rate": 0.9998821020126343,
+      "average_flops_per_image": 3656932869.0,
+      "metrics": {
+        "binary_bce": 2.24623703956604,
+        "binary_ece": 0.7693326473236084,
+        "macro_auroc": 0.6556489015607156,
+        "per_label_auroc": {
+          "Atelectasis": 0.6543878447780019,
+          "Effusion": 0.7018125774216527,
+          "Mass": 0.6138687192729064,
+          "Nodule": 0.6122012734359589,
+          "Pneumothorax": 0.6959740928950583
+        },
+        "macro_f1": 0.14544903298610964,
+        "subset_accuracy": 0.0,
+        "exit_counts": [
+          16963,
+          0,
+          0
+        ],
+        "average_exit_depth": 1.0
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "mild",
+      "budget": "MEDIUM",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.5850303173065186,
+      "mean_exit2_uncertainty": 0.676952600479126,
+      "mean_preferred_depth": 2.7942581176757812,
+      "mean_actual_depth": 1.9998821020126343,
+      "budget_forced_exit_rate": 0.794376015663147,
+      "average_flops_per_image": 6592947626.257855,
+      "metrics": {
+        "binary_bce": 0.8541390895843506,
+        "binary_ece": 0.4457635283470154,
+        "macro_auroc": 0.7063481182295032,
+        "per_label_auroc": {
+          "Atelectasis": 0.7002799063073901,
+          "Effusion": 0.7739908710694618,
+          "Mass": 0.7065041910278813,
+          "Nodule": 0.6309612059546463,
+          "Pneumothorax": 0.7200044167881362
+        },
+        "macro_f1": 0.19860808929726273,
+        "subset_accuracy": 0.08807404339313507,
+        "exit_counts": [
+          2,
+          16961,
+          0
+        ],
+        "average_exit_depth": 1.9998821020126343
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "mild",
+      "budget": "HIGH",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.5850303173065186,
+      "mean_exit2_uncertainty": 0.676952600479126,
+      "mean_preferred_depth": 2.7942581176757812,
+      "mean_actual_depth": 2.7942581176757812,
+      "budget_forced_exit_rate": 0.0,
+      "average_flops_per_image": 7880378696.904263,
+      "metrics": {
+        "binary_bce": 0.7470240592956543,
+        "binary_ece": 0.39374497532844543,
+        "macro_auroc": 0.7098164687316828,
+        "per_label_auroc": {
+          "Atelectasis": 0.6995767372840529,
+          "Effusion": 0.7859204996262106,
+          "Mass": 0.7224987963869062,
+          "Nodule": 0.6378006871481914,
+          "Pneumothorax": 0.7032856232130529
+        },
+        "macro_f1": 0.22206598346095774,
+        "subset_accuracy": 0.09679891169071198,
+        "exit_counts": [
+          2,
+          3486,
+          13475
+        ],
+        "average_exit_depth": 2.7942581176757812
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "severe",
+      "budget": "LOW",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.3500719964504242,
+      "mean_exit2_uncertainty": 0.6740343570709229,
+      "mean_preferred_depth": 2.4884159564971924,
+      "mean_actual_depth": 1.0,
+      "budget_forced_exit_rate": 0.8537405133247375,
+      "average_flops_per_image": 3656932869.0,
+      "metrics": {
+        "binary_bce": 5.891101360321045,
+        "binary_ece": 0.8722507953643799,
+        "macro_auroc": 0.5703934228742582,
+        "per_label_auroc": {
+          "Atelectasis": 0.6047226593635676,
+          "Effusion": 0.5919146306645939,
+          "Mass": 0.544754858187694,
+          "Nodule": 0.5812995097343335,
+          "Pneumothorax": 0.5292754564211024
+        },
+        "macro_f1": 0.14039507184353564,
+        "subset_accuracy": 0.0,
+        "exit_counts": [
+          16963,
+          0,
+          0
+        ],
+        "average_exit_depth": 1.0
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "severe",
+      "budget": "MEDIUM",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.3500719964504242,
+      "mean_exit2_uncertainty": 0.6740343570709229,
+      "mean_preferred_depth": 2.4884159564971924,
+      "mean_actual_depth": 1.8537404537200928,
+      "budget_forced_exit_rate": 0.6346754431724548,
+      "average_flops_per_image": 6163823129.869539,
+      "metrics": {
+        "binary_bce": 2.408813714981079,
+        "binary_ece": 0.6494745016098022,
+        "macro_auroc": 0.5572329363722959,
+        "per_label_auroc": {
+          "Atelectasis": 0.5323532202637641,
+          "Effusion": 0.5238591266573396,
+          "Mass": 0.5733489810170167,
+          "Nodule": 0.585452326037036,
+          "Pneumothorax": 0.5711510278863231
+        },
+        "macro_f1": 0.1460169708162722,
+        "subset_accuracy": 0.004657194949686527,
+        "exit_counts": [
+          2481,
+          14482,
+          0
+        ],
+        "average_exit_depth": 1.8537404537200928
+      }
+    },
+    {
+      "degradation": "noise",
+      "severity": "severe",
+      "budget": "HIGH",
+      "images": 16963,
+      "mean_exit1_uncertainty": 0.3500719964504242,
+      "mean_exit2_uncertainty": 0.6740343570709229,
+      "mean_preferred_depth": 2.4884159564971924,
+      "mean_actual_depth": 2.4884159564971924,
+      "budget_forced_exit_rate": 0.0,
+      "average_flops_per_image": 7192430395.663916,
+      "metrics": {
+        "binary_bce": 1.8424460887908936,
+        "binary_ece": 0.5007563829421997,
+        "macro_auroc": 0.544854157381636,
+        "per_label_auroc": {
+          "Atelectasis": 0.5213908527808516,
+          "Effusion": 0.5495097751125005,
+          "Mass": 0.562859246759377,
+          "Nodule": 0.5614008101266631,
+          "Pneumothorax": 0.5291101021287881
+        },
+        "macro_f1": 0.14441541797259977,
+        "subset_accuracy": 0.043742261826992035,
+        "exit_counts": [
+          2481,
+          3716,
+          10766
+        ],
+        "average_exit_depth": 2.4884159564971924
+      }
+    }
+  ]
+}

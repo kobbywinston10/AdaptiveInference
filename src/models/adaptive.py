@@ -37,6 +37,19 @@ class AdaptiveResNet50(nn.Module):
         x = self.backbone.layer3(x)
         return self.final(self.backbone.layer4(x))
 
+    def forward_to_exit(self, x: torch.Tensor, exit_index: int) -> torch.Tensor:
+        """Fixed-depth inference computes only the selected head."""
+        if exit_index not in (1, 2, 3):
+            raise ValueError("exit_index must be 1, 2, or 3")
+        x = self.backbone.layer1(self.backbone.stem(x))
+        x = self.backbone.layer2(x)
+        if exit_index == 1:
+            return self.exit1(x)
+        x = self.backbone.layer3(x)
+        if exit_index == 2:
+            return self.exit2(x)
+        return self.final(self.backbone.layer4(x))
+
     def forward_adaptive(
         self,
         x: torch.Tensor,

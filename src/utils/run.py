@@ -41,6 +41,7 @@ def run_signature(config: dict) -> str:
     relevant.pop("adaptive_epochs", None)
     relevant.pop("distillation", None)
     relevant.pop("adaptive_learning_rate", None)
+    relevant.pop("degradation", None)
     payload = json.dumps({"config": relevant, "splits": split_hashes(config)}, sort_keys=True).encode()
     return hashlib.sha256(payload).hexdigest()
 

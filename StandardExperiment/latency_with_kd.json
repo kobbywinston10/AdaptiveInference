@@ -1,0 +1,3497 @@
+{
+  "schema_version": 1,
+  "split": "validation",
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "calibration_sha256": "a041ee04ced7d1333184dedbaa4124da4326e19dc7b8122ba1040b0de943ed28",
+  "image_size": 224,
+  "batch_size": 1,
+  "samples": 128,
+  "warmup": 50,
+  "measurements": 500,
+  "device": "cuda",
+  "gpu": "NVIDIA TITAN RTX",
+  "python": "3.10.21",
+  "torch": "2.14.1+cu130",
+  "torch_num_threads": 2,
+  "method": "preloaded_validation_images; inference_mode; warmed repeated wall-clock; CUDA synchronized before and after each measurement",
+  "controller_overhead_method": "cached logits: both threshold decisions and final sigmoid, without model layers; diagnostic upper path estimate",
+  "points": [
+    {
+      "id": "fixed_exit1",
+      "kind": "static",
+      "mean_ms": 4.206844754,
+      "p50_ms": 4.200947,
+      "p95_ms": 4.215242
+    },
+    {
+      "id": "fixed_exit2",
+      "kind": "static",
+      "mean_ms": 7.461302315999999,
+      "p50_ms": 7.4570185,
+      "p95_ms": 7.4749628
+    },
+    {
+      "id": "full",
+      "kind": "static",
+      "mean_ms": 9.161962063999999,
+      "p50_ms": 9.15846,
+      "p95_ms": 9.1792248
+    },
+    {
+      "id": "calibrated_000",
+      "kind": "adaptive",
+      "mean_ms": 10.618769892,
+      "p50_ms": 10.6125165,
+      "p95_ms": 10.63731805,
+      "controller_overhead_ms": {
+        "mean_ms": 0.62826196,
+        "p50_ms": 0.6292905,
+        "p95_ms": 0.6359153999999999
+      }
+    },
+    {
+      "id": "calibrated_001",
+      "kind": "adaptive",
+      "mean_ms": 10.605877674000002,
+      "p50_ms": 10.6002105,
+      "p95_ms": 10.6255569,
+      "controller_overhead_ms": {
+        "mean_ms": 0.628696686,
+        "p50_ms": 0.6297985,
+        "p95_ms": 0.63561185
+      }
+    },
+    {
+      "id": "calibrated_002",
+      "kind": "adaptive",
+      "mean_ms": 10.545667466000001,
+      "p50_ms": 10.609426,
+      "p95_ms": 10.63597345,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6275645799999999,
+        "p50_ms": 0.6287965,
+        "p95_ms": 0.6342871499999999
+      }
+    },
+    {
+      "id": "calibrated_003",
+      "kind": "adaptive",
+      "mean_ms": 10.488784796,
+      "p50_ms": 10.584980999999999,
+      "p95_ms": 10.61294425,
+      "controller_overhead_ms": {
+        "mean_ms": 0.62707577,
+        "p50_ms": 0.6280479999999999,
+        "p95_ms": 0.6339762999999999
+      }
+    },
+    {
+      "id": "calibrated_004",
+      "kind": "adaptive",
+      "mean_ms": 10.364681291999998,
+      "p50_ms": 10.570145499999999,
+      "p95_ms": 10.613064049999998,
+      "controller_overhead_ms": {
+        "mean_ms": 0.62484992,
+        "p50_ms": 0.625562,
+        "p95_ms": 0.632927
+      }
+    },
+    {
+      "id": "calibrated_005",
+      "kind": "adaptive",
+      "mean_ms": 10.158688278000001,
+      "p50_ms": 10.5386555,
+      "p95_ms": 10.56284325,
+      "controller_overhead_ms": {
+        "mean_ms": 0.62531534,
+        "p50_ms": 0.6261275,
+        "p95_ms": 0.6314579
+      }
+    },
+    {
+      "id": "calibrated_006",
+      "kind": "adaptive",
+      "mean_ms": 9.953720550000002,
+      "p50_ms": 10.538536,
+      "p95_ms": 10.5714564,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6250361299999999,
+        "p50_ms": 0.6262215,
+        "p95_ms": 0.6319586
+      }
+    },
+    {
+      "id": "calibrated_007",
+      "kind": "adaptive",
+      "mean_ms": 9.705310836,
+      "p50_ms": 10.5320345,
+      "p95_ms": 10.5678346,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6272884639999999,
+        "p50_ms": 0.6238115,
+        "p95_ms": 0.63128675
+      }
+    },
+    {
+      "id": "calibrated_008",
+      "kind": "adaptive",
+      "mean_ms": 9.45087661,
+      "p50_ms": 8.750093,
+      "p95_ms": 10.5769696,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6258110339999999,
+        "p50_ms": 0.626898,
+        "p95_ms": 0.63250785
+      }
+    },
+    {
+      "id": "calibrated_009",
+      "kind": "adaptive",
+      "mean_ms": 9.160354746,
+      "p50_ms": 8.7337405,
+      "p95_ms": 10.5555758,
+      "controller_overhead_ms": {
+        "mean_ms": 0.623984946,
+        "p50_ms": 0.6249335,
+        "p95_ms": 0.6311611
+      }
+    },
+    {
+      "id": "calibrated_010",
+      "kind": "adaptive",
+      "mean_ms": 8.951376426,
+      "p50_ms": 8.729843,
+      "p95_ms": 10.55001315,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6262529059999999,
+        "p50_ms": 0.6270530000000001,
+        "p95_ms": 0.6327531
+      }
+    },
+    {
+      "id": "calibrated_011",
+      "kind": "adaptive",
+      "mean_ms": 8.747963927999999,
+      "p50_ms": 8.7212925,
+      "p95_ms": 8.7493831,
+      "controller_overhead_ms": {
+        "mean_ms": 0.621533938,
+        "p50_ms": 0.622331,
+        "p95_ms": 0.62875525
+      }
+    },
+    {
+      "id": "calibrated_012",
+      "kind": "adaptive",
+      "mean_ms": 10.514690564,
+      "p50_ms": 10.509371999999999,
+      "p95_ms": 10.5347256,
+      "controller_overhead_ms": {
+        "mean_ms": 0.623638404,
+        "p50_ms": 0.6248724999999999,
+        "p95_ms": 0.6308572499999999
+      }
+    },
+    {
+      "id": "calibrated_013",
+      "kind": "adaptive",
+      "mean_ms": 10.501760796,
+      "p50_ms": 10.475433500000001,
+      "p95_ms": 10.52559815,
+      "controller_overhead_ms": {
+        "mean_ms": 0.621957598,
+        "p50_ms": 0.623143,
+        "p95_ms": 0.62912015
+      }
+    },
+    {
+      "id": "calibrated_014",
+      "kind": "adaptive",
+      "mean_ms": 10.398535643999999,
+      "p50_ms": 10.4663535,
+      "p95_ms": 10.4918985,
+      "controller_overhead_ms": {
+        "mean_ms": 0.628579888,
+        "p50_ms": 0.625648,
+        "p95_ms": 0.6560475499999999
+      }
+    },
+    {
+      "id": "calibrated_015",
+      "kind": "adaptive",
+      "mean_ms": 10.352441672000001,
+      "p50_ms": 10.436645,
+      "p95_ms": 10.4752191,
+      "controller_overhead_ms": {
+        "mean_ms": 0.61601379,
+        "p50_ms": 0.6175284999999999,
+        "p95_ms": 0.62203155
+      }
+    },
+    {
+      "id": "calibrated_016",
+      "kind": "adaptive",
+      "mean_ms": 10.212259421999999,
+      "p50_ms": 10.4203195,
+      "p95_ms": 10.4477957,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6192070759999999,
+        "p50_ms": 0.6201485,
+        "p95_ms": 0.6277503499999999
+      }
+    },
+    {
+      "id": "calibrated_017",
+      "kind": "adaptive",
+      "mean_ms": 10.000076466000001,
+      "p50_ms": 10.3771775,
+      "p95_ms": 10.40386825,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6168996959999999,
+        "p50_ms": 0.6183645,
+        "p95_ms": 0.6232504999999999
+      }
+    },
+    {
+      "id": "calibrated_018",
+      "kind": "adaptive",
+      "mean_ms": 9.803484204,
+      "p50_ms": 10.374264,
+      "p95_ms": 10.406084550000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.617700994,
+        "p50_ms": 0.6181235,
+        "p95_ms": 0.63193705
+      }
+    },
+    {
+      "id": "calibrated_019",
+      "kind": "adaptive",
+      "mean_ms": 9.54472553,
+      "p50_ms": 10.358888,
+      "p95_ms": 10.39283475,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6138960900000001,
+        "p50_ms": 0.615521,
+        "p95_ms": 0.61989145
+      }
+    },
+    {
+      "id": "calibrated_020",
+      "kind": "adaptive",
+      "mean_ms": 9.30450238,
+      "p50_ms": 8.6007015,
+      "p95_ms": 10.396054399999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.616389136,
+        "p50_ms": 0.6177790000000001,
+        "p95_ms": 0.6227899
+      }
+    },
+    {
+      "id": "calibrated_021",
+      "kind": "adaptive",
+      "mean_ms": 9.006098268,
+      "p50_ms": 8.5904095,
+      "p95_ms": 10.3857844,
+      "controller_overhead_ms": {
+        "mean_ms": 0.616748064,
+        "p50_ms": 0.6181045000000001,
+        "p95_ms": 0.62407735
+      }
+    },
+    {
+      "id": "calibrated_022",
+      "kind": "adaptive",
+      "mean_ms": 8.818144971999999,
+      "p50_ms": 8.591638,
+      "p95_ms": 10.3821747,
+      "controller_overhead_ms": {
+        "mean_ms": 0.614399968,
+        "p50_ms": 0.6160185,
+        "p95_ms": 0.62019645
+      }
+    },
+    {
+      "id": "calibrated_023",
+      "kind": "adaptive",
+      "mean_ms": 8.59681311,
+      "p50_ms": 8.5791235,
+      "p95_ms": 8.603692149999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6138121280000001,
+        "p50_ms": 0.6151265,
+        "p95_ms": 0.62011805
+      }
+    },
+    {
+      "id": "calibrated_024",
+      "kind": "adaptive",
+      "mean_ms": 10.113928606,
+      "p50_ms": 10.297935,
+      "p95_ms": 10.3780224,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6084858679999999,
+        "p50_ms": 0.609851,
+        "p95_ms": 0.6148444
+      }
+    },
+    {
+      "id": "calibrated_025",
+      "kind": "adaptive",
+      "mean_ms": 10.079929478000002,
+      "p50_ms": 10.290296,
+      "p95_ms": 10.3152937,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6083144540000001,
+        "p50_ms": 0.6099604999999999,
+        "p95_ms": 0.6139676000000001
+      }
+    },
+    {
+      "id": "calibrated_026",
+      "kind": "adaptive",
+      "mean_ms": 10.041564342,
+      "p50_ms": 10.281006000000001,
+      "p95_ms": 10.3049745,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6085390520000001,
+        "p50_ms": 0.6101685,
+        "p95_ms": 0.6145377
+      }
+    },
+    {
+      "id": "calibrated_027",
+      "kind": "adaptive",
+      "mean_ms": 10.047952927999999,
+      "p50_ms": 10.273185,
+      "p95_ms": 10.29663025,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6077847,
+        "p50_ms": 0.609237,
+        "p95_ms": 0.6135372
+      }
+    },
+    {
+      "id": "calibrated_028",
+      "kind": "adaptive",
+      "mean_ms": 9.898722004,
+      "p50_ms": 10.262615499999999,
+      "p95_ms": 10.28961075,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60819267,
+        "p50_ms": 0.609713,
+        "p95_ms": 0.6142512
+      }
+    },
+    {
+      "id": "calibrated_029",
+      "kind": "adaptive",
+      "mean_ms": 9.75206178,
+      "p50_ms": 10.258186,
+      "p95_ms": 10.285650350000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6066913859999999,
+        "p50_ms": 0.6081835,
+        "p95_ms": 0.6126657
+      }
+    },
+    {
+      "id": "calibrated_030",
+      "kind": "adaptive",
+      "mean_ms": 9.531265917999999,
+      "p50_ms": 10.2526005,
+      "p95_ms": 10.277677050000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.613220726,
+        "p50_ms": 0.6125274999999999,
+        "p95_ms": 0.6283039499999999
+      }
+    },
+    {
+      "id": "calibrated_031",
+      "kind": "adaptive",
+      "mean_ms": 9.303000604000001,
+      "p50_ms": 10.244356,
+      "p95_ms": 10.283412499999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60776975,
+        "p50_ms": 0.6092505,
+        "p95_ms": 0.61383765
+      }
+    },
+    {
+      "id": "calibrated_032",
+      "kind": "adaptive",
+      "mean_ms": 9.030369592,
+      "p50_ms": 8.4963045,
+      "p95_ms": 10.271610500000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6029686199999998,
+        "p50_ms": 0.604544,
+        "p95_ms": 0.6088086500000001
+      }
+    },
+    {
+      "id": "calibrated_033",
+      "kind": "adaptive",
+      "mean_ms": 8.76900412,
+      "p50_ms": 8.495929499999999,
+      "p95_ms": 10.27196815,
+      "controller_overhead_ms": {
+        "mean_ms": 0.607564432,
+        "p50_ms": 0.6087695,
+        "p95_ms": 0.6140204
+      }
+    },
+    {
+      "id": "calibrated_034",
+      "kind": "adaptive",
+      "mean_ms": 8.578601238,
+      "p50_ms": 8.502206999999999,
+      "p95_ms": 10.27018515,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6081083780000001,
+        "p50_ms": 0.6097025,
+        "p95_ms": 0.61386235
+      }
+    },
+    {
+      "id": "calibrated_035",
+      "kind": "adaptive",
+      "mean_ms": 8.378430128,
+      "p50_ms": 8.5046915,
+      "p95_ms": 8.52772405,
+      "controller_overhead_ms": {
+        "mean_ms": 0.607545832,
+        "p50_ms": 0.608985,
+        "p95_ms": 0.6137998
+      }
+    },
+    {
+      "id": "calibrated_036",
+      "kind": "adaptive",
+      "mean_ms": 9.723830046,
+      "p50_ms": 10.2636825,
+      "p95_ms": 10.28994685,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6084407039999999,
+        "p50_ms": 0.609937,
+        "p95_ms": 0.6140346999999999
+      }
+    },
+    {
+      "id": "calibrated_037",
+      "kind": "adaptive",
+      "mean_ms": 9.725968415999999,
+      "p50_ms": 10.2585155,
+      "p95_ms": 10.28474705,
+      "controller_overhead_ms": {
+        "mean_ms": 0.607697128,
+        "p50_ms": 0.6092949999999999,
+        "p95_ms": 0.61332875
+      }
+    },
+    {
+      "id": "calibrated_038",
+      "kind": "adaptive",
+      "mean_ms": 9.716900874,
+      "p50_ms": 10.26972,
+      "p95_ms": 10.294266350000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.608058848,
+        "p50_ms": 0.60982,
+        "p95_ms": 0.6140021999999999
+      }
+    },
+    {
+      "id": "calibrated_039",
+      "kind": "adaptive",
+      "mean_ms": 9.704654734,
+      "p50_ms": 10.2570765,
+      "p95_ms": 10.28659405,
+      "controller_overhead_ms": {
+        "mean_ms": 0.607672956,
+        "p50_ms": 0.6093195,
+        "p95_ms": 0.6134746999999999
+      }
+    },
+    {
+      "id": "calibrated_040",
+      "kind": "adaptive",
+      "mean_ms": 9.614819378,
+      "p50_ms": 10.25713,
+      "p95_ms": 10.2896521,
+      "controller_overhead_ms": {
+        "mean_ms": 0.609096724,
+        "p50_ms": 0.6104425,
+        "p95_ms": 0.61502205
+      }
+    },
+    {
+      "id": "calibrated_041",
+      "kind": "adaptive",
+      "mean_ms": 9.471856404,
+      "p50_ms": 10.2387075,
+      "p95_ms": 10.268135299999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60605603,
+        "p50_ms": 0.607593,
+        "p95_ms": 0.6116366000000001
+      }
+    },
+    {
+      "id": "calibrated_042",
+      "kind": "adaptive",
+      "mean_ms": 9.25148712,
+      "p50_ms": 10.222049,
+      "p95_ms": 10.2521628,
+      "controller_overhead_ms": {
+        "mean_ms": 0.606924982,
+        "p50_ms": 0.6082725,
+        "p95_ms": 0.6138294
+      }
+    },
+    {
+      "id": "calibrated_043",
+      "kind": "adaptive",
+      "mean_ms": 9.042268417999999,
+      "p50_ms": 10.2048185,
+      "p95_ms": 10.24136525,
+      "controller_overhead_ms": {
+        "mean_ms": 0.605722424,
+        "p50_ms": 0.6071664999999999,
+        "p95_ms": 0.6118583
+      }
+    },
+    {
+      "id": "calibrated_044",
+      "kind": "adaptive",
+      "mean_ms": 8.806302521999998,
+      "p50_ms": 8.4852635,
+      "p95_ms": 10.258678049999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60528123,
+        "p50_ms": 0.606652,
+        "p95_ms": 0.6110149
+      }
+    },
+    {
+      "id": "calibrated_045",
+      "kind": "adaptive",
+      "mean_ms": 8.521620718,
+      "p50_ms": 8.475937,
+      "p95_ms": 10.248608899999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6045272400000001,
+        "p50_ms": 0.6061924999999999,
+        "p95_ms": 0.6104216
+      }
+    },
+    {
+      "id": "calibrated_046",
+      "kind": "adaptive",
+      "mean_ms": 8.326002816,
+      "p50_ms": 8.467915,
+      "p95_ms": 10.234894,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6052654359999999,
+        "p50_ms": 0.6068979999999999,
+        "p95_ms": 0.61125765
+      }
+    },
+    {
+      "id": "calibrated_047",
+      "kind": "adaptive",
+      "mean_ms": 8.124571748000001,
+      "p50_ms": 8.469932,
+      "p95_ms": 8.4926659,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6048121679999999,
+        "p50_ms": 0.6062085,
+        "p95_ms": 0.61098635
+      }
+    },
+    {
+      "id": "calibrated_048",
+      "kind": "adaptive",
+      "mean_ms": 9.317183108,
+      "p50_ms": 10.221964,
+      "p95_ms": 10.2518569,
+      "controller_overhead_ms": {
+        "mean_ms": 0.605091496,
+        "p50_ms": 0.606379,
+        "p95_ms": 0.61102875
+      }
+    },
+    {
+      "id": "calibrated_049",
+      "kind": "adaptive",
+      "mean_ms": 9.315691682,
+      "p50_ms": 10.222008500000001,
+      "p95_ms": 10.246225149999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6027880399999999,
+        "p50_ms": 0.6043045,
+        "p95_ms": 0.6089014
+      }
+    },
+    {
+      "id": "calibrated_050",
+      "kind": "adaptive",
+      "mean_ms": 9.30180717,
+      "p50_ms": 10.221512,
+      "p95_ms": 10.248637800000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.603674988,
+        "p50_ms": 0.605057,
+        "p95_ms": 0.6094469
+      }
+    },
+    {
+      "id": "calibrated_051",
+      "kind": "adaptive",
+      "mean_ms": 9.291105936,
+      "p50_ms": 10.2145775,
+      "p95_ms": 10.2397138,
+      "controller_overhead_ms": {
+        "mean_ms": 0.605337422,
+        "p50_ms": 0.6062355,
+        "p95_ms": 0.6115162
+      }
+    },
+    {
+      "id": "calibrated_052",
+      "kind": "adaptive",
+      "mean_ms": 9.216152472,
+      "p50_ms": 10.218930499999999,
+      "p95_ms": 10.24509185,
+      "controller_overhead_ms": {
+        "mean_ms": 0.603003236,
+        "p50_ms": 0.6044415,
+        "p95_ms": 0.60905285
+      }
+    },
+    {
+      "id": "calibrated_053",
+      "kind": "adaptive",
+      "mean_ms": 9.103194882,
+      "p50_ms": 10.217152500000001,
+      "p95_ms": 10.2403662,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6025435219999999,
+        "p50_ms": 0.603729,
+        "p95_ms": 0.60931615
+      }
+    },
+    {
+      "id": "calibrated_054",
+      "kind": "adaptive",
+      "mean_ms": 8.909350674,
+      "p50_ms": 10.2092065,
+      "p95_ms": 10.2443576,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60313386,
+        "p50_ms": 0.604427,
+        "p95_ms": 0.6092017
+      }
+    },
+    {
+      "id": "calibrated_055",
+      "kind": "adaptive",
+      "mean_ms": 8.707526914,
+      "p50_ms": 8.48153,
+      "p95_ms": 10.235085849999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.603436882,
+        "p50_ms": 0.605154,
+        "p95_ms": 0.609155
+      }
+    },
+    {
+      "id": "calibrated_056",
+      "kind": "adaptive",
+      "mean_ms": 8.45736585,
+      "p50_ms": 8.468726,
+      "p95_ms": 10.239098,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60354605,
+        "p50_ms": 0.6049065,
+        "p95_ms": 0.61017075
+      }
+    },
+    {
+      "id": "calibrated_057",
+      "kind": "adaptive",
+      "mean_ms": 8.226980228,
+      "p50_ms": 8.4645255,
+      "p95_ms": 10.23442955,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602172214,
+        "p50_ms": 0.60364,
+        "p95_ms": 0.608466
+      }
+    },
+    {
+      "id": "calibrated_058",
+      "kind": "adaptive",
+      "mean_ms": 8.041970804,
+      "p50_ms": 8.459348,
+      "p95_ms": 10.22486745,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60397351,
+        "p50_ms": 0.60469,
+        "p95_ms": 0.60929435
+      }
+    },
+    {
+      "id": "calibrated_059",
+      "kind": "adaptive",
+      "mean_ms": 7.858367608000001,
+      "p50_ms": 8.460225999999999,
+      "p95_ms": 8.4930059,
+      "controller_overhead_ms": {
+        "mean_ms": 0.603919116,
+        "p50_ms": 0.605124,
+        "p95_ms": 0.6108866999999999
+      }
+    },
+    {
+      "id": "calibrated_060",
+      "kind": "adaptive",
+      "mean_ms": 8.91028517,
+      "p50_ms": 10.1878915,
+      "p95_ms": 10.2296927,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60260418,
+        "p50_ms": 0.604211,
+        "p95_ms": 0.6084349
+      }
+    },
+    {
+      "id": "calibrated_061",
+      "kind": "adaptive",
+      "mean_ms": 8.895722529999999,
+      "p50_ms": 10.1798815,
+      "p95_ms": 10.20480235,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6005833979999999,
+        "p50_ms": 0.602115,
+        "p95_ms": 0.60626
+      }
+    },
+    {
+      "id": "calibrated_062",
+      "kind": "adaptive",
+      "mean_ms": 8.899232264,
+      "p50_ms": 10.180768,
+      "p95_ms": 10.2073655,
+      "controller_overhead_ms": {
+        "mean_ms": 0.603859252,
+        "p50_ms": 0.6054875,
+        "p95_ms": 0.6099356
+      }
+    },
+    {
+      "id": "calibrated_063",
+      "kind": "adaptive",
+      "mean_ms": 8.888961086000002,
+      "p50_ms": 10.1739305,
+      "p95_ms": 10.19769445,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601642682,
+        "p50_ms": 0.6030675000000001,
+        "p95_ms": 0.6076504
+      }
+    },
+    {
+      "id": "calibrated_064",
+      "kind": "adaptive",
+      "mean_ms": 8.824214986,
+      "p50_ms": 10.1763565,
+      "p95_ms": 10.2029554,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6025355239999999,
+        "p50_ms": 0.6039654999999999,
+        "p95_ms": 0.6083349
+      }
+    },
+    {
+      "id": "calibrated_065",
+      "kind": "adaptive",
+      "mean_ms": 8.713042058000001,
+      "p50_ms": 10.172366499999999,
+      "p95_ms": 10.202957549999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60195502,
+        "p50_ms": 0.603156,
+        "p95_ms": 0.6085422500000001
+      }
+    },
+    {
+      "id": "calibrated_066",
+      "kind": "adaptive",
+      "mean_ms": 8.538286177999998,
+      "p50_ms": 10.166896,
+      "p95_ms": 10.20252405,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601955428,
+        "p50_ms": 0.6031584999999999,
+        "p95_ms": 0.6086701499999999
+      }
+    },
+    {
+      "id": "calibrated_067",
+      "kind": "adaptive",
+      "mean_ms": 8.350361054,
+      "p50_ms": 8.435970999999999,
+      "p95_ms": 10.1987475,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6019916319999999,
+        "p50_ms": 0.6034485,
+        "p95_ms": 0.60757025
+      }
+    },
+    {
+      "id": "calibrated_068",
+      "kind": "adaptive",
+      "mean_ms": 8.125164002,
+      "p50_ms": 8.431017,
+      "p95_ms": 10.201516100000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602956792,
+        "p50_ms": 0.60433,
+        "p95_ms": 0.6089221
+      }
+    },
+    {
+      "id": "calibrated_069",
+      "kind": "adaptive",
+      "mean_ms": 7.890758363999999,
+      "p50_ms": 8.42066,
+      "p95_ms": 10.18338315,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6015438799999999,
+        "p50_ms": 0.6026445,
+        "p95_ms": 0.6084
+      }
+    },
+    {
+      "id": "calibrated_070",
+      "kind": "adaptive",
+      "mean_ms": 7.739880908000001,
+      "p50_ms": 8.4214445,
+      "p95_ms": 10.17893475,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6021947440000001,
+        "p50_ms": 0.6033335,
+        "p95_ms": 0.608324
+      }
+    },
+    {
+      "id": "calibrated_071",
+      "kind": "adaptive",
+      "mean_ms": 7.558313484,
+      "p50_ms": 8.413908,
+      "p95_ms": 8.43608075,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600958232,
+        "p50_ms": 0.6026125,
+        "p95_ms": 0.60697785
+      }
+    },
+    {
+      "id": "calibrated_072",
+      "kind": "adaptive",
+      "mean_ms": 8.164350946,
+      "p50_ms": 10.1653195,
+      "p95_ms": 10.2000762,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6026383439999999,
+        "p50_ms": 0.6043185,
+        "p95_ms": 0.6086742
+      }
+    },
+    {
+      "id": "calibrated_073",
+      "kind": "adaptive",
+      "mean_ms": 8.138133728000001,
+      "p50_ms": 10.143793500000001,
+      "p95_ms": 10.17228045,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600764388,
+        "p50_ms": 0.6018445,
+        "p95_ms": 0.60696675
+      }
+    },
+    {
+      "id": "calibrated_074",
+      "kind": "adaptive",
+      "mean_ms": 8.145280862,
+      "p50_ms": 10.1465085,
+      "p95_ms": 10.181927550000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6019523440000001,
+        "p50_ms": 0.6030800000000001,
+        "p95_ms": 0.6077005000000001
+      }
+    },
+    {
+      "id": "calibrated_075",
+      "kind": "adaptive",
+      "mean_ms": 8.14357487,
+      "p50_ms": 10.143948,
+      "p95_ms": 10.178302650000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602026684,
+        "p50_ms": 0.6034385,
+        "p95_ms": 0.6082722
+      }
+    },
+    {
+      "id": "calibrated_076",
+      "kind": "adaptive",
+      "mean_ms": 8.086100523999999,
+      "p50_ms": 10.144536500000001,
+      "p95_ms": 10.1750525,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60043407,
+        "p50_ms": 0.6018615,
+        "p95_ms": 0.6069194
+      }
+    },
+    {
+      "id": "calibrated_077",
+      "kind": "adaptive",
+      "mean_ms": 8.030819232,
+      "p50_ms": 10.136399,
+      "p95_ms": 10.1745163,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601691272,
+        "p50_ms": 0.6033785,
+        "p95_ms": 0.6075377
+      }
+    },
+    {
+      "id": "calibrated_078",
+      "kind": "adaptive",
+      "mean_ms": 7.908047613999999,
+      "p50_ms": 8.4190985,
+      "p95_ms": 10.1782301,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601428678,
+        "p50_ms": 0.6029990000000001,
+        "p95_ms": 0.6071883499999999
+      }
+    },
+    {
+      "id": "calibrated_079",
+      "kind": "adaptive",
+      "mean_ms": 7.778710106,
+      "p50_ms": 8.409315,
+      "p95_ms": 10.1697749,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601406424,
+        "p50_ms": 0.6027795,
+        "p95_ms": 0.6078240500000001
+      }
+    },
+    {
+      "id": "calibrated_080",
+      "kind": "adaptive",
+      "mean_ms": 7.576855238,
+      "p50_ms": 8.405961000000001,
+      "p95_ms": 10.175333,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6041537859999999,
+        "p50_ms": 0.6041354999999999,
+        "p95_ms": 0.6173922000000001
+      }
+    },
+    {
+      "id": "calibrated_081",
+      "kind": "adaptive",
+      "mean_ms": 7.373477364,
+      "p50_ms": 8.4002245,
+      "p95_ms": 10.1636229,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600543462,
+        "p50_ms": 0.6019025,
+        "p95_ms": 0.60698865
+      }
+    },
+    {
+      "id": "calibrated_082",
+      "kind": "adaptive",
+      "mean_ms": 7.206735032,
+      "p50_ms": 8.397023,
+      "p95_ms": 10.15312035,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6016379359999999,
+        "p50_ms": 0.6031625,
+        "p95_ms": 0.6076847999999999
+      }
+    },
+    {
+      "id": "calibrated_083",
+      "kind": "adaptive",
+      "mean_ms": 7.060084956000001,
+      "p50_ms": 8.3994195,
+      "p95_ms": 8.4280571,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602163744,
+        "p50_ms": 0.60365,
+        "p95_ms": 0.6080209999999999
+      }
+    },
+    {
+      "id": "calibrated_084",
+      "kind": "adaptive",
+      "mean_ms": 7.51336031,
+      "p50_ms": 7.5381585,
+      "p95_ms": 10.1708223,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60141357,
+        "p50_ms": 0.6030610000000001,
+        "p95_ms": 0.6066186
+      }
+    },
+    {
+      "id": "calibrated_085",
+      "kind": "adaptive",
+      "mean_ms": 7.5166963319999995,
+      "p50_ms": 7.5528604999999995,
+      "p95_ms": 10.1749532,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599892926,
+        "p50_ms": 0.6013505,
+        "p95_ms": 0.6060577
+      }
+    },
+    {
+      "id": "calibrated_086",
+      "kind": "adaptive",
+      "mean_ms": 7.518957164000001,
+      "p50_ms": 7.5667065000000004,
+      "p95_ms": 10.1726963,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601111608,
+        "p50_ms": 0.6025345,
+        "p95_ms": 0.6069331
+      }
+    },
+    {
+      "id": "calibrated_087",
+      "kind": "adaptive",
+      "mean_ms": 7.5195022840000005,
+      "p50_ms": 7.609159999999999,
+      "p95_ms": 10.17524155,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60184681,
+        "p50_ms": 0.6033325,
+        "p95_ms": 0.60751425
+      }
+    },
+    {
+      "id": "calibrated_088",
+      "kind": "adaptive",
+      "mean_ms": 7.476099511999999,
+      "p50_ms": 6.690851,
+      "p95_ms": 10.16933595,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60092282,
+        "p50_ms": 0.6023164999999999,
+        "p95_ms": 0.60661325
+      }
+    },
+    {
+      "id": "calibrated_089",
+      "kind": "adaptive",
+      "mean_ms": 7.425190434,
+      "p50_ms": 6.8930995,
+      "p95_ms": 10.159854,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5993725480000001,
+        "p50_ms": 0.600821,
+        "p95_ms": 0.60580115
+      }
+    },
+    {
+      "id": "calibrated_090",
+      "kind": "adaptive",
+      "mean_ms": 7.33755715,
+      "p50_ms": 6.6752985,
+      "p95_ms": 10.15832735,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600161854,
+        "p50_ms": 0.6011880000000001,
+        "p95_ms": 0.60618315
+      }
+    },
+    {
+      "id": "calibrated_091",
+      "kind": "adaptive",
+      "mean_ms": 7.2246125999999995,
+      "p50_ms": 6.671910499999999,
+      "p95_ms": 10.15132955,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599518642,
+        "p50_ms": 0.6012125,
+        "p95_ms": 0.60546305
+      }
+    },
+    {
+      "id": "calibrated_092",
+      "kind": "adaptive",
+      "mean_ms": 7.0696571619999995,
+      "p50_ms": 6.6649025,
+      "p95_ms": 10.15122405,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5943609639999999,
+        "p50_ms": 0.5956859999999999,
+        "p95_ms": 0.60086335
+      }
+    },
+    {
+      "id": "calibrated_093",
+      "kind": "adaptive",
+      "mean_ms": 6.892866308,
+      "p50_ms": 6.6586644999999995,
+      "p95_ms": 10.1278978,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601190566,
+        "p50_ms": 0.602095,
+        "p95_ms": 0.6069772
+      }
+    },
+    {
+      "id": "calibrated_094",
+      "kind": "adaptive",
+      "mean_ms": 6.74264537,
+      "p50_ms": 6.668062000000001,
+      "p95_ms": 10.13060945,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6005346979999999,
+        "p50_ms": 0.601982,
+        "p95_ms": 0.6070166
+      }
+    },
+    {
+      "id": "calibrated_095",
+      "kind": "adaptive",
+      "mean_ms": 6.637537333999999,
+      "p50_ms": 6.7101475,
+      "p95_ms": 8.41213875,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5996654180000001,
+        "p50_ms": 0.6010895,
+        "p95_ms": 0.6056770499999999
+      }
+    },
+    {
+      "id": "calibrated_096",
+      "kind": "adaptive",
+      "mean_ms": 7.091941457999999,
+      "p50_ms": 4.8731105,
+      "p95_ms": 10.152811100000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601247922,
+        "p50_ms": 0.6030675,
+        "p95_ms": 0.6069992
+      }
+    },
+    {
+      "id": "calibrated_097",
+      "kind": "adaptive",
+      "mean_ms": 7.09386161,
+      "p50_ms": 4.8741645,
+      "p95_ms": 10.1560699,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60039667,
+        "p50_ms": 0.602136,
+        "p95_ms": 0.60623925
+      }
+    },
+    {
+      "id": "calibrated_098",
+      "kind": "adaptive",
+      "mean_ms": 7.099960908,
+      "p50_ms": 4.878772,
+      "p95_ms": 10.159405300000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6000589319999999,
+        "p50_ms": 0.6016425,
+        "p95_ms": 0.6064326499999999
+      }
+    },
+    {
+      "id": "calibrated_099",
+      "kind": "adaptive",
+      "mean_ms": 7.093704754,
+      "p50_ms": 4.875362,
+      "p95_ms": 10.15364625,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6013932160000001,
+        "p50_ms": 0.602963,
+        "p95_ms": 0.6072561
+      }
+    },
+    {
+      "id": "calibrated_100",
+      "kind": "adaptive",
+      "mean_ms": 7.083329672,
+      "p50_ms": 4.8762954999999994,
+      "p95_ms": 10.15976565,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5994964279999999,
+        "p50_ms": 0.601048,
+        "p95_ms": 0.6053096499999999
+      }
+    },
+    {
+      "id": "calibrated_101",
+      "kind": "adaptive",
+      "mean_ms": 7.040742900000001,
+      "p50_ms": 4.877684,
+      "p95_ms": 10.1567223,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60071607,
+        "p50_ms": 0.602095,
+        "p95_ms": 0.60792415
+      }
+    },
+    {
+      "id": "calibrated_102",
+      "kind": "adaptive",
+      "mean_ms": 6.957619872,
+      "p50_ms": 4.8785685,
+      "p95_ms": 10.15485505,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60034748,
+        "p50_ms": 0.6019369999999999,
+        "p95_ms": 0.6061094499999999
+      }
+    },
+    {
+      "id": "calibrated_103",
+      "kind": "adaptive",
+      "mean_ms": 6.857370565999999,
+      "p50_ms": 4.878259,
+      "p95_ms": 10.1530864,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6000726500000001,
+        "p50_ms": 0.601488,
+        "p95_ms": 0.60677505
+      }
+    },
+    {
+      "id": "calibrated_104",
+      "kind": "adaptive",
+      "mean_ms": 6.721421292,
+      "p50_ms": 4.877127,
+      "p95_ms": 10.1523875,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599786106,
+        "p50_ms": 0.6016565,
+        "p95_ms": 0.60557355
+      }
+    },
+    {
+      "id": "calibrated_105",
+      "kind": "adaptive",
+      "mean_ms": 6.602332399999999,
+      "p50_ms": 4.8789795,
+      "p95_ms": 10.1494385,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601016618,
+        "p50_ms": 0.6024940000000001,
+        "p95_ms": 0.6068736499999999
+      }
+    },
+    {
+      "id": "calibrated_106",
+      "kind": "adaptive",
+      "mean_ms": 6.45319374,
+      "p50_ms": 4.8789785000000006,
+      "p95_ms": 10.12702045,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6017765059999999,
+        "p50_ms": 0.603353,
+        "p95_ms": 0.6073658
+      }
+    },
+    {
+      "id": "calibrated_107",
+      "kind": "adaptive",
+      "mean_ms": 6.3566918679999995,
+      "p50_ms": 4.876469999999999,
+      "p95_ms": 8.406929250000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600348502,
+        "p50_ms": 0.6017815,
+        "p95_ms": 0.6065131500000001
+      }
+    },
+    {
+      "id": "calibrated_108",
+      "kind": "adaptive",
+      "mean_ms": 6.560336812,
+      "p50_ms": 4.8718995,
+      "p95_ms": 10.160981,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6006695999999999,
+        "p50_ms": 0.6022464999999999,
+        "p95_ms": 0.6068847
+      }
+    },
+    {
+      "id": "calibrated_109",
+      "kind": "adaptive",
+      "mean_ms": 6.561558938,
+      "p50_ms": 4.8740805,
+      "p95_ms": 10.1631086,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600670496,
+        "p50_ms": 0.602082,
+        "p95_ms": 0.6076661
+      }
+    },
+    {
+      "id": "calibrated_110",
+      "kind": "adaptive",
+      "mean_ms": 6.560435424,
+      "p50_ms": 4.873595,
+      "p95_ms": 10.1581613,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6009550819999999,
+        "p50_ms": 0.6025345,
+        "p95_ms": 0.60677505
+      }
+    },
+    {
+      "id": "calibrated_111",
+      "kind": "adaptive",
+      "mean_ms": 6.558370838,
+      "p50_ms": 4.8743615,
+      "p95_ms": 10.151778400000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599223482,
+        "p50_ms": 0.600751,
+        "p95_ms": 0.6051954
+      }
+    },
+    {
+      "id": "calibrated_112",
+      "kind": "adaptive",
+      "mean_ms": 6.556330194,
+      "p50_ms": 4.8728055,
+      "p95_ms": 10.1559519,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6013050120000001,
+        "p50_ms": 0.6028025,
+        "p95_ms": 0.60707645
+      }
+    },
+    {
+      "id": "calibrated_113",
+      "kind": "adaptive",
+      "mean_ms": 6.5434327859999994,
+      "p50_ms": 4.8733625,
+      "p95_ms": 10.1536376,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601276964,
+        "p50_ms": 0.602708,
+        "p95_ms": 0.60764465
+      }
+    },
+    {
+      "id": "calibrated_114",
+      "kind": "adaptive",
+      "mean_ms": 6.46083464,
+      "p50_ms": 4.8742635,
+      "p95_ms": 10.15378155,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6024337399999999,
+        "p50_ms": 0.6040325,
+        "p95_ms": 0.6085206999999999
+      }
+    },
+    {
+      "id": "calibrated_115",
+      "kind": "adaptive",
+      "mean_ms": 6.374923738,
+      "p50_ms": 4.871637,
+      "p95_ms": 10.14526145,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600720104,
+        "p50_ms": 0.6023974999999999,
+        "p95_ms": 0.60659065
+      }
+    },
+    {
+      "id": "calibrated_116",
+      "kind": "adaptive",
+      "mean_ms": 6.301180272000001,
+      "p50_ms": 4.8760005,
+      "p95_ms": 10.1500776,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601503218,
+        "p50_ms": 0.602946,
+        "p95_ms": 0.6081826
+      }
+    },
+    {
+      "id": "calibrated_117",
+      "kind": "adaptive",
+      "mean_ms": 6.184661286000001,
+      "p50_ms": 4.870144,
+      "p95_ms": 10.1337598,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60074106,
+        "p50_ms": 0.602182,
+        "p95_ms": 0.6068239
+      }
+    },
+    {
+      "id": "calibrated_118",
+      "kind": "adaptive",
+      "mean_ms": 6.0827321119999995,
+      "p50_ms": 4.8761969999999994,
+      "p95_ms": 8.55618105,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60187947,
+        "p50_ms": 0.6028545000000001,
+        "p95_ms": 0.6131556499999999
+      }
+    },
+    {
+      "id": "calibrated_119",
+      "kind": "adaptive",
+      "mean_ms": 5.999549822,
+      "p50_ms": 4.872215000000001,
+      "p95_ms": 8.4037956,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599250492,
+        "p50_ms": 0.6005125,
+        "p95_ms": 0.6054414
+      }
+    },
+    {
+      "id": "calibrated_120",
+      "kind": "adaptive",
+      "mean_ms": 5.773316052,
+      "p50_ms": 4.867311,
+      "p95_ms": 10.1415197,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601148468,
+        "p50_ms": 0.6027534999999999,
+        "p95_ms": 0.6070107
+      }
+    },
+    {
+      "id": "calibrated_121",
+      "kind": "adaptive",
+      "mean_ms": 5.777795834000001,
+      "p50_ms": 4.870283000000001,
+      "p95_ms": 10.14279385,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600451828,
+        "p50_ms": 0.601859,
+        "p95_ms": 0.60646785
+      }
+    },
+    {
+      "id": "calibrated_122",
+      "kind": "adaptive",
+      "mean_ms": 5.775888308,
+      "p50_ms": 4.8684395,
+      "p95_ms": 10.1427002,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6028627200000001,
+        "p50_ms": 0.603692,
+        "p95_ms": 0.6155260499999999
+      }
+    },
+    {
+      "id": "calibrated_123",
+      "kind": "adaptive",
+      "mean_ms": 5.775056594,
+      "p50_ms": 4.867388500000001,
+      "p95_ms": 10.1419354,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60050991,
+        "p50_ms": 0.6020475000000001,
+        "p95_ms": 0.6065326999999999
+      }
+    },
+    {
+      "id": "calibrated_124",
+      "kind": "adaptive",
+      "mean_ms": 5.781921504,
+      "p50_ms": 4.8675375,
+      "p95_ms": 10.141222549999998,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600228862,
+        "p50_ms": 0.601611,
+        "p95_ms": 0.6062187
+      }
+    },
+    {
+      "id": "calibrated_125",
+      "kind": "adaptive",
+      "mean_ms": 5.761623908,
+      "p50_ms": 4.86933,
+      "p95_ms": 10.1407042,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5986447819999999,
+        "p50_ms": 0.5999369999999999,
+        "p95_ms": 0.60477265
+      }
+    },
+    {
+      "id": "calibrated_126",
+      "kind": "adaptive",
+      "mean_ms": 5.715635399999999,
+      "p50_ms": 4.8652685,
+      "p95_ms": 10.13818685,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602341944,
+        "p50_ms": 0.603811,
+        "p95_ms": 0.6082605
+      }
+    },
+    {
+      "id": "calibrated_127",
+      "kind": "adaptive",
+      "mean_ms": 5.70951332,
+      "p50_ms": 4.8709705,
+      "p95_ms": 10.1389829,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6016648139999999,
+        "p50_ms": 0.603018,
+        "p95_ms": 0.60754575
+      }
+    },
+    {
+      "id": "calibrated_128",
+      "kind": "adaptive",
+      "mean_ms": 5.674437129999999,
+      "p50_ms": 4.869228,
+      "p95_ms": 10.1438168,
+      "controller_overhead_ms": {
+        "mean_ms": 0.603042,
+        "p50_ms": 0.6044905,
+        "p95_ms": 0.60927365
+      }
+    },
+    {
+      "id": "calibrated_129",
+      "kind": "adaptive",
+      "mean_ms": 5.590944786,
+      "p50_ms": 4.872911500000001,
+      "p95_ms": 10.1330849,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6004167100000001,
+        "p50_ms": 0.601747,
+        "p95_ms": 0.60677335
+      }
+    },
+    {
+      "id": "calibrated_130",
+      "kind": "adaptive",
+      "mean_ms": 5.534271974,
+      "p50_ms": 4.868794,
+      "p95_ms": 8.39981905,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601500744,
+        "p50_ms": 0.6029424999999999,
+        "p95_ms": 0.6076629
+      }
+    },
+    {
+      "id": "calibrated_131",
+      "kind": "adaptive",
+      "mean_ms": 5.485288728,
+      "p50_ms": 4.8712195000000005,
+      "p95_ms": 8.4048083,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599768016,
+        "p50_ms": 0.6012919999999999,
+        "p95_ms": 0.6056191
+      }
+    },
+    {
+      "id": "calibrated_132",
+      "kind": "adaptive",
+      "mean_ms": 4.882732866,
+      "p50_ms": 4.874359,
+      "p95_ms": 4.9854367,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600964304,
+        "p50_ms": 0.602041,
+        "p95_ms": 0.60733355
+      }
+    },
+    {
+      "id": "calibrated_133",
+      "kind": "adaptive",
+      "mean_ms": 4.871243406,
+      "p50_ms": 4.8677685,
+      "p95_ms": 4.88667825,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600660964,
+        "p50_ms": 0.6021795000000001,
+        "p95_ms": 0.60658755
+      }
+    },
+    {
+      "id": "calibrated_134",
+      "kind": "adaptive",
+      "mean_ms": 4.87262798,
+      "p50_ms": 4.8658395,
+      "p95_ms": 4.96101275,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60204099,
+        "p50_ms": 0.603315,
+        "p95_ms": 0.60796215
+      }
+    },
+    {
+      "id": "calibrated_135",
+      "kind": "adaptive",
+      "mean_ms": 4.867883568,
+      "p50_ms": 4.863436,
+      "p95_ms": 4.884539,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599274988,
+        "p50_ms": 0.6009454999999999,
+        "p95_ms": 0.6051748
+      }
+    },
+    {
+      "id": "calibrated_136",
+      "kind": "adaptive",
+      "mean_ms": 4.865974466,
+      "p50_ms": 4.862849499999999,
+      "p95_ms": 4.884273,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6036772180000001,
+        "p50_ms": 0.6035945,
+        "p95_ms": 0.61671245
+      }
+    },
+    {
+      "id": "calibrated_137",
+      "kind": "adaptive",
+      "mean_ms": 4.874207220000001,
+      "p50_ms": 4.8703965,
+      "p95_ms": 4.8888184,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600644342,
+        "p50_ms": 0.602061,
+        "p95_ms": 0.60755505
+      }
+    },
+    {
+      "id": "calibrated_138",
+      "kind": "adaptive",
+      "mean_ms": 4.872316120000001,
+      "p50_ms": 4.8675464999999996,
+      "p95_ms": 4.8876652499999995,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60029172,
+        "p50_ms": 0.6016975,
+        "p95_ms": 0.6059707
+      }
+    },
+    {
+      "id": "calibrated_139",
+      "kind": "adaptive",
+      "mean_ms": 4.87294163,
+      "p50_ms": 4.8682015,
+      "p95_ms": 4.8911266,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5991054819999999,
+        "p50_ms": 0.6006615,
+        "p95_ms": 0.6052300500000001
+      }
+    },
+    {
+      "id": "calibrated_140",
+      "kind": "adaptive",
+      "mean_ms": 4.872647462000001,
+      "p50_ms": 4.8709795,
+      "p95_ms": 4.8852461,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5999045759999999,
+        "p50_ms": 0.601514,
+        "p95_ms": 0.60567375
+      }
+    },
+    {
+      "id": "calibrated_141",
+      "kind": "adaptive",
+      "mean_ms": 4.875223414,
+      "p50_ms": 4.8706805,
+      "p95_ms": 4.8893849,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600920784,
+        "p50_ms": 0.602159,
+        "p95_ms": 0.6069305
+      }
+    },
+    {
+      "id": "calibrated_142",
+      "kind": "adaptive",
+      "mean_ms": 4.8778457280000005,
+      "p50_ms": 4.8735055,
+      "p95_ms": 4.8949088,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6004959140000001,
+        "p50_ms": 0.6022525,
+        "p95_ms": 0.6065068
+      }
+    },
+    {
+      "id": "calibrated_143",
+      "kind": "adaptive",
+      "mean_ms": 4.872459132,
+      "p50_ms": 4.8702305,
+      "p95_ms": 4.88369095,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6007580020000001,
+        "p50_ms": 0.6021295,
+        "p95_ms": 0.6069387
+      }
+    },
+    {
+      "id": "uncalibrated_000",
+      "kind": "adaptive",
+      "mean_ms": 10.151989174,
+      "p50_ms": 10.1498235,
+      "p95_ms": 10.1713681,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60282895,
+        "p50_ms": 0.6043540000000001,
+        "p95_ms": 0.6090657
+      }
+    },
+    {
+      "id": "uncalibrated_001",
+      "kind": "adaptive",
+      "mean_ms": 10.162152707999999,
+      "p50_ms": 10.155129500000001,
+      "p95_ms": 10.1827097,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600338906,
+        "p50_ms": 0.6020544999999999,
+        "p95_ms": 0.60660515
+      }
+    },
+    {
+      "id": "uncalibrated_002",
+      "kind": "adaptive",
+      "mean_ms": 10.069970615999999,
+      "p50_ms": 10.1252315,
+      "p95_ms": 10.230165600000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5974440879999999,
+        "p50_ms": 0.5983535,
+        "p95_ms": 0.61023195
+      }
+    },
+    {
+      "id": "uncalibrated_003",
+      "kind": "adaptive",
+      "mean_ms": 10.02130076,
+      "p50_ms": 10.1136825,
+      "p95_ms": 10.1414527,
+      "controller_overhead_ms": {
+        "mean_ms": 0.594448324,
+        "p50_ms": 0.5958755,
+        "p95_ms": 0.6007294
+      }
+    },
+    {
+      "id": "uncalibrated_004",
+      "kind": "adaptive",
+      "mean_ms": 9.90374377,
+      "p50_ms": 10.1171595,
+      "p95_ms": 10.1532953,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5951520720000001,
+        "p50_ms": 0.596692,
+        "p95_ms": 0.6009526000000001
+      }
+    },
+    {
+      "id": "uncalibrated_005",
+      "kind": "adaptive",
+      "mean_ms": 9.771830895999999,
+      "p50_ms": 10.1278365,
+      "p95_ms": 10.1885264,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5996863419999999,
+        "p50_ms": 0.6013065,
+        "p95_ms": 0.6058796000000001
+      }
+    },
+    {
+      "id": "uncalibrated_006",
+      "kind": "adaptive",
+      "mean_ms": 9.564655982,
+      "p50_ms": 10.1337395,
+      "p95_ms": 10.1585904,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600883662,
+        "p50_ms": 0.6021955,
+        "p95_ms": 0.6067462
+      }
+    },
+    {
+      "id": "uncalibrated_007",
+      "kind": "adaptive",
+      "mean_ms": 9.325796725999998,
+      "p50_ms": 10.1207975,
+      "p95_ms": 10.15538535,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5990444580000001,
+        "p50_ms": 0.6005525,
+        "p95_ms": 0.6051112999999999
+      }
+    },
+    {
+      "id": "uncalibrated_008",
+      "kind": "adaptive",
+      "mean_ms": 9.080433967999998,
+      "p50_ms": 8.4088095,
+      "p95_ms": 10.16277155,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6025304499999999,
+        "p50_ms": 0.603397,
+        "p95_ms": 0.60848285
+      }
+    },
+    {
+      "id": "uncalibrated_009",
+      "kind": "adaptive",
+      "mean_ms": 8.803805656,
+      "p50_ms": 8.399086,
+      "p95_ms": 10.15270185,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6005145460000001,
+        "p50_ms": 0.601615,
+        "p95_ms": 0.6074938
+      }
+    },
+    {
+      "id": "uncalibrated_010",
+      "kind": "adaptive",
+      "mean_ms": 8.62721497,
+      "p50_ms": 8.4099745,
+      "p95_ms": 10.1585847,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6009589619999999,
+        "p50_ms": 0.6024985,
+        "p95_ms": 0.60738655
+      }
+    },
+    {
+      "id": "uncalibrated_011",
+      "kind": "adaptive",
+      "mean_ms": 8.420435972,
+      "p50_ms": 8.3991215,
+      "p95_ms": 8.450016999999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60114636,
+        "p50_ms": 0.6021305,
+        "p95_ms": 0.6112704999999999
+      }
+    },
+    {
+      "id": "uncalibrated_012",
+      "kind": "adaptive",
+      "mean_ms": 10.14607422,
+      "p50_ms": 10.141984,
+      "p95_ms": 10.1674139,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601515576,
+        "p50_ms": 0.602836,
+        "p95_ms": 0.60775295
+      }
+    },
+    {
+      "id": "uncalibrated_013",
+      "kind": "adaptive",
+      "mean_ms": 10.149619225999999,
+      "p50_ms": 10.1479465,
+      "p95_ms": 10.16873895,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5999718319999999,
+        "p50_ms": 0.6014315,
+        "p95_ms": 0.60611055
+      }
+    },
+    {
+      "id": "uncalibrated_014",
+      "kind": "adaptive",
+      "mean_ms": 10.069213818,
+      "p50_ms": 10.136583,
+      "p95_ms": 10.1582386,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601339588,
+        "p50_ms": 0.6026585,
+        "p95_ms": 0.6074929499999999
+      }
+    },
+    {
+      "id": "uncalibrated_015",
+      "kind": "adaptive",
+      "mean_ms": 10.052341754,
+      "p50_ms": 10.1444975,
+      "p95_ms": 10.167192400000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601784402,
+        "p50_ms": 0.6028165000000001,
+        "p95_ms": 0.6144012999999999
+      }
+    },
+    {
+      "id": "uncalibrated_016",
+      "kind": "adaptive",
+      "mean_ms": 9.916927309999998,
+      "p50_ms": 10.1327775,
+      "p95_ms": 10.16267865,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601912726,
+        "p50_ms": 0.6034335,
+        "p95_ms": 0.6078635
+      }
+    },
+    {
+      "id": "uncalibrated_017",
+      "kind": "adaptive",
+      "mean_ms": 9.77104751,
+      "p50_ms": 10.137223,
+      "p95_ms": 10.16399465,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5996504159999999,
+        "p50_ms": 0.6010025,
+        "p95_ms": 0.60547885
+      }
+    },
+    {
+      "id": "uncalibrated_018",
+      "kind": "adaptive",
+      "mean_ms": 9.564043142000001,
+      "p50_ms": 10.13144,
+      "p95_ms": 10.162214050000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600618312,
+        "p50_ms": 0.6021095000000001,
+        "p95_ms": 0.60636845
+      }
+    },
+    {
+      "id": "uncalibrated_019",
+      "kind": "adaptive",
+      "mean_ms": 9.321020348,
+      "p50_ms": 10.1037745,
+      "p95_ms": 10.15611545,
+      "controller_overhead_ms": {
+        "mean_ms": 0.598140026,
+        "p50_ms": 0.5981885,
+        "p95_ms": 0.612173
+      }
+    },
+    {
+      "id": "uncalibrated_020",
+      "kind": "adaptive",
+      "mean_ms": 9.073679434,
+      "p50_ms": 8.4074235,
+      "p95_ms": 10.1646068,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600576728,
+        "p50_ms": 0.6021605,
+        "p95_ms": 0.6063824999999999
+      }
+    },
+    {
+      "id": "uncalibrated_021",
+      "kind": "adaptive",
+      "mean_ms": 8.811160090000001,
+      "p50_ms": 8.407219,
+      "p95_ms": 10.16303385,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6011651140000001,
+        "p50_ms": 0.6026009999999999,
+        "p95_ms": 0.60688195
+      }
+    },
+    {
+      "id": "uncalibrated_022",
+      "kind": "adaptive",
+      "mean_ms": 8.619756544,
+      "p50_ms": 8.403478,
+      "p95_ms": 10.153869449999998,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599776262,
+        "p50_ms": 0.601041,
+        "p95_ms": 0.6056242
+      }
+    },
+    {
+      "id": "uncalibrated_023",
+      "kind": "adaptive",
+      "mean_ms": 8.421076084000001,
+      "p50_ms": 8.4005595,
+      "p95_ms": 8.4594215,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6001721219999999,
+        "p50_ms": 0.6019414999999999,
+        "p95_ms": 0.60634405
+      }
+    },
+    {
+      "id": "uncalibrated_024",
+      "kind": "adaptive",
+      "mean_ms": 9.936765756000002,
+      "p50_ms": 10.139065,
+      "p95_ms": 10.16907065,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600978986,
+        "p50_ms": 0.602411,
+        "p95_ms": 0.6068603499999999
+      }
+    },
+    {
+      "id": "uncalibrated_025",
+      "kind": "adaptive",
+      "mean_ms": 9.935866654000002,
+      "p50_ms": 10.1412975,
+      "p95_ms": 10.16517465,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601173638,
+        "p50_ms": 0.6027469999999999,
+        "p95_ms": 0.6069043000000001
+      }
+    },
+    {
+      "id": "uncalibrated_026",
+      "kind": "adaptive",
+      "mean_ms": 9.904732804,
+      "p50_ms": 10.139372,
+      "p95_ms": 10.161275,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6015110079999999,
+        "p50_ms": 0.603009,
+        "p95_ms": 0.6077459999999999
+      }
+    },
+    {
+      "id": "uncalibrated_027",
+      "kind": "adaptive",
+      "mean_ms": 9.904346936,
+      "p50_ms": 10.140630999999999,
+      "p95_ms": 10.1613595,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600539826,
+        "p50_ms": 0.6021025,
+        "p95_ms": 0.6060161000000001
+      }
+    },
+    {
+      "id": "uncalibrated_028",
+      "kind": "adaptive",
+      "mean_ms": 9.779856253999998,
+      "p50_ms": 10.138777000000001,
+      "p95_ms": 10.16946115,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6031218080000001,
+        "p50_ms": 0.603855,
+        "p95_ms": 0.61577185
+      }
+    },
+    {
+      "id": "uncalibrated_029",
+      "kind": "adaptive",
+      "mean_ms": 9.630379016000001,
+      "p50_ms": 10.138336500000001,
+      "p95_ms": 10.1615831,
+      "controller_overhead_ms": {
+        "mean_ms": 0.598981988,
+        "p50_ms": 0.6007285,
+        "p95_ms": 0.6045311999999999
+      }
+    },
+    {
+      "id": "uncalibrated_030",
+      "kind": "adaptive",
+      "mean_ms": 9.423735176000001,
+      "p50_ms": 10.135206,
+      "p95_ms": 10.1619415,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602235298,
+        "p50_ms": 0.6037465,
+        "p95_ms": 0.60836875
+      }
+    },
+    {
+      "id": "uncalibrated_031",
+      "kind": "adaptive",
+      "mean_ms": 9.19615176,
+      "p50_ms": 10.127062500000001,
+      "p95_ms": 10.1601096,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601128416,
+        "p50_ms": 0.6027205,
+        "p95_ms": 0.60755045
+      }
+    },
+    {
+      "id": "uncalibrated_032",
+      "kind": "adaptive",
+      "mean_ms": 8.937712226,
+      "p50_ms": 8.408762,
+      "p95_ms": 10.16141355,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600748898,
+        "p50_ms": 0.6022105,
+        "p95_ms": 0.60689725
+      }
+    },
+    {
+      "id": "uncalibrated_033",
+      "kind": "adaptive",
+      "mean_ms": 8.677611195999999,
+      "p50_ms": 8.410014499999999,
+      "p95_ms": 10.1673659,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602220118,
+        "p50_ms": 0.602854,
+        "p95_ms": 0.6149584
+      }
+    },
+    {
+      "id": "uncalibrated_034",
+      "kind": "adaptive",
+      "mean_ms": 8.476843826,
+      "p50_ms": 8.40458,
+      "p95_ms": 10.15296365,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601223458,
+        "p50_ms": 0.602786,
+        "p95_ms": 0.6068765
+      }
+    },
+    {
+      "id": "uncalibrated_035",
+      "kind": "adaptive",
+      "mean_ms": 8.280296556000001,
+      "p50_ms": 8.401879,
+      "p95_ms": 8.43325215,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599809272,
+        "p50_ms": 0.6012365,
+        "p95_ms": 0.60629805
+      }
+    },
+    {
+      "id": "uncalibrated_036",
+      "kind": "adaptive",
+      "mean_ms": 9.610948252,
+      "p50_ms": 10.1429245,
+      "p95_ms": 10.1705362,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601151878,
+        "p50_ms": 0.6023985000000001,
+        "p95_ms": 0.6088054999999999
+      }
+    },
+    {
+      "id": "uncalibrated_037",
+      "kind": "adaptive",
+      "mean_ms": 9.608172485999999,
+      "p50_ms": 10.1422835,
+      "p95_ms": 10.1650208,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600018554,
+        "p50_ms": 0.6015904999999999,
+        "p95_ms": 0.60608995
+      }
+    },
+    {
+      "id": "uncalibrated_038",
+      "kind": "adaptive",
+      "mean_ms": 9.590830796000002,
+      "p50_ms": 10.138087500000001,
+      "p95_ms": 10.16013075,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6018535,
+        "p50_ms": 0.6032685,
+        "p95_ms": 0.60801085
+      }
+    },
+    {
+      "id": "uncalibrated_039",
+      "kind": "adaptive",
+      "mean_ms": 9.594211814,
+      "p50_ms": 10.1389715,
+      "p95_ms": 10.16865075,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6025931760000001,
+        "p50_ms": 0.6035604999999999,
+        "p95_ms": 0.61079645
+      }
+    },
+    {
+      "id": "uncalibrated_040",
+      "kind": "adaptive",
+      "mean_ms": 9.50542548,
+      "p50_ms": 10.144514000000001,
+      "p95_ms": 10.182539649999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60401903,
+        "p50_ms": 0.604052,
+        "p95_ms": 0.6171400499999999
+      }
+    },
+    {
+      "id": "uncalibrated_041",
+      "kind": "adaptive",
+      "mean_ms": 9.375455000000002,
+      "p50_ms": 10.140377,
+      "p95_ms": 10.16367765,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601074902,
+        "p50_ms": 0.602285,
+        "p95_ms": 0.6076488
+      }
+    },
+    {
+      "id": "uncalibrated_042",
+      "kind": "adaptive",
+      "mean_ms": 9.164330075999999,
+      "p50_ms": 10.1335495,
+      "p95_ms": 10.161804349999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6014819180000001,
+        "p50_ms": 0.60295,
+        "p95_ms": 0.6072010999999999
+      }
+    },
+    {
+      "id": "uncalibrated_043",
+      "kind": "adaptive",
+      "mean_ms": 8.977915332,
+      "p50_ms": 10.131774,
+      "p95_ms": 10.1737778,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60074106,
+        "p50_ms": 0.6022795,
+        "p95_ms": 0.6062690999999999
+      }
+    },
+    {
+      "id": "uncalibrated_044",
+      "kind": "adaptive",
+      "mean_ms": 8.724951579999999,
+      "p50_ms": 8.409857500000001,
+      "p95_ms": 10.16441655,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600478164,
+        "p50_ms": 0.601961,
+        "p95_ms": 0.6065480999999999
+      }
+    },
+    {
+      "id": "uncalibrated_045",
+      "kind": "adaptive",
+      "mean_ms": 8.45421852,
+      "p50_ms": 8.4075565,
+      "p95_ms": 10.160614749999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600648748,
+        "p50_ms": 0.6020669999999999,
+        "p95_ms": 0.6066924
+      }
+    },
+    {
+      "id": "uncalibrated_046",
+      "kind": "adaptive",
+      "mean_ms": 8.261201326,
+      "p50_ms": 8.40173,
+      "p95_ms": 10.155451600000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6017721220000001,
+        "p50_ms": 0.6031235,
+        "p95_ms": 0.60763455
+      }
+    },
+    {
+      "id": "uncalibrated_047",
+      "kind": "adaptive",
+      "mean_ms": 8.066723671999998,
+      "p50_ms": 8.403986499999998,
+      "p95_ms": 8.448281099999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60056685,
+        "p50_ms": 0.6021164999999999,
+        "p95_ms": 0.6062524499999999
+      }
+    },
+    {
+      "id": "uncalibrated_048",
+      "kind": "adaptive",
+      "mean_ms": 9.244313354,
+      "p50_ms": 10.1448335,
+      "p95_ms": 10.1730202,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6016835860000002,
+        "p50_ms": 0.603262,
+        "p95_ms": 0.6079488000000001
+      }
+    },
+    {
+      "id": "uncalibrated_049",
+      "kind": "adaptive",
+      "mean_ms": 9.238206673999999,
+      "p50_ms": 10.139987999999999,
+      "p95_ms": 10.1653304,
+      "controller_overhead_ms": {
+        "mean_ms": 0.598480094,
+        "p50_ms": 0.6000399999999999,
+        "p95_ms": 0.60465155
+      }
+    },
+    {
+      "id": "uncalibrated_050",
+      "kind": "adaptive",
+      "mean_ms": 9.226258598000001,
+      "p50_ms": 10.139228,
+      "p95_ms": 10.16779585,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6013314900000001,
+        "p50_ms": 0.601895,
+        "p95_ms": 0.6067020999999999
+      }
+    },
+    {
+      "id": "uncalibrated_051",
+      "kind": "adaptive",
+      "mean_ms": 9.224264658,
+      "p50_ms": 10.138558,
+      "p95_ms": 10.16285695,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601088454,
+        "p50_ms": 0.602625,
+        "p95_ms": 0.60677755
+      }
+    },
+    {
+      "id": "uncalibrated_052",
+      "kind": "adaptive",
+      "mean_ms": 9.145343576,
+      "p50_ms": 10.1441515,
+      "p95_ms": 10.1728832,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600202808,
+        "p50_ms": 0.6018479999999999,
+        "p95_ms": 0.60591335
+      }
+    },
+    {
+      "id": "uncalibrated_053",
+      "kind": "adaptive",
+      "mean_ms": 9.035294519999999,
+      "p50_ms": 10.139583,
+      "p95_ms": 10.166825150000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599263142,
+        "p50_ms": 0.6006375,
+        "p95_ms": 0.6054256
+      }
+    },
+    {
+      "id": "uncalibrated_054",
+      "kind": "adaptive",
+      "mean_ms": 8.848185266,
+      "p50_ms": 10.1371695,
+      "p95_ms": 10.1700884,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6009644639999999,
+        "p50_ms": 0.602415,
+        "p95_ms": 0.60759405
+      }
+    },
+    {
+      "id": "uncalibrated_055",
+      "kind": "adaptive",
+      "mean_ms": 8.647300124000001,
+      "p50_ms": 8.42317,
+      "p95_ms": 10.16374845,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601559302,
+        "p50_ms": 0.6031255,
+        "p95_ms": 0.6076956
+      }
+    },
+    {
+      "id": "uncalibrated_056",
+      "kind": "adaptive",
+      "mean_ms": 8.399120624,
+      "p50_ms": 8.4070495,
+      "p95_ms": 10.165368200000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601057178,
+        "p50_ms": 0.6025475,
+        "p95_ms": 0.6066587
+      }
+    },
+    {
+      "id": "uncalibrated_057",
+      "kind": "adaptive",
+      "mean_ms": 8.170120145999999,
+      "p50_ms": 8.402553000000001,
+      "p95_ms": 10.161897249999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6005821860000001,
+        "p50_ms": 0.6018475000000001,
+        "p95_ms": 0.6075781499999999
+      }
+    },
+    {
+      "id": "uncalibrated_058",
+      "kind": "adaptive",
+      "mean_ms": 7.991535566,
+      "p50_ms": 8.400371499999999,
+      "p95_ms": 10.15409785,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600256482,
+        "p50_ms": 0.6014904999999999,
+        "p95_ms": 0.60623485
+      }
+    },
+    {
+      "id": "uncalibrated_059",
+      "kind": "adaptive",
+      "mean_ms": 7.81073783,
+      "p50_ms": 8.4063735,
+      "p95_ms": 8.44038105,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6049466760000001,
+        "p50_ms": 0.6049755,
+        "p95_ms": 0.6169588
+      }
+    },
+    {
+      "id": "uncalibrated_060",
+      "kind": "adaptive",
+      "mean_ms": 8.867018744,
+      "p50_ms": 10.146801,
+      "p95_ms": 10.17171375,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60090164,
+        "p50_ms": 0.602506,
+        "p95_ms": 0.6069545000000001
+      }
+    },
+    {
+      "id": "uncalibrated_061",
+      "kind": "adaptive",
+      "mean_ms": 8.866985340000001,
+      "p50_ms": 10.1454015,
+      "p95_ms": 10.1736718,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6000732719999998,
+        "p50_ms": 0.6013895,
+        "p95_ms": 0.60607485
+      }
+    },
+    {
+      "id": "uncalibrated_062",
+      "kind": "adaptive",
+      "mean_ms": 8.865007047999999,
+      "p50_ms": 10.146295,
+      "p95_ms": 10.1723862,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6006004500000001,
+        "p50_ms": 0.6019695,
+        "p95_ms": 0.607188
+      }
+    },
+    {
+      "id": "uncalibrated_063",
+      "kind": "adaptive",
+      "mean_ms": 8.871989362,
+      "p50_ms": 10.1450145,
+      "p95_ms": 10.18581475,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6009376959999999,
+        "p50_ms": 0.6022685,
+        "p95_ms": 0.6069005
+      }
+    },
+    {
+      "id": "uncalibrated_064",
+      "kind": "adaptive",
+      "mean_ms": 8.798936408000001,
+      "p50_ms": 10.146004000000001,
+      "p95_ms": 10.18246405,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6000637719999999,
+        "p50_ms": 0.601682,
+        "p95_ms": 0.605972
+      }
+    },
+    {
+      "id": "uncalibrated_065",
+      "kind": "adaptive",
+      "mean_ms": 8.685821671999998,
+      "p50_ms": 10.13881,
+      "p95_ms": 10.171476,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6001101679999999,
+        "p50_ms": 0.6013875,
+        "p95_ms": 0.60660615
+      }
+    },
+    {
+      "id": "uncalibrated_066",
+      "kind": "adaptive",
+      "mean_ms": 8.507824123999999,
+      "p50_ms": 10.1318105,
+      "p95_ms": 10.1683258,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6012239439999999,
+        "p50_ms": 0.602949,
+        "p95_ms": 0.60688025
+      }
+    },
+    {
+      "id": "uncalibrated_067",
+      "kind": "adaptive",
+      "mean_ms": 8.324550222,
+      "p50_ms": 8.411266,
+      "p95_ms": 10.16277355,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6008163,
+        "p50_ms": 0.6022430000000001,
+        "p95_ms": 0.6070651
+      }
+    },
+    {
+      "id": "uncalibrated_068",
+      "kind": "adaptive",
+      "mean_ms": 8.08799642,
+      "p50_ms": 8.4037665,
+      "p95_ms": 10.16710895,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6016434839999999,
+        "p50_ms": 0.6032685,
+        "p95_ms": 0.6076874
+      }
+    },
+    {
+      "id": "uncalibrated_069",
+      "kind": "adaptive",
+      "mean_ms": 7.863753684,
+      "p50_ms": 8.3967025,
+      "p95_ms": 10.1507644,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6011908140000001,
+        "p50_ms": 0.6020435,
+        "p95_ms": 0.6066029000000001
+      }
+    },
+    {
+      "id": "uncalibrated_070",
+      "kind": "adaptive",
+      "mean_ms": 7.7048310540000005,
+      "p50_ms": 8.3949265,
+      "p95_ms": 10.14652765,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6007179579999999,
+        "p50_ms": 0.602203,
+        "p95_ms": 0.60725615
+      }
+    },
+    {
+      "id": "uncalibrated_071",
+      "kind": "adaptive",
+      "mean_ms": 7.5514080439999995,
+      "p50_ms": 8.406866,
+      "p95_ms": 8.43282595,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5997100780000001,
+        "p50_ms": 0.6011409999999999,
+        "p95_ms": 0.6057781999999999
+      }
+    },
+    {
+      "id": "uncalibrated_072",
+      "kind": "adaptive",
+      "mean_ms": 8.140484142,
+      "p50_ms": 10.138393,
+      "p95_ms": 10.17374135,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6001707820000001,
+        "p50_ms": 0.601513,
+        "p95_ms": 0.6063634
+      }
+    },
+    {
+      "id": "uncalibrated_073",
+      "kind": "adaptive",
+      "mean_ms": 8.134906124,
+      "p50_ms": 10.137306500000001,
+      "p95_ms": 10.1671066,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599672966,
+        "p50_ms": 0.601313,
+        "p95_ms": 0.6057253
+      }
+    },
+    {
+      "id": "uncalibrated_074",
+      "kind": "adaptive",
+      "mean_ms": 8.135023422,
+      "p50_ms": 10.1373845,
+      "p95_ms": 10.1658006,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6006180400000001,
+        "p50_ms": 0.6022209999999999,
+        "p95_ms": 0.6064258
+      }
+    },
+    {
+      "id": "uncalibrated_075",
+      "kind": "adaptive",
+      "mean_ms": 8.130544612,
+      "p50_ms": 10.1327145,
+      "p95_ms": 10.1619544,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6036352519999999,
+        "p50_ms": 0.603512,
+        "p95_ms": 0.61668835
+      }
+    },
+    {
+      "id": "uncalibrated_076",
+      "kind": "adaptive",
+      "mean_ms": 8.08505235,
+      "p50_ms": 10.1389635,
+      "p95_ms": 10.1826294,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6013571080000001,
+        "p50_ms": 0.6027305,
+        "p95_ms": 0.60733925
+      }
+    },
+    {
+      "id": "uncalibrated_077",
+      "kind": "adaptive",
+      "mean_ms": 7.994635136000001,
+      "p50_ms": 10.097312500000001,
+      "p95_ms": 10.1290339,
+      "controller_overhead_ms": {
+        "mean_ms": 0.594752432,
+        "p50_ms": 0.5965020000000001,
+        "p95_ms": 0.6008269500000001
+      }
+    },
+    {
+      "id": "uncalibrated_078",
+      "kind": "adaptive",
+      "mean_ms": 7.89782076,
+      "p50_ms": 8.410029000000002,
+      "p95_ms": 10.16613845,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6047468080000001,
+        "p50_ms": 0.604026,
+        "p95_ms": 0.61723135
+      }
+    },
+    {
+      "id": "uncalibrated_079",
+      "kind": "adaptive",
+      "mean_ms": 7.770597712000001,
+      "p50_ms": 8.399682,
+      "p95_ms": 10.157096099999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600017936,
+        "p50_ms": 0.6017035,
+        "p95_ms": 0.60572695
+      }
+    },
+    {
+      "id": "uncalibrated_080",
+      "kind": "adaptive",
+      "mean_ms": 7.571004722,
+      "p50_ms": 8.395628,
+      "p95_ms": 10.1629659,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600166886,
+        "p50_ms": 0.6017520000000001,
+        "p95_ms": 0.6061302000000001
+      }
+    },
+    {
+      "id": "uncalibrated_081",
+      "kind": "adaptive",
+      "mean_ms": 7.366932616,
+      "p50_ms": 8.395299999999999,
+      "p95_ms": 10.1561916,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60184542,
+        "p50_ms": 0.6018840000000001,
+        "p95_ms": 0.61461475
+      }
+    },
+    {
+      "id": "uncalibrated_082",
+      "kind": "adaptive",
+      "mean_ms": 7.208345418,
+      "p50_ms": 8.398393500000001,
+      "p95_ms": 10.15803335,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601035542,
+        "p50_ms": 0.602681,
+        "p95_ms": 0.6072111
+      }
+    },
+    {
+      "id": "uncalibrated_083",
+      "kind": "adaptive",
+      "mean_ms": 7.059110909999999,
+      "p50_ms": 8.3933085,
+      "p95_ms": 8.421029350000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5990832399999999,
+        "p50_ms": 0.6008015,
+        "p95_ms": 0.6048875499999999
+      }
+    },
+    {
+      "id": "uncalibrated_084",
+      "kind": "adaptive",
+      "mean_ms": 7.517197866,
+      "p50_ms": 7.5585375,
+      "p95_ms": 10.1758556,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6001490119999999,
+        "p50_ms": 0.6016870000000001,
+        "p95_ms": 0.60676135
+      }
+    },
+    {
+      "id": "uncalibrated_085",
+      "kind": "adaptive",
+      "mean_ms": 7.514417084000001,
+      "p50_ms": 7.55675,
+      "p95_ms": 10.1702836,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6003640880000001,
+        "p50_ms": 0.602012,
+        "p95_ms": 0.6062049
+      }
+    },
+    {
+      "id": "uncalibrated_086",
+      "kind": "adaptive",
+      "mean_ms": 7.512895036,
+      "p50_ms": 7.5550165,
+      "p95_ms": 10.1666353,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60173314,
+        "p50_ms": 0.603092,
+        "p95_ms": 0.6079508
+      }
+    },
+    {
+      "id": "uncalibrated_087",
+      "kind": "adaptive",
+      "mean_ms": 7.513942128000001,
+      "p50_ms": 7.553636,
+      "p95_ms": 10.172325050000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5996629419999999,
+        "p50_ms": 0.6011955,
+        "p95_ms": 0.6060067
+      }
+    },
+    {
+      "id": "uncalibrated_088",
+      "kind": "adaptive",
+      "mean_ms": 7.4679376699999995,
+      "p50_ms": 6.682316,
+      "p95_ms": 10.161776450000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6004909900000001,
+        "p50_ms": 0.60207,
+        "p95_ms": 0.60664275
+      }
+    },
+    {
+      "id": "uncalibrated_089",
+      "kind": "adaptive",
+      "mean_ms": 7.429960566,
+      "p50_ms": 6.683511,
+      "p95_ms": 10.16740385,
+      "controller_overhead_ms": {
+        "mean_ms": 0.59965615,
+        "p50_ms": 0.601254,
+        "p95_ms": 0.6055410499999999
+      }
+    },
+    {
+      "id": "uncalibrated_090",
+      "kind": "adaptive",
+      "mean_ms": 7.348111418,
+      "p50_ms": 6.694597,
+      "p95_ms": 10.16576225,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60145827,
+        "p50_ms": 0.6028045,
+        "p95_ms": 0.6073864999999999
+      }
+    },
+    {
+      "id": "uncalibrated_091",
+      "kind": "adaptive",
+      "mean_ms": 7.2301530540000005,
+      "p50_ms": 6.69248,
+      "p95_ms": 10.1619619,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6005767359999999,
+        "p50_ms": 0.6021105,
+        "p95_ms": 0.6062564500000001
+      }
+    },
+    {
+      "id": "uncalibrated_092",
+      "kind": "adaptive",
+      "mean_ms": 7.08471375,
+      "p50_ms": 6.684531,
+      "p95_ms": 10.16602535,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5992762500000001,
+        "p50_ms": 0.600561,
+        "p95_ms": 0.6053667
+      }
+    },
+    {
+      "id": "uncalibrated_093",
+      "kind": "adaptive",
+      "mean_ms": 6.912163233999999,
+      "p50_ms": 6.6894670000000005,
+      "p95_ms": 10.163197049999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600262582,
+        "p50_ms": 0.601391,
+        "p95_ms": 0.6056803
+      }
+    },
+    {
+      "id": "uncalibrated_094",
+      "kind": "adaptive",
+      "mean_ms": 6.748044932000001,
+      "p50_ms": 6.683334,
+      "p95_ms": 10.1370024,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601225654,
+        "p50_ms": 0.602491,
+        "p95_ms": 0.60780125
+      }
+    },
+    {
+      "id": "uncalibrated_095",
+      "kind": "adaptive",
+      "mean_ms": 6.635000428,
+      "p50_ms": 6.64318,
+      "p95_ms": 8.41164915,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599180292,
+        "p50_ms": 0.600491,
+        "p95_ms": 0.60493915
+      }
+    },
+    {
+      "id": "uncalibrated_096",
+      "kind": "adaptive",
+      "mean_ms": 7.0982627439999995,
+      "p50_ms": 4.879309,
+      "p95_ms": 10.16472635,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599513928,
+        "p50_ms": 0.6008255,
+        "p95_ms": 0.60550355
+      }
+    },
+    {
+      "id": "uncalibrated_097",
+      "kind": "adaptive",
+      "mean_ms": 7.099383038,
+      "p50_ms": 4.879862,
+      "p95_ms": 10.16151835,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60103878,
+        "p50_ms": 0.601309,
+        "p95_ms": 0.6146974
+      }
+    },
+    {
+      "id": "uncalibrated_098",
+      "kind": "adaptive",
+      "mean_ms": 7.0987954239999995,
+      "p50_ms": 4.878553,
+      "p95_ms": 10.167415850000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601576432,
+        "p50_ms": 0.602792,
+        "p95_ms": 0.6103318
+      }
+    },
+    {
+      "id": "uncalibrated_099",
+      "kind": "adaptive",
+      "mean_ms": 7.097772817999999,
+      "p50_ms": 4.878005,
+      "p95_ms": 10.162634650000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5990636500000001,
+        "p50_ms": 0.6006475,
+        "p95_ms": 0.6052459499999999
+      }
+    },
+    {
+      "id": "uncalibrated_100",
+      "kind": "adaptive",
+      "mean_ms": 7.086166904,
+      "p50_ms": 4.879939,
+      "p95_ms": 10.1679722,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601093656,
+        "p50_ms": 0.6023535,
+        "p95_ms": 0.60716925
+      }
+    },
+    {
+      "id": "uncalibrated_101",
+      "kind": "adaptive",
+      "mean_ms": 7.042778500000001,
+      "p50_ms": 4.8771125,
+      "p95_ms": 10.1608507,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600746602,
+        "p50_ms": 0.6021015000000001,
+        "p95_ms": 0.6065721000000001
+      }
+    },
+    {
+      "id": "uncalibrated_102",
+      "kind": "adaptive",
+      "mean_ms": 6.96400353,
+      "p50_ms": 4.8817965,
+      "p95_ms": 10.165442200000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5991969819999999,
+        "p50_ms": 0.6006325,
+        "p95_ms": 0.60507855
+      }
+    },
+    {
+      "id": "uncalibrated_103",
+      "kind": "adaptive",
+      "mean_ms": 6.86550325,
+      "p50_ms": 4.884538,
+      "p95_ms": 10.1671833,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600127512,
+        "p50_ms": 0.601707,
+        "p95_ms": 0.6060736000000001
+      }
+    },
+    {
+      "id": "uncalibrated_104",
+      "kind": "adaptive",
+      "mean_ms": 6.723317162,
+      "p50_ms": 4.878182,
+      "p95_ms": 10.15616025,
+      "controller_overhead_ms": {
+        "mean_ms": 0.599815334,
+        "p50_ms": 0.6015175,
+        "p95_ms": 0.60554585
+      }
+    },
+    {
+      "id": "uncalibrated_105",
+      "kind": "adaptive",
+      "mean_ms": 6.603674872,
+      "p50_ms": 4.881151,
+      "p95_ms": 10.152606950000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5988792439999999,
+        "p50_ms": 0.600352,
+        "p95_ms": 0.6044561
+      }
+    },
+    {
+      "id": "uncalibrated_106",
+      "kind": "adaptive",
+      "mean_ms": 6.4531354599999995,
+      "p50_ms": 4.8802765,
+      "p95_ms": 10.13042435,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600067,
+        "p50_ms": 0.6015075000000001,
+        "p95_ms": 0.6060831999999999
+      }
+    },
+    {
+      "id": "uncalibrated_107",
+      "kind": "adaptive",
+      "mean_ms": 6.365436498,
+      "p50_ms": 4.8833405,
+      "p95_ms": 8.410532,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5985320759999999,
+        "p50_ms": 0.599925,
+        "p95_ms": 0.6044722
+      }
+    },
+    {
+      "id": "uncalibrated_108",
+      "kind": "adaptive",
+      "mean_ms": 6.559538224,
+      "p50_ms": 4.872589,
+      "p95_ms": 10.1577711,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5997977940000001,
+        "p50_ms": 0.601017,
+        "p95_ms": 0.6060650000000001
+      }
+    },
+    {
+      "id": "uncalibrated_109",
+      "kind": "adaptive",
+      "mean_ms": 6.56192361,
+      "p50_ms": 4.874861,
+      "p95_ms": 10.15930345,
+      "controller_overhead_ms": {
+        "mean_ms": 0.5986616880000001,
+        "p50_ms": 0.60026,
+        "p95_ms": 0.60422015
+      }
+    },
+    {
+      "id": "uncalibrated_110",
+      "kind": "adaptive",
+      "mean_ms": 6.566072652000001,
+      "p50_ms": 4.877203,
+      "p95_ms": 10.1644186,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60065535,
+        "p50_ms": 0.6022475,
+        "p95_ms": 0.6069453
+      }
+    },
+    {
+      "id": "uncalibrated_111",
+      "kind": "adaptive",
+      "mean_ms": 6.557127456,
+      "p50_ms": 4.8729315,
+      "p95_ms": 10.158269800000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600099426,
+        "p50_ms": 0.6015855,
+        "p95_ms": 0.6065672
+      }
+    },
+    {
+      "id": "uncalibrated_112",
+      "kind": "adaptive",
+      "mean_ms": 6.5633906479999995,
+      "p50_ms": 4.8753475,
+      "p95_ms": 10.160933,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6010720119999999,
+        "p50_ms": 0.6024430000000001,
+        "p95_ms": 0.60731605
+      }
+    },
+    {
+      "id": "uncalibrated_113",
+      "kind": "adaptive",
+      "mean_ms": 6.548747838,
+      "p50_ms": 4.877218,
+      "p95_ms": 10.166524149999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.59960556,
+        "p50_ms": 0.6011329999999999,
+        "p95_ms": 0.60541215
+      }
+    },
+    {
+      "id": "uncalibrated_114",
+      "kind": "adaptive",
+      "mean_ms": 6.460566666000001,
+      "p50_ms": 4.872248,
+      "p95_ms": 10.15215985,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6013891659999999,
+        "p50_ms": 0.6026875,
+        "p95_ms": 0.60783075
+      }
+    },
+    {
+      "id": "uncalibrated_115",
+      "kind": "adaptive",
+      "mean_ms": 6.375693424000001,
+      "p50_ms": 4.8741795,
+      "p95_ms": 10.15249315,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600343266,
+        "p50_ms": 0.6017144999999999,
+        "p95_ms": 0.6059812499999999
+      }
+    },
+    {
+      "id": "uncalibrated_116",
+      "kind": "adaptive",
+      "mean_ms": 6.298549042,
+      "p50_ms": 4.8750995,
+      "p95_ms": 10.15236195,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600309386,
+        "p50_ms": 0.6020464999999999,
+        "p95_ms": 0.60627475
+      }
+    },
+    {
+      "id": "uncalibrated_117",
+      "kind": "adaptive",
+      "mean_ms": 6.188774712000001,
+      "p50_ms": 4.873263,
+      "p95_ms": 10.14088005,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6009442200000001,
+        "p50_ms": 0.6020595,
+        "p95_ms": 0.6076772
+      }
+    },
+    {
+      "id": "uncalibrated_118",
+      "kind": "adaptive",
+      "mean_ms": 6.07928649,
+      "p50_ms": 4.875482,
+      "p95_ms": 8.4197688,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60168967,
+        "p50_ms": 0.6032305,
+        "p95_ms": 0.6073994500000001
+      }
+    },
+    {
+      "id": "uncalibrated_119",
+      "kind": "adaptive",
+      "mean_ms": 5.997974354,
+      "p50_ms": 4.874658500000001,
+      "p95_ms": 8.40664175,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602904232,
+        "p50_ms": 0.6030385,
+        "p95_ms": 0.6147928500000001
+      }
+    },
+    {
+      "id": "uncalibrated_120",
+      "kind": "adaptive",
+      "mean_ms": 5.781147946,
+      "p50_ms": 4.8737525,
+      "p95_ms": 10.1583504,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60140968,
+        "p50_ms": 0.6031664999999999,
+        "p95_ms": 0.6069692
+      }
+    },
+    {
+      "id": "uncalibrated_121",
+      "kind": "adaptive",
+      "mean_ms": 5.780326364,
+      "p50_ms": 4.872279,
+      "p95_ms": 10.154044350000001,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600379288,
+        "p50_ms": 0.601691,
+        "p95_ms": 0.60651805
+      }
+    },
+    {
+      "id": "uncalibrated_122",
+      "kind": "adaptive",
+      "mean_ms": 5.782037398000001,
+      "p50_ms": 4.8747285,
+      "p95_ms": 10.15697565,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602337542,
+        "p50_ms": 0.6037275,
+        "p95_ms": 0.60819475
+      }
+    },
+    {
+      "id": "uncalibrated_123",
+      "kind": "adaptive",
+      "mean_ms": 5.782030168,
+      "p50_ms": 4.872749000000001,
+      "p95_ms": 10.1586263,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600313906,
+        "p50_ms": 0.601459,
+        "p95_ms": 0.6066703
+      }
+    },
+    {
+      "id": "uncalibrated_124",
+      "kind": "adaptive",
+      "mean_ms": 5.78987433,
+      "p50_ms": 4.879554,
+      "p95_ms": 10.17093695,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601189924,
+        "p50_ms": 0.60248,
+        "p95_ms": 0.6073746999999999
+      }
+    },
+    {
+      "id": "uncalibrated_125",
+      "kind": "adaptive",
+      "mean_ms": 5.76136606,
+      "p50_ms": 4.8693235,
+      "p95_ms": 10.1440714,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600921264,
+        "p50_ms": 0.602494,
+        "p95_ms": 0.6073077499999999
+      }
+    },
+    {
+      "id": "uncalibrated_126",
+      "kind": "adaptive",
+      "mean_ms": 5.7322917140000005,
+      "p50_ms": 4.873576,
+      "p95_ms": 10.15715315,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6015213679999999,
+        "p50_ms": 0.602865,
+        "p95_ms": 0.6081185499999999
+      }
+    },
+    {
+      "id": "uncalibrated_127",
+      "kind": "adaptive",
+      "mean_ms": 5.710136645999999,
+      "p50_ms": 4.8738745,
+      "p95_ms": 10.1542289,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60158872,
+        "p50_ms": 0.603367,
+        "p95_ms": 0.607329
+      }
+    },
+    {
+      "id": "uncalibrated_128",
+      "kind": "adaptive",
+      "mean_ms": 5.672854428000001,
+      "p50_ms": 4.874048999999999,
+      "p95_ms": 10.1521279,
+      "controller_overhead_ms": {
+        "mean_ms": 0.60105036,
+        "p50_ms": 0.602644,
+        "p95_ms": 0.6070660499999999
+      }
+    },
+    {
+      "id": "uncalibrated_129",
+      "kind": "adaptive",
+      "mean_ms": 5.587462041999999,
+      "p50_ms": 4.869600999999999,
+      "p95_ms": 10.131041,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600295198,
+        "p50_ms": 0.6013615,
+        "p95_ms": 0.6068536999999999
+      }
+    },
+    {
+      "id": "uncalibrated_130",
+      "kind": "adaptive",
+      "mean_ms": 5.53260162,
+      "p50_ms": 4.871152,
+      "p95_ms": 8.410172,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602330402,
+        "p50_ms": 0.603557,
+        "p95_ms": 0.6083294499999999
+      }
+    },
+    {
+      "id": "uncalibrated_131",
+      "kind": "adaptive",
+      "mean_ms": 5.477232690000001,
+      "p50_ms": 4.870899,
+      "p95_ms": 8.399017599999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601651558,
+        "p50_ms": 0.6032230000000001,
+        "p95_ms": 0.6076275
+      }
+    },
+    {
+      "id": "uncalibrated_132",
+      "kind": "adaptive",
+      "mean_ms": 4.873563284,
+      "p50_ms": 4.8728715000000005,
+      "p95_ms": 4.8878049,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601857576,
+        "p50_ms": 0.6033595,
+        "p95_ms": 0.6078017
+      }
+    },
+    {
+      "id": "uncalibrated_133",
+      "kind": "adaptive",
+      "mean_ms": 4.871951004,
+      "p50_ms": 4.8704925,
+      "p95_ms": 4.8856703,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601553486,
+        "p50_ms": 0.6028725,
+        "p95_ms": 0.6076519
+      }
+    },
+    {
+      "id": "uncalibrated_134",
+      "kind": "adaptive",
+      "mean_ms": 4.875901168,
+      "p50_ms": 4.8739615,
+      "p95_ms": 4.8885007,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602425338,
+        "p50_ms": 0.6042135,
+        "p95_ms": 0.6085242000000001
+      }
+    },
+    {
+      "id": "uncalibrated_135",
+      "kind": "adaptive",
+      "mean_ms": 4.876170508,
+      "p50_ms": 4.873858500000001,
+      "p95_ms": 4.88980745,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6009821120000001,
+        "p50_ms": 0.6022065000000001,
+        "p95_ms": 0.6074798
+      }
+    },
+    {
+      "id": "uncalibrated_136",
+      "kind": "adaptive",
+      "mean_ms": 4.873718801999999,
+      "p50_ms": 4.8723025,
+      "p95_ms": 4.8885685,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6015425459999999,
+        "p50_ms": 0.603198,
+        "p95_ms": 0.60753135
+      }
+    },
+    {
+      "id": "uncalibrated_137",
+      "kind": "adaptive",
+      "mean_ms": 4.87100453,
+      "p50_ms": 4.868722,
+      "p95_ms": 4.88396955,
+      "controller_overhead_ms": {
+        "mean_ms": 0.602283528,
+        "p50_ms": 0.6038105,
+        "p95_ms": 0.6077806
+      }
+    },
+    {
+      "id": "uncalibrated_138",
+      "kind": "adaptive",
+      "mean_ms": 4.872256790000001,
+      "p50_ms": 4.8700814999999995,
+      "p95_ms": 4.886620199999999,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601839114,
+        "p50_ms": 0.6032445,
+        "p95_ms": 0.60770845
+      }
+    },
+    {
+      "id": "uncalibrated_139",
+      "kind": "adaptive",
+      "mean_ms": 4.872463178,
+      "p50_ms": 4.869695999999999,
+      "p95_ms": 4.8868871,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6020394779999999,
+        "p50_ms": 0.6035245,
+        "p95_ms": 0.6078468
+      }
+    },
+    {
+      "id": "uncalibrated_140",
+      "kind": "adaptive",
+      "mean_ms": 4.872229996,
+      "p50_ms": 4.8703389999999995,
+      "p95_ms": 4.88549455,
+      "controller_overhead_ms": {
+        "mean_ms": 0.601887508,
+        "p50_ms": 0.6032875,
+        "p95_ms": 0.6081024500000001
+      }
+    },
+    {
+      "id": "uncalibrated_141",
+      "kind": "adaptive",
+      "mean_ms": 4.874478292,
+      "p50_ms": 4.8711400000000005,
+      "p95_ms": 4.88801165,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6017833419999999,
+        "p50_ms": 0.6031949999999999,
+        "p95_ms": 0.6080532999999999
+      }
+    },
+    {
+      "id": "uncalibrated_142",
+      "kind": "adaptive",
+      "mean_ms": 4.874977144000001,
+      "p50_ms": 4.8708335,
+      "p95_ms": 4.8895238999999995,
+      "controller_overhead_ms": {
+        "mean_ms": 0.6018408980000001,
+        "p50_ms": 0.6034200000000001,
+        "p95_ms": 0.6078237
+      }
+    },
+    {
+      "id": "uncalibrated_143",
+      "kind": "adaptive",
+      "mean_ms": 4.87023018,
+      "p50_ms": 4.867697,
+      "p95_ms": 4.88196595,
+      "controller_overhead_ms": {
+        "mean_ms": 0.600301276,
+        "p50_ms": 0.601701,
+        "p95_ms": 0.6063222500000001
+      }
+    }
+  ]
+}

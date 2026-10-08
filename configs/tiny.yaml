@@ -1,6 +1,6 @@
-dataset_root: /var/scratch/bde2659/adaptiveInference/ChestXray14/dev-mini
-metadata_csv: /var/scratch/bde2659/adaptiveInference/ChestXray14/dev-mini/Data_Entry_2017_v2020.csv
-pretrained_checkpoint: /var/scratch/bde2659/adaptiveInference/weights/ResNet50.pt
+dataset_root: ChestXray14/dev-mini
+metadata_csv: ChestXray14/dev-mini/Data_Entry_2017_v2020.csv
+pretrained_checkpoint: weights/ResNet50.pt
 split_dir: data/splits/tiny
 seed: 42
 image_size: 64
@@ -22,3 +22,6 @@ distillation:
   hard_weight: 1.0
   kd_weight: 1.0
   exit_weights: [1.0, 1.0]
+degradation:
+  blur_sigma_pixels: {mild: 1.0, severe: 2.0}
+  noise_std_normalized: {mild: 0.05, severe: 0.15}

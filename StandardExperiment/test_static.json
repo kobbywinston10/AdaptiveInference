@@ -1,0 +1,16 @@
+{
+  "split": "test",
+  "metrics": {
+    "macro_auroc": 0.7808873070032049,
+    "per_label_auroc": {
+      "Atelectasis": 0.7528613982943216,
+      "Effusion": 0.8518994188243408,
+      "Mass": 0.7667663232623666,
+      "Nodule": 0.6859547606173275,
+      "Pneumothorax": 0.846954634017668
+    },
+    "macro_f1": 0.2855510078241262,
+    "subset_accuracy": 0.3769969934563462,
+    "evaluated_images": 16963
+  }
+}
