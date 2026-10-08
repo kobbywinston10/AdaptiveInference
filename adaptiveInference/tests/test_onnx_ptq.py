@@ -18,7 +18,7 @@ from scripts.evaluate_onnx import main as evaluate_main
 from scripts.export_onnx import main as export_main
 from scripts.quantize_onnx import main as quantize_main
 from src.data.chestxray import save_splits
-from src.deployment.onnx_utils import load_session, run_all_exits
+from src.deployment.onnx_utils import load_session, model_footprint, run_all_exits
 from src.deployment.quantization import training_reader
 from src.evaluation.onnx_comparison import compare_variants
 from src.models.adaptive import AdaptiveResNet50
@@ -69,7 +69,9 @@ def test_static_ptq_uses_training_only_and_loads_three_exits(tmp_path, monkeypat
     assert report["calibration_split"] == "train" and report["calibration_sample_count"] == 3
     assert report["selected_training_indices"] == indices1
     assert report["quantization_format"] == "QDQ"
-    assert report["int8_size_bytes"] == int8.stat().st_size
+    assert report["int8_footprint"] == model_footprint(int8)
+    assert report["int8_size_bytes"] == report["int8_footprint"]["deployment_size_bytes"]
+    assert report["fp32_size_bytes"] == report["fp32_footprint"]["deployment_size_bytes"]
     assert report["source_graph"]["quantized_target_operators"]["Conv"] > 0
     assert report["int8_graph"]["int8_initializers"] > 0
     assert report["int8_graph"]["qdq_wrapped_target_operators"] == report["source_graph"]["quantized_target_operators"]
@@ -118,6 +120,10 @@ def test_static_ptq_uses_training_only_and_loads_three_exits(tmp_path, monkeypat
     comparison = json.loads((deployment / "quantization_comparison.json").read_text())
     assert fp32_metrics["operating_points"][0]["policy"] == int8_metrics["operating_points"][0]["policy"]
     assert comparison["compression_ratio"] == pytest.approx(report["compression_ratio_fp32_over_int8"])
+    assert fp32_metrics["deployment_size_bytes"] == report["fp32_size_bytes"]
+    assert int8_metrics["deployment_size_bytes"] == report["int8_size_bytes"]
+    assert comparison["fp32_footprint"] == report["fp32_footprint"]
+    assert comparison["int8_footprint"] == report["int8_footprint"]
     assert len(comparison["operating_points"]) == 1
     assert comparison["operating_points"][0]["routing_switch_rate"] == 0
     assert comparison["operating_points"][0]["exit_fraction_delta"] == [0, 0, 0]

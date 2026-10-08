@@ -48,10 +48,10 @@ def score_variant(exits, labels, frozen_points: list[dict], flops: dict) -> tupl
 
 
 def compare_variants(fp32: dict, int8: dict, routed_fp32: dict, routed_int8: dict,
-                     fp32_bytes: int, int8_bytes: int) -> dict:
-    """Use INT8 minus FP32 for signed metric and routing deltas."""
-    if fp32_bytes <= 0 or int8_bytes <= 0:
-        raise ValueError("Model file sizes must be positive")
+                     fp32_deployment_bytes: int, int8_deployment_bytes: int) -> dict:
+    """Use total deployment bytes and INT8 minus FP32 for signed deltas."""
+    if fp32_deployment_bytes <= 0 or int8_deployment_bytes <= 0:
+        raise ValueError("Deployment sizes must be positive")
     left = {point["id"]: point for point in fp32["operating_points"]}
     right = {point["id"]: point for point in int8["operating_points"]}
     if list(left) != list(right) or set(routed_fp32) != set(left) or set(routed_int8) != set(left):
@@ -79,8 +79,8 @@ def compare_variants(fp32: dict, int8: dict, routed_fp32: dict, routed_int8: dic
                        "routing_switch_rate": float((a != b).float().mean()),
                        "routing_transition_counts_fp32_rows_int8_columns": transition})
     return {"delta_definition": "INT8 minus FP32",
-            "size_reduction_percent": 100 * (1 - int8_bytes / fp32_bytes),
-            "compression_ratio": fp32_bytes / int8_bytes,
+            "size_reduction_percent": 100 * (1 - int8_deployment_bytes / fp32_deployment_bytes),
+            "compression_ratio": fp32_deployment_bytes / int8_deployment_bytes,
             "fp32_exit3_macro_auroc": fp32["exit_metrics"]["exit3_logits"]["macro_auroc"],
             "int8_exit3_macro_auroc": int8["exit_metrics"]["exit3_logits"]["macro_auroc"],
             "exit3_macro_auroc_delta": delta(fp32["exit_metrics"]["exit3_logits"]["macro_auroc"],

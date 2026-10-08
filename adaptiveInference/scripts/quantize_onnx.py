@@ -13,7 +13,7 @@ import onnxruntime as ort
 import torch
 from onnxruntime.quantization import CalibrationMethod, QuantFormat, QuantType, quantize_static
 
-from src.deployment.onnx_utils import OUTPUT_NAMES, load_session, run_all_exits
+from src.deployment.onnx_utils import OUTPUT_NAMES, load_session, model_footprint, run_all_exits
 from src.deployment.quantization import TARGET_OPS, graph_summary, training_reader
 from src.utils.config import load_config, resolve_project_path
 from src.utils.run import atomic_write_text, file_sha256
@@ -85,8 +85,10 @@ def main():
     finally:
         if temporary.exists():
             temporary.unlink()
-    fp32_bytes = source.stat().st_size
-    int8_bytes = target.stat().st_size
+    fp32_footprint = model_footprint(source)
+    int8_footprint = model_footprint(target)
+    fp32_bytes = fp32_footprint["deployment_size_bytes"]
+    int8_bytes = int8_footprint["deployment_size_bytes"]
     report = {
         "schema_version": 1,
         "source_fp32_onnx_path": str(source), "source_fp32_onnx_sha256": file_sha256(source),
@@ -100,8 +102,9 @@ def main():
         "calibration_seed": seed,
         "selection_method": "seeded sampling without replacement; selected indices sorted in training manifest order",
         "selected_training_indices": indices,
-        "fp32_size_bytes": fp32_bytes, "fp32_size_mib": fp32_bytes / (1024 ** 2),
-        "int8_size_bytes": int8_bytes, "int8_size_mib": int8_bytes / (1024 ** 2),
+        "fp32_size_bytes": fp32_bytes, "fp32_size_mib": fp32_footprint["deployment_size_mib"],
+        "int8_size_bytes": int8_bytes, "int8_size_mib": int8_footprint["deployment_size_mib"],
+        "fp32_footprint": fp32_footprint, "int8_footprint": int8_footprint,
         "compression_ratio_fp32_over_int8": fp32_bytes / int8_bytes,
         "versions": {"torch": torch.__version__, "numpy": np.__version__, "onnx": onnx.__version__,
                      "onnxruntime": ort.__version__},

@@ -12,7 +12,7 @@ import numpy as np
 import torch
 
 from src.data.chestxray import ChestXrayDataset, LABELS, load_splits
-from src.deployment.onnx_utils import OUTPUT_NAMES, compare_parity, load_session, run_all_exits
+from src.deployment.onnx_utils import OUTPUT_NAMES, compare_parity, load_session, model_footprint, run_all_exits
 from src.evaluation.onnx_comparison import collect_paired_outputs, compare_variants, csv_text, score_variant
 from src.models.adaptive import AdaptiveResNet50
 from src.routing.policy import RoutingPolicy, load_policy, route_all, selected_metrics
@@ -128,7 +128,9 @@ def run_comparison(args, config, checkpoint_path, run_dir):
     paired_exits, labels = collect_paired_outputs(load_session(fp32_path), load_session(int8_path), dataset)
     fp32_metrics, fp32_ids = score_variant(paired_exits["fp32"], labels, points, flops)
     int8_metrics, int8_ids = score_variant(paired_exits["int8"], labels, points, flops)
-    fp32_bytes, int8_bytes = fp32_path.stat().st_size, int8_path.stat().st_size
+    footprints = {"fp32": model_footprint(fp32_path), "int8": model_footprint(int8_path)}
+    fp32_bytes = footprints["fp32"]["deployment_size_bytes"]
+    int8_bytes = footprints["int8"]["deployment_size_bytes"]
     comparison = compare_variants(fp32_metrics, int8_metrics, fp32_ids, int8_ids, fp32_bytes, int8_bytes)
     common = {"schema_version": 1, "split": split, "images": len(labels),
               "checkpoint_sha256": digest, "calibration_sha256": calibration_hash,
@@ -142,11 +144,13 @@ def run_comparison(args, config, checkpoint_path, run_dir):
             ("int8", int8_path, int8_bytes, int8_hash, int8_metrics)):
         variant_reports[name] = {**common, "variant": name, "onnx_path": str(path),
                                  "onnx_sha256": model_hash, "size_bytes": size,
-                                 "size_mib": size / (1024 ** 2),
+                                 "size_mib": footprints[name]["deployment_size_mib"],
+                                 **footprints[name],
                                  "compression_ratio_vs_fp32": fp32_bytes / size,
                                  **metrics}
     comparison_report = {**common, "fp32_onnx_sha256": fp32_hash, "int8_onnx_sha256": int8_hash,
                          "fp32_size_bytes": fp32_bytes, "int8_size_bytes": int8_bytes,
+                         "fp32_footprint": footprints["fp32"], "int8_footprint": footprints["int8"],
                          "validation_comparison_sha256": file_sha256(output_dir / "quantization_comparison.json") if split == "test" else None,
                          **comparison}
     size_auroc_rows = []

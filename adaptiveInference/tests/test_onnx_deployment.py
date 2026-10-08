@@ -5,10 +5,12 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import onnx
 import pytest
 import torch
 import yaml
 from PIL import Image
+from onnx import helper, numpy_helper
 
 pytest.importorskip("onnx")
 pytest.importorskip("onnxruntime")
@@ -16,7 +18,7 @@ pytest.importorskip("onnxruntime")
 from scripts.evaluate_onnx import main as evaluate_main
 from scripts.export_onnx import main as export_main
 from src.data.chestxray import LABELS, save_splits
-from src.deployment.onnx_utils import OUTPUT_NAMES, load_session
+from src.deployment.onnx_utils import OUTPUT_NAMES, load_session, model_footprint
 from src.models.adaptive import AdaptiveResNet50
 from src.routing.policy import RoutingPolicy
 from src.utils.run import file_sha256, split_hashes
@@ -56,7 +58,10 @@ def test_fp32_shared_graph_parity_and_offline_evaluation(tmp_path, monkeypatch, 
     deployment = tmp_path / "results/synthetic/deployment"
     onnx_path = deployment / "adaptive_fp32.onnx"
     report = json.loads((deployment / "fp32_export_report.json").read_text())
+    footprint = model_footprint(onnx_path)
     assert onnx_path.is_file() and report["onnx_size_bytes"] == onnx_path.stat().st_size
+    assert all(report[key] == value for key, value in footprint.items())
+    assert footprint["deployment_size_bytes"] == footprint["onnx_graph_size_bytes"] + footprint["external_data_size_bytes"]
     assert report["input_shape"] == [1, 3, 32, 32]
     assert report["output_names"] == list(OUTPUT_NAMES)
     assert report["validation_parity"]["passed"]
@@ -82,3 +87,27 @@ def test_fp32_shared_graph_parity_and_offline_evaluation(tmp_path, monkeypatch, 
     assert test_evaluation["frozen_calibrated_policy"]["policy"] == json.loads(
         json.dumps(calibration["policies"]["calibrated"]["policy"]))
     capsys.readouterr()
+
+
+def test_model_footprint_counts_external_data_once_and_requires_it(tmp_path):
+    model_path = tmp_path / "external.onnx"
+    weights = [numpy_helper.from_array(np.arange(2, dtype=np.float32), name=name)
+               for name in ("weights_a", "weights_b")]
+    graph = helper.make_graph([helper.make_node("Add", ["image", "weights_a"], ["output"])],
+                              "external_size_test",
+                              [helper.make_tensor_value_info("image", onnx.TensorProto.FLOAT, [2])],
+                              [helper.make_tensor_value_info("output", onnx.TensorProto.FLOAT, [2])],
+                              weights)
+    onnx.save_model(helper.make_model(graph), str(model_path), save_as_external_data=True,
+                    all_tensors_to_one_file=True, location="weights.bin", size_threshold=0)
+    external = tmp_path / "weights.bin"
+    assert external.is_file()
+    footprint = model_footprint(model_path)
+    assert footprint["onnx_graph_size_bytes"] == model_path.stat().st_size
+    assert footprint["external_data_size_bytes"] == external.stat().st_size
+    assert footprint["deployment_size_bytes"] == model_path.stat().st_size + external.stat().st_size
+    assert footprint["deployment_size_mib"] == pytest.approx(footprint["deployment_size_bytes"] / (1024 ** 2))
+    assert footprint["external_data_files"] == [{"location": "weights.bin", "size_bytes": external.stat().st_size}]
+    external.unlink()
+    with pytest.raises(FileNotFoundError, match="External tensor file"):
+        model_footprint(model_path)

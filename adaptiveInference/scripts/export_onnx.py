@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import torch
 
 from src.data.chestxray import ChestXrayDataset
-from src.deployment.onnx_utils import INPUT_NAME, OUTPUT_NAMES, OPSET_VERSION, compare_parity, export_all_exits, load_session
+from src.deployment.onnx_utils import INPUT_NAME, OUTPUT_NAMES, OPSET_VERSION, compare_parity, export_all_exits, load_session, model_footprint
 from src.models.adaptive import AdaptiveResNet50
 from src.utils.config import load_config, resolve_project_path
 from src.utils.run import atomic_write_text, file_sha256, split_hashes
@@ -49,14 +49,16 @@ def main():
     export_all_exits(model, onnx_path, config["image_size"])
     session = load_session(onnx_path)
     parity = compare_parity(model, session, dataset, args.validation_samples, args.atol, args.rtol)
-    bytes_on_disk = onnx_path.stat().st_size
+    footprint = model_footprint(onnx_path)
     report = {"schema_version": 1, "format": "FP32 ONNX", "graph": "shared_weight_all_exits",
               "runtime_scope": "all three exits execute; no conditional adaptive latency or FLOP claim",
               "opset_version": OPSET_VERSION, "input_name": INPUT_NAME,
               "input_shape": [1, 3, config["image_size"], config["image_size"]],
               "output_names": list(OUTPUT_NAMES), "checkpoint_sha256": file_sha256(checkpoint_path),
               "split_hashes": hashes, "onnx_sha256": file_sha256(onnx_path),
-              "onnx_size_bytes": bytes_on_disk, "onnx_size_mib": bytes_on_disk / (1024 ** 2),
+              "onnx_size_bytes": footprint["onnx_graph_size_bytes"],
+              "onnx_size_mib": footprint["onnx_graph_size_bytes"] / (1024 ** 2),
+              **footprint,
               "onnx_checker_passed": True, "runtime_provider": session.get_providers(),
               "validation_parity": parity}
     atomic_write_text(report_path, json.dumps(report, indent=2, allow_nan=False))
