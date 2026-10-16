@@ -1,0 +1,22 @@
+{
+  "method": "module_hooks_2_flops_per_mac_plus_bn_relu_pool_residual_v1",
+  "convention": "2 FLOPs per multiply-add; counts Conv2d, Linear, BatchNorm2d, ReLU, MaxPool2d, AdaptiveAvgPool2d, residual adds; excludes routing entropy and memory operations",
+  "batch_size": 1,
+  "image_size": 224,
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "model_parameter_bytes": 94103868,
+  "path_flops": {
+    "fixed_exit1_flops": 3656932869,
+    "fixed_exit2_flops": 6592886789,
+    "static_full_flops": 8213357061,
+    "adaptive_exit1_flops": 3656932869,
+    "adaptive_exit2_flops": 6593293834,
+    "adaptive_exit3_flops": 8213976079
+  },
+  "fixed_exit1": 3656932869,
+  "exit1": 3656932869,
+  "fixed_exit2": 6592886789,
+  "exit2": 6593293834,
+  "full": 8213357061,
+  "exit3": 8213976079
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "selection_split": "validation",
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "calibration_sha256": "a041ee04ced7d1333184dedbaa4124da4326e19dc7b8122ba1040b0de943ed28",
+  "flops_sha256": "d8747c44fdc6c17491618140d2de98a3fc49c48ecf193b052edca2b69365d4ab",
+  "image_size": 224,
+  "flops_method": "module_hooks_2_flops_per_mac_plus_bn_relu_pool_residual_v1",
+  "split_hashes": {
+    "train": "f228c905855fcf425c3f9ed1b6e3d30d97b8c6a2f2597af5facbb7bf951ad613",
+    "validation": "3a7b67e84ee52075c8cd5dcff2cd6ca08ba4769b5b4b0f6651752fba2ef23eb4",
+    "test": "102b6c7b0970bb9edd7e4593038d12f52c6f903eb72acf9d2887dd1949999ea9"
+  },
+  "requested_points": 5,
+  "selection_algorithm": "Validation calibrated macro-AUROC/FLOP Pareto frontier; collapse equal coordinates; require >=1% of images outside the majority exit; nearest unique policies to evenly spaced cost targets; include frozen policy when eligible; ties: higher AUROC, lower BCE, lower thresholds, lower sweep index",
+  "candidate_count": 144,
+  "pareto_count": 62,
+  "useful_pareto_count": 57,
+  "frozen_policy": {
+    "original_threshold_sweep_index": 17,
+    "included": true,
+    "nearest_selected_id": "adaptive_op4"
+  },
+  "points": [
+    {
+      "id": "adaptive_op1",
+      "label": "low_compute",
+      "original_threshold_sweep_index": 131,
+      "threshold1": 0.6928742527961731,
+      "threshold2": 0.6931471805599453,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "validation_macro_auroc": 0.6960988284363886,
+      "validation_bce": 0.482811838388443,
+      "average_exit_depth": 1.100000023841858,
+      "exit_counts": [
+        14787,
+        1643,
+        0
+      ],
+      "exit_fractions": [
+        0.9,
+        0.1,
+        0.0
+      ],
+      "mean_executed_flops": 3950568965.5,
+      "compute_saving_vs_adaptive_exit3": 0.5190430398744286
+    },
+    {
+      "id": "adaptive_op2",
+      "label": "moderate_compute",
+      "original_threshold_sweep_index": 93,
+      "threshold1": 0.6866135001182556,
+      "threshold2": 0.6919654607772827,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "validation_macro_auroc": 0.7222391993713418,
+      "validation_bce": 0.4962947964668274,
+      "average_exit_depth": 1.5085209608078003,
+      "exit_counts": [
+        9858,
+        4789,
+        1783
+      ],
+      "exit_fractions": [
+        0.6,
+        0.2914790018259282,
+        0.10852099817407182
+      ],
+      "mean_executed_flops": 5007355309.950396,
+      "compute_saving_vs_adaptive_exit3": 0.39038593955096956
+    },
+    {
+      "id": "adaptive_op3",
+      "label": "balanced",
+      "original_threshold_sweep_index": 47,
+      "threshold1": 0.6313847303390503,
+      "threshold2": 0.6931471805599453,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "validation_macro_auroc": 0.749073333996505,
+      "validation_bce": 0.5010231137275696,
+      "average_exit_depth": 1.7999999523162842,
+      "exit_counts": [
+        3286,
+        13144,
+        0
+      ],
+      "exit_fractions": [
+        0.2,
+        0.8,
+        0.0
+      ],
+      "mean_executed_flops": 6006021641.0,
+      "compute_saving_vs_adaptive_exit3": 0.26880458583814193
+    },
+    {
+      "id": "adaptive_op4",
+      "label": "high_compute",
+      "original_threshold_sweep_index": 17,
+      "threshold1": 0.1553778052330017,
+      "threshold2": 0.6714419722557068,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "validation_macro_auroc": 0.7705182634809971,
+      "validation_bce": 0.508708655834198,
+      "average_exit_depth": 2.5999391078948975,
+      "exit_counts": [
+        1,
+        6571,
+        9858
+      ],
+      "exit_fractions": [
+        6.086427267194157e-05,
+        0.39993913572732803,
+        0.6
+      ],
+      "mean_executed_flops": 7565524461.525563,
+      "compute_saving_vs_adaptive_exit3": 0.07894491184753749
+    },
+    {
+      "id": "adaptive_op5",
+      "label": "accuracy_focused",
+      "original_threshold_sweep_index": 2,
+      "threshold1": -1.0,
+      "threshold2": 0.5805820226669312,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "validation_macro_auroc": 0.777913596630857,
+      "validation_bce": 0.5085009336471558,
+      "average_exit_depth": 2.9000000953674316,
+      "exit_counts": [
+        0,
+        1643,
+        14787
+      ],
+      "exit_fractions": [
+        0.0,
+        0.1,
+        0.9
+      ],
+      "mean_executed_flops": 8051907854.5,
+      "compute_saving_vs_adaptive_exit3": 0.019730788468491745
+    }
+  ]
+}

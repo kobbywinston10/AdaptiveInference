@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "format": "FP32 ONNX",
+  "graph": "shared_weight_all_exits",
+  "runtime_scope": "all three exits execute; no conditional adaptive latency or FLOP claim",
+  "opset_version": 17,
+  "input_name": "image",
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "output_names": [
+    "exit1_logits",
+    "exit2_logits",
+    "exit3_logits"
+  ],
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "split_hashes": {
+    "train": "f228c905855fcf425c3f9ed1b6e3d30d97b8c6a2f2597af5facbb7bf951ad613",
+    "validation": "3a7b67e84ee52075c8cd5dcff2cd6ca08ba4769b5b4b0f6651752fba2ef23eb4",
+    "test": "102b6c7b0970bb9edd7e4593038d12f52c6f903eb72acf9d2887dd1949999ea9"
+  },
+  "onnx_sha256": "7a8d67601c7f5192275dd18f332302fb1ff47a48ece80494f8e94654e16e1446",
+  "onnx_size_bytes": 268657,
+  "onnx_size_mib": 0.2562112808227539,
+  "onnx_graph_size_bytes": 268657,
+  "external_data_size_bytes": 94044160,
+  "deployment_size_bytes": 94312817,
+  "deployment_size_mib": 89.94371128082275,
+  "external_data_files": [
+    {
+      "location": "adaptive_fp32.onnx.data",
+      "size_bytes": 94044160
+    }
+  ],
+  "onnx_checker_passed": true,
+  "runtime_provider": [
+    "CPUExecutionProvider"
+  ],
+  "validation_parity": {
+    "split": "validation",
+    "samples": 16,
+    "atol": 0.0001,
+    "rtol": 0.0001,
+    "per_exit": {
+      "exit1_logits": {
+        "max_absolute_logit_difference": 9.5367431640625e-07,
+        "mean_absolute_logit_difference": 2.393731790562015e-07,
+        "passed": true
+      },
+      "exit2_logits": {
+        "max_absolute_logit_difference": 1.7285346984863281e-06,
+        "mean_absolute_logit_difference": 5.272682983559207e-07,
+        "passed": true
+      },
+      "exit3_logits": {
+        "max_absolute_logit_difference": 2.384185791015625e-06,
+        "mean_absolute_logit_difference": 7.333932217079564e-07,
+        "passed": true
+      }
+    },
+    "passed": true
+  }
+}

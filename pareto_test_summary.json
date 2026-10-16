@@ -1,0 +1,39 @@
+{
+  "split": "test",
+  "policy_selection_split": "validation",
+  "primary_metric": "macro_auroc",
+  "points": [
+    {
+      "id": "fixed_exit1",
+      "macro_auroc": 0.6833732387592079,
+      "macro_f1": 0.21097179512699768,
+      "average_flops": 3656932869,
+      "flops_saving_vs_full_percent": 55.47578363097783,
+      "auroc_drop_vs_full": 0.097514068243997
+    },
+    {
+      "id": "fixed_exit2",
+      "macro_auroc": 0.7541931537748288,
+      "macro_f1": 0.2688061543101572,
+      "average_flops": 6592886789,
+      "flops_saving_vs_full_percent": 19.72969469079313,
+      "auroc_drop_vs_full": 0.026694153228376094
+    },
+    {
+      "id": "adaptive_high_kd_calibrated",
+      "macro_auroc": 0.773069093452288,
+      "macro_f1": 0.28624501371851196,
+      "average_flops": 7555594816.823793,
+      "flops_saving_vs_full_percent": 8.008445746252779,
+      "auroc_drop_vs_full": 0.00781821355091683
+    },
+    {
+      "id": "full_static_baseline",
+      "macro_auroc": 0.7808873070032049,
+      "macro_f1": 0.2855510078241262,
+      "average_flops": 8213357061,
+      "flops_saving_vs_full_percent": 0.0,
+      "auroc_drop_vs_full": 0.0
+    }
+  ]
+}

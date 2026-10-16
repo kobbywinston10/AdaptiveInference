@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "purpose": "final_report_figures",
+  "test_images": null,
+  "selection_split": "validation",
+  "headline_results": {
+    "fp32_full_exit3_macro_auroc": 0.7808873149085054,
+    "int8_full_exit3_macro_auroc": 0.7650469256092751,
+    "int8_exit3_macro_auroc_delta": -0.015840389299230262,
+    "fp32_deployment_size_mib": 89.94371128082275,
+    "int8_deployment_size_mib": 22.81419849395752,
+    "size_reduction_percent": 74.6350265415145,
+    "compression_ratio": 3.9424444958978024,
+    "fp32_op4_macro_auroc": 0.7730691342872184,
+    "fp32_op4_gflops": 7.555594816823794,
+    "int8_op4_macro_auroc": 0.7538947686202676,
+    "int8_op4_gflops": 7.487700277582798,
+    "fp32_op5_macro_auroc": 0.7798871866998869,
+    "fp32_op5_gflops": 8.054420614214878,
+    "int8_op5_macro_auroc": 0.7631750092456328,
+    "int8_op5_gflops": 8.027095546592996
+  },
+  "figures": {
+    "adaptive_test_tradeoff": [
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/01_test_accuracy_vs_flops.png",
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/01_test_accuracy_vs_flops.pdf"
+    ],
+    "deployment_size": [
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/02_fp32_vs_int8_deployment_size.png",
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/02_fp32_vs_int8_deployment_size.pdf"
+    ],
+    "exit3_quantization_accuracy": [
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/03_fp32_vs_int8_exit3_auroc.png",
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/03_fp32_vs_int8_exit3_auroc.pdf"
+    ],
+    "fp32_vs_int8_operating_points": [
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/04_fp32_vs_int8_operating_points.png",
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/04_fp32_vs_int8_operating_points.pdf"
+    ],
+    "routing_switch_rate": [
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/05_quantization_routing_switch_rate.png",
+      "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/05_quantization_routing_switch_rate.pdf"
+    ]
+  },
+  "table": "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/final_figures/final_adaptive_test_points.csv"
+}

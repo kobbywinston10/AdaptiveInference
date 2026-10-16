@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "split": "validation",
+  "selection_split": "validation",
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "calibration_sha256": "a041ee04ced7d1333184dedbaa4124da4326e19dc7b8122ba1040b0de943ed28",
+  "flops_sha256": "d8747c44fdc6c17491618140d2de98a3fc49c48ecf193b052edca2b69365d4ab",
+  "operating_points_sha256": "3669dae3d175e23b68073096eb6db82cbac369ca6dafcf6b086f94383ac5e7b7",
+  "method": "offline_all_exits_frozen_policy_evaluation",
+  "fixed_points": [
+    {
+      "id": "fixed_exit1",
+      "label": "Fixed Exit1",
+      "binary_bce": 0.5405378937721252,
+      "binary_ece": 0.32200345396995544,
+      "macro_auroc": 0.689499607491669,
+      "per_label_auroc": {
+        "Atelectasis": 0.6941856347284857,
+        "Effusion": 0.7392779859068558,
+        "Mass": 0.663443048697189,
+        "Nodule": 0.6075066126327495,
+        "Pneumothorax": 0.743084755493065
+      },
+      "macro_f1": 0.22059680037176127,
+      "subset_accuracy": 0.4425441324710846,
+      "exit_counts": [
+        16430,
+        0,
+        0
+      ],
+      "average_exit_depth": 1.0,
+      "exit_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mean_executed_flops": 3656932869,
+      "static_path_flops": 3656932869,
+      "flop_saving_vs_static_full": 0.5547578363097783,
+      "flop_saving_vs_adaptive_exit3": 0.5547913904510411
+    },
+    {
+      "id": "fixed_exit2",
+      "label": "Fixed Exit2",
+      "binary_bce": 0.5091293454170227,
+      "binary_ece": 0.2875739634037018,
+      "macro_auroc": 0.7599572926807173,
+      "per_label_auroc": {
+        "Atelectasis": 0.7601947832044568,
+        "Effusion": 0.8295651974357012,
+        "Mass": 0.7340608802591893,
+        "Nodule": 0.6660182216806345,
+        "Pneumothorax": 0.8099473808236054
+      },
+      "macro_f1": 0.2741151440074683,
+      "subset_accuracy": 0.44053560495376587,
+      "exit_counts": [
+        0,
+        16430,
+        0
+      ],
+      "average_exit_depth": 2.0,
+      "exit_fractions": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mean_executed_flops": 6592886789,
+      "static_path_flops": 6592886789,
+      "flop_saving_vs_static_full": 0.19729694690793131,
+      "flop_saving_vs_adaptive_exit3": 0.19735743985723386
+    },
+    {
+      "id": "full",
+      "label": "Full/Exit3",
+      "binary_bce": 0.5079670548439026,
+      "binary_ece": 0.2781206965446472,
+      "macro_auroc": 0.7786083739438113,
+      "per_label_auroc": {
+        "Atelectasis": 0.7747258480299553,
+        "Effusion": 0.8459372524556837,
+        "Mass": 0.7618874471299947,
+        "Nodule": 0.6895142271220064,
+        "Pneumothorax": 0.8209770949814165
+      },
+      "macro_f1": 0.2815063528083676,
+      "subset_accuracy": 0.36390748620033264,
+      "exit_counts": [
+        0,
+        0,
+        16430
+      ],
+      "average_exit_depth": 3.0,
+      "exit_fractions": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mean_executed_flops": 8213357061,
+      "static_path_flops": 8213357061,
+      "flop_saving_vs_static_full": 0.0,
+      "flop_saving_vs_adaptive_exit3": 7.536155377696474e-05
+    }
+  ],
+  "adaptive_points": [
+    {
+      "id": "adaptive_op1",
+      "label": "low_compute",
+      "original_threshold_sweep_index": 131,
+      "threshold1": 0.6928742527961731,
+      "threshold2": 0.6931471805599453,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "binary_bce": 0.482811838388443,
+      "binary_ece": 0.23429766297340393,
+      "macro_auroc": 0.6960988284363886,
+      "per_label_auroc": {
+        "Atelectasis": 0.6987882294693832,
+        "Effusion": 0.7493210448705372,
+        "Mass": 0.6677491591579507,
+        "Nodule": 0.6135422750442682,
+        "Pneumothorax": 0.7510934336398034
+      },
+      "macro_f1": 0.22848173509223804,
+      "subset_accuracy": 0.4493609368801117,
+      "exit_counts": [
+        14787,
+        1643,
+        0
+      ],
+      "average_exit_depth": 1.100000023841858,
+      "exit_fractions": [
+        0.9,
+        0.1,
+        0.0
+      ],
+      "mean_executed_flops": 3950568965.5,
+      "flop_saving_vs_static_full": 0.5190067914788783,
+      "flop_saving_vs_adaptive_exit3": 0.5190430398744286
+    },
+    {
+      "id": "adaptive_op2",
+      "label": "moderate_compute",
+      "original_threshold_sweep_index": 93,
+      "threshold1": 0.6866135001182556,
+      "threshold2": 0.6919654607772827,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "binary_bce": 0.4962947964668274,
+      "binary_ece": 0.24764396250247955,
+      "macro_auroc": 0.7222391993713418,
+      "per_label_auroc": {
+        "Atelectasis": 0.7202104543860404,
+        "Effusion": 0.7795528504640966,
+        "Mass": 0.6953630988929166,
+        "Nodule": 0.6287630681882549,
+        "Pneumothorax": 0.7873065249254011
+      },
+      "macro_f1": 0.2567964312396695,
+      "subset_accuracy": 0.4570298194885254,
+      "exit_counts": [
+        9858,
+        4789,
+        1783
+      ],
+      "average_exit_depth": 1.5085209608078003,
+      "exit_fractions": [
+        0.6,
+        0.2914790018259282,
+        0.10852099817407182
+      ],
+      "mean_executed_flops": 5007355309.950396,
+      "flop_saving_vs_static_full": 0.3903399946256889,
+      "flop_saving_vs_adaptive_exit3": 0.39038593955096956
+    },
+    {
+      "id": "adaptive_op3",
+      "label": "balanced",
+      "original_threshold_sweep_index": 47,
+      "threshold1": 0.6313847303390503,
+      "threshold2": 0.6931471805599453,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "binary_bce": 0.5010231137275696,
+      "binary_ece": 0.2601962983608246,
+      "macro_auroc": 0.749073333996505,
+      "per_label_auroc": {
+        "Atelectasis": 0.748817103654045,
+        "Effusion": 0.8131155339273372,
+        "Mass": 0.7247994139924665,
+        "Nodule": 0.6500503662167136,
+        "Pneumothorax": 0.8085842521919633
+      },
+      "macro_f1": 0.2710574713276206,
+      "subset_accuracy": 0.4463177025318146,
+      "exit_counts": [
+        3286,
+        13144,
+        0
+      ],
+      "average_exit_depth": 1.7999999523162842,
+      "exit_fractions": [
+        0.2,
+        0.8,
+        0.0
+      ],
+      "mean_executed_flops": 6006021641.0,
+      "flop_saving_vs_static_full": 0.2687494776625784,
+      "flop_saving_vs_adaptive_exit3": 0.26880458583814193
+    },
+    {
+      "id": "adaptive_op4",
+      "label": "high_compute",
+      "original_threshold_sweep_index": 17,
+      "threshold1": 0.1553778052330017,
+      "threshold2": 0.6714419722557068,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "binary_bce": 0.508708655834198,
+      "binary_ece": 0.2734178900718689,
+      "macro_auroc": 0.7705182634809971,
+      "per_label_auroc": {
+        "Atelectasis": 0.7670394561435073,
+        "Effusion": 0.8411133551707561,
+        "Mass": 0.747216782263166,
+        "Nodule": 0.6795922494109644,
+        "Pneumothorax": 0.8176294744165914
+      },
+      "macro_f1": 0.2811937293222227,
+      "subset_accuracy": 0.4011564254760742,
+      "exit_counts": [
+        1,
+        6571,
+        9858
+      ],
+      "average_exit_depth": 2.5999391078948975,
+      "exit_fractions": [
+        6.086427267194157e-05,
+        0.39993913572732803,
+        0.6
+      ],
+      "mean_executed_flops": 7565524461.525563,
+      "flop_saving_vs_static_full": 0.078875494473579,
+      "flop_saving_vs_adaptive_exit3": 0.07894491184753749
+    },
+    {
+      "id": "adaptive_op5",
+      "label": "accuracy_focused",
+      "original_threshold_sweep_index": 2,
+      "threshold1": -1.0,
+      "threshold2": 0.5805820226669312,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max",
+      "binary_bce": 0.5085009336471558,
+      "binary_ece": 0.277231901884079,
+      "macro_auroc": 0.777913596630857,
+      "per_label_auroc": {
+        "Atelectasis": 0.7728442999010446,
+        "Effusion": 0.8457177344450888,
+        "Mass": 0.7608657290727191,
+        "Nodule": 0.6897746528437383,
+        "Pneumothorax": 0.8203655668916947
+      },
+      "macro_f1": 0.2815075311923923,
+      "subset_accuracy": 0.36579427123069763,
+      "exit_counts": [
+        0,
+        1643,
+        14787
+      ],
+      "average_exit_depth": 2.9000000953674316,
+      "exit_fractions": [
+        0.0,
+        0.1,
+        0.9
+      ],
+      "mean_executed_flops": 8051907854.5,
+      "flop_saving_vs_static_full": 0.019656908289865993,
+      "flop_saving_vs_adaptive_exit3": 0.019730788468491745
+    }
+  ]
+}

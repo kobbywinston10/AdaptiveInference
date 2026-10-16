@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "split": "validation",
+  "graph": "shared_weight_all_exits",
+  "runtime_scope": "all three exits execute; offline routing metrics do not measure adaptive runtime",
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "onnx_sha256": "7a8d67601c7f5192275dd18f332302fb1ff47a48ece80494f8e94654e16e1446",
+  "export_report_sha256": "69d9a4398e0f692ceeac583b5c83f16979e612911ab41dfbb7cae63e730bd7ab",
+  "label_order": [
+    "Atelectasis",
+    "Effusion",
+    "Mass",
+    "Nodule",
+    "Pneumothorax"
+  ],
+  "images": 16430,
+  "logits_file": "/var/scratch/bde2659/adaptiveInference/results/full_final_with_kd/deployment/onnx_validation_logits.npz",
+  "logits_sha256": "cc28c7d5e230a7035bda13a1f46bcb87d651e420e347d2bcdda500c91b4ffcc0",
+  "exit_metrics": {
+    "exit1_logits": {
+      "binary_bce": 0.5405378937721252,
+      "binary_ece": 0.32200345396995544,
+      "macro_auroc": 0.6894995900806201,
+      "per_label_auroc": {
+        "Atelectasis": 0.694185512501092,
+        "Effusion": 0.739278004236683,
+        "Mass": 0.6634429414902296,
+        "Nodule": 0.607506776340143,
+        "Pneumothorax": 0.7430847158349528
+      },
+      "macro_f1": 0.22059680037176127,
+      "subset_accuracy": 0.4425441324710846,
+      "exit_counts": [
+        16430,
+        0,
+        0
+      ],
+      "average_exit_depth": 1.0
+    },
+    "exit2_logits": {
+      "binary_bce": 0.5091292858123779,
+      "binary_ece": 0.2875739336013794,
+      "macro_auroc": 0.759957282309686,
+      "per_label_auroc": {
+        "Atelectasis": 0.7601948443181538,
+        "Effusion": 0.8295650507970835,
+        "Mass": 0.7340608087878829,
+        "Nodule": 0.666018287163592,
+        "Pneumothorax": 0.8099474204817175
+      },
+      "macro_f1": 0.2741151440074683,
+      "subset_accuracy": 0.44053560495376587,
+      "exit_counts": [
+        0,
+        16430,
+        0
+      ],
+      "average_exit_depth": 2.0
+    },
+    "exit3_logits": {
+      "binary_bce": 0.507966935634613,
+      "binary_ece": 0.27812066674232483,
+      "macro_auroc": 0.7786082540196548,
+      "per_label_auroc": {
+        "Atelectasis": 0.7747258072874905,
+        "Effusion": 0.8459373624346468,
+        "Mass": 0.7618870540378107,
+        "Nodule": 0.6895140306731341,
+        "Pneumothorax": 0.8209770156651922
+      },
+      "macro_f1": 0.2815063528083676,
+      "subset_accuracy": 0.36390748620033264,
+      "exit_counts": [
+        0,
+        0,
+        16430
+      ],
+      "average_exit_depth": 3.0
+    }
+  },
+  "frozen_calibrated_policy": {
+    "policy": {
+      "threshold1": 0.1553778052330017,
+      "threshold2": 0.6714419722557068,
+      "temperatures": [
+        0.38588744137031894,
+        0.8063120080869643,
+        1.0058426837715837
+      ],
+      "aggregation": "max"
+    },
+    "calibration_sha256": "a041ee04ced7d1333184dedbaa4124da4326e19dc7b8122ba1040b0de943ed28",
+    "metrics": {
+      "binary_bce": 0.5087085366249084,
+      "binary_ece": 0.2734178602695465,
+      "macro_auroc": 0.7705181933090849,
+      "per_label_auroc": {
+        "Atelectasis": 0.7670393542873459,
+        "Effusion": 0.8411132818514474,
+        "Mass": 0.7472166393205537,
+        "Nodule": 0.6795922166694858,
+        "Pneumothorax": 0.8176294744165915
+      },
+      "macro_f1": 0.2811937293222227,
+      "subset_accuracy": 0.4011564254760742,
+      "exit_counts": [
+        1,
+        6571,
+        9858
+      ],
+      "average_exit_depth": 2.5999391078948975
+    }
+  },
+  "validation_parity": {
+    "split": "validation",
+    "samples": 16,
+    "atol": 0.0001,
+    "rtol": 0.0001,
+    "per_exit": {
+      "exit1_logits": {
+        "max_absolute_logit_difference": 9.5367431640625e-07,
+        "mean_absolute_logit_difference": 2.393731790562015e-07,
+        "passed": true
+      },
+      "exit2_logits": {
+        "max_absolute_logit_difference": 1.7285346984863281e-06,
+        "mean_absolute_logit_difference": 5.272682983559207e-07,
+        "passed": true
+      },
+      "exit3_logits": {
+        "max_absolute_logit_difference": 2.384185791015625e-06,
+        "mean_absolute_logit_difference": 7.333932217079564e-07,
+        "passed": true
+      }
+    },
+    "passed": true
+  }
+}

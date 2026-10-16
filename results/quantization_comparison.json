@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "split": "validation",
+  "images": 16430,
+  "checkpoint_sha256": "c69d1dc744fb33c8534f963de37a61b14c62c9a41428cbeb59bfd6a005a9ff63",
+  "calibration_sha256": "a041ee04ced7d1333184dedbaa4124da4326e19dc7b8122ba1040b0de943ed28",
+  "policy_artifact_sha256": "3669dae3d175e23b68073096eb6db82cbac369ca6dafcf6b086f94383ac5e7b7",
+  "policy_source": "operating_points.json",
+  "selection_split": "validation",
+  "flops_sha256": "d8747c44fdc6c17491618140d2de98a3fc49c48ecf193b052edca2b69365d4ab",
+  "flops_scope": "routed PyTorch conditional-path estimate; ONNX graph always computes all exits",
+  "flops_method": "module_hooks_2_flops_per_mac_plus_bn_relu_pool_residual_v1",
+  "fp32_onnx_sha256": "7a8d67601c7f5192275dd18f332302fb1ff47a48ece80494f8e94654e16e1446",
+  "int8_onnx_sha256": "4e55ef8cb178d46f0d8a01527278f1be3985ef7873c2297e9423c1e9a8418c2b",
+  "fp32_size_bytes": 94312817,
+  "int8_size_bytes": 23922421,
+  "fp32_footprint": {
+    "onnx_graph_size_bytes": 268657,
+    "external_data_size_bytes": 94044160,
+    "deployment_size_bytes": 94312817,
+    "deployment_size_mib": 89.94371128082275,
+    "external_data_files": [
+      {
+        "location": "adaptive_fp32.onnx.data",
+        "size_bytes": 94044160
+      }
+    ]
+  },
+  "int8_footprint": {
+    "onnx_graph_size_bytes": 23922421,
+    "external_data_size_bytes": 0,
+    "deployment_size_bytes": 23922421,
+    "deployment_size_mib": 22.81419849395752,
+    "external_data_files": []
+  },
+  "validation_comparison_sha256": null,
+  "delta_definition": "INT8 minus FP32",
+  "size_reduction_percent": 74.6350265415145,
+  "compression_ratio": 3.9424444958978024,
+  "fp32_exit3_macro_auroc": 0.7786082540196548,
+  "int8_exit3_macro_auroc": 0.7659727210597435,
+  "exit3_macro_auroc_delta": -0.012635532959911377,
+  "operating_points": [
+    {
+      "id": "adaptive_op1",
+      "fp32_macro_auroc": 0.696098854903732,
+      "int8_macro_auroc": 0.6701785340571649,
+      "macro_auroc_delta": -0.025920320846567146,
+      "macro_f1_delta": -0.06953489839541985,
+      "binary_bce_delta": -0.13855445384979248,
+      "binary_ece_delta": -0.11631563305854797,
+      "mean_executed_flops_delta": -233943792.03804016,
+      "exit_fraction_delta": [
+        0.07967133292757145,
+        -0.07967133292757152,
+        0.0
+      ],
+      "routing_switch_rate": 0.11618989706039429,
+      "routing_transition_counts_fp32_rows_int8_columns": [
+        [
+          14487,
+          300,
+          0
+        ],
+        [
+          1609,
+          34,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "adaptive_op2",
+      "fp32_macro_auroc": 0.7222392833355078,
+      "int8_macro_auroc": 0.6742296267932322,
+      "macro_auroc_delta": -0.048009656542275625,
+      "macro_f1_delta": -0.0630330264673129,
+      "binary_bce_delta": -0.13703244924545288,
+      "binary_ece_delta": -0.11760440468788147,
+      "mean_executed_flops_delta": -810460214.8171029,
+      "exit_fraction_delta": [
+        0.2392574558734023,
+        -0.17267194157029825,
+        -0.06658551430310408
+      ],
+      "routing_switch_rate": 0.4212416410446167,
+      "routing_transition_counts_fp32_rows_int8_columns": [
+        [
+          8607,
+          955,
+          296
+        ],
+        [
+          3788,
+          755,
+          246
+        ],
+        [
+          1394,
+          242,
+          147
+        ]
+      ]
+    },
+    {
+      "id": "adaptive_op3",
+      "fp32_macro_auroc": 0.749073358220747,
+      "int8_macro_auroc": 0.6898203117376018,
+      "macro_auroc_delta": -0.05925304648314522,
+      "macro_f1_delta": -0.03186636492349876,
+      "binary_bce_delta": -0.11867254972457886,
+      "binary_ece_delta": -0.10616506636142731,
+      "mean_executed_flops_delta": -1111635130.9981737,
+      "exit_fraction_delta": [
+        0.3785757760194765,
+        -0.3785757760194766,
+        0.0
+      ],
+      "routing_switch_rate": 0.43018868565559387,
+      "routing_transition_counts_fp32_rows_int8_columns": [
+        [
+          2862,
+          424,
+          0
+        ],
+        [
+          6644,
+          6500,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "adaptive_op4",
+      "fp32_macro_auroc": 0.7705181933090849,
+      "int8_macro_auroc": 0.7564789996300745,
+      "macro_auroc_delta": -0.014039193679010409,
+      "macro_f1_delta": 0.00033426529748897815,
+      "binary_bce_delta": -0.05300012230873108,
+      "binary_ece_delta": -0.03506933152675629,
+      "mean_executed_flops_delta": -66404391.62568474,
+      "exit_fraction_delta": [
+        -6.086427267194157e-05,
+        0.041144248326232535,
+        -0.04108338405356049
+      ],
+      "routing_switch_rate": 0.2209373116493225,
+      "routing_transition_counts_fp32_rows_int8_columns": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          5094,
+          1477
+        ],
+        [
+          0,
+          2152,
+          7706
+        ]
+      ]
+    },
+    {
+      "id": "adaptive_op5",
+      "fp32_macro_auroc": 0.7779134986737638,
+      "int8_macro_auroc": 0.7644923570376859,
+      "macro_auroc_delta": -0.013421141636077882,
+      "macro_f1_delta": -0.0016528173491260345,
+      "binary_bce_delta": -0.03192809224128723,
+      "binary_ece_delta": -0.01905769109725952,
+      "mean_executed_flops_delta": -17459571.355142593,
+      "exit_fraction_delta": [
+        0.0,
+        0.01077297626293365,
+        -0.01077297626293372
+      ],
+      "routing_switch_rate": 0.0709068775177002,
+      "routing_transition_counts_fp32_rows_int8_columns": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1149,
+          494
+        ],
+        [
+          0,
+          671,
+          14116
+        ]
+      ]
+    }
+  ]
+}
